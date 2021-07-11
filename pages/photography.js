@@ -4,15 +4,14 @@ import Nav from '../components/nav'
 import MobileNav from '../components/mobilenav'
 import SetList from '../components/set-list'
 import QuickBio from '../components/quickbio'
-import FullBio from '../components/fullbio'
 import Footer from '../components/footer'
 
-export default function Home() {
+export default function Photography() {
 
   return (
     <>
       <Head>
-        <title>David Cutter Portfolio</title>
+        <title>David Cutter Photography</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -24,14 +23,12 @@ export default function Home() {
         <main className="w-full">
           <Nav />
 
-          <div className="md:hidden">
-            <QuickBio />
-            <FullBio />
-            <Footer />
+          <div>
+            <SetList content="photosets" />
           </div>
 
-          <div className="hidden md:block">
-            <SetList />
+          <div className="md:hidden">
+            <Footer />
           </div>
 
           <MobileNav />
