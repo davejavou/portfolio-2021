@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Sidebar from '../components/sidebar'
 import Nav from '../components/nav'
 import MobileNav from '../components/mobilenav'
-import SetList from '../components/set-list'
+import Projects from '../components/projects'
 import QuickBio from '../components/quickbio'
 import Footer from '../components/footer'
 
@@ -24,7 +24,7 @@ export default function Portfolio() {
           <Nav />
 
           <div>
-            <SetList />
+            <Projects />
           </div>
 
           <div className="md:hidden">

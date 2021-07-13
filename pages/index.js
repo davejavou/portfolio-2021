@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Sidebar from '../components/sidebar'
 import Nav from '../components/nav'
 import MobileNav from '../components/mobilenav'
-import SetList from '../components/set-list'
+import Projects from '../components/projects'
 import QuickBio from '../components/quickbio'
 import FullBio from '../components/fullbio'
 import Footer from '../components/footer'
@@ -31,7 +31,7 @@ export default function Home() {
           </div>
 
           <div className="hidden md:block">
-            <SetList />
+            <Projects />
           </div>
 
           <MobileNav />

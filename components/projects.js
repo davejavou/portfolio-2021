@@ -1,19 +1,21 @@
 import Image from 'next/image'
-import { projects, photosets } from "../public/content"
+import { portfolio, photography } from "../public/content"
 
-export default function SetList({ content }) {
+export default function Projects({ content }) {
 
   /* Data can only be projects or photos */
-  const sets = (content === 'photosets') ? photosets : projects
+  const projects = (content === 'photography') ? photography : portfolio
 
   const imgPath = '/content-images/'
 
   return (
-    sets.map(({id, client, location, year, title, description, credit, color}) => (
+    projects.map(({id, client, location, year, title, description, credit, color, slides}) => (
       <div key={id} id={id} className="h-portfolio-item relative" style={{background: color}}>
 
         {/* WIP: Could be an image or youtube video, must click to lightbox, and arrows to go through set  */}
-        <Image src={`${imgPath}${id}.png`} alt="Picture of the author" layout="fill" />
+        {slides.map( slide =>
+          <Image src={`${imgPath}Slide-${id}-${slide.id}.png`} alt="Picture of the author" layout="fill" />
+        )}
 
         {/* Dev Helper */}
         <div className="absolute top-4 left-4 w-3/4 text-xs bg-gray-100 bg-opacity-50 p-10">
