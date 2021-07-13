@@ -14,7 +14,7 @@ export default function Projects({ content }) {
 
         {/* WIP: Could be an image or youtube video, must click to lightbox, and arrows to go through set  */}
         {slides.map( slide =>
-          <Image src={`${imgPath}Slide-${id}-${slide.id}.png`} alt="Picture of the author" layout="fill" />
+          <Image src={`${imgPath}Slide-${id}-${slide.id}.png`} alt={`Slide-${id}-${slide.id}`} layout="fill" />
         )}
 
         {/* Dev Helper */}
