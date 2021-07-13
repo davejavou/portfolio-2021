@@ -9,3 +9,35 @@ html {
   @apply text-sm font-semibold;
   scroll-behavior: smooth;
 }
+
+/* "React-Slick" Carosuel Dots */
+/* Adapted from https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css */
+.slick-dots {
+  z-index: 9;
+  position: absolute;
+  top: 100%;
+  left: 30px;
+  list-style: none;
+  text-align: center;
+}
+.slick-dots li {
+  display: inline-block;
+}
+.slick-dots li button {
+  font-size: 0;
+  line-height: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 4px;
+  cursor: pointer;
+  color: transparent;
+  outline: none;
+  background: white;
+  border-radius: 50%;
+  appearance: none;
+  opacity: .25;
+}
+.slick-dots li.slick-active button {
+  opacity: 1;
+}

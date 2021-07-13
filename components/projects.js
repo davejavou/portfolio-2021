@@ -1,5 +1,6 @@
 import Slider from 'react-slick'
 import { portfolio, photography } from "../public/content"
+import SimpleReactLightbox, { SRLWrapper } from 'simple-react-lightbox'
 
 function NextArrow({ className, onClick }) {
   return (
@@ -43,8 +44,13 @@ export default function Projects({ content }) {
     prevArrow: <PrevArrow />
   }
 
+  // WIP: Configuring Lightbox
+  // https://github.com/michelecocuccio/simple-react-lightbox
+
+
   return (
-    projects.map(({id, client, location, year, title, description, credit, color, slides}) => (
+    <SimpleReactLightbox>
+    {projects.map(({id, client, location, year, title, description, credit, color, slides}) => (
       <div key={`project-${id}`} id={`project-${id}`} style={{background: color}}>
 
         <div className="flex justify-between text-white text-lg font-light uppercase p-8 pb-1">
@@ -55,7 +61,7 @@ export default function Projects({ content }) {
         <Slider {...sliderSettings}>
           {/* WIP: Could be an image or youtube video, must click to lightbox, and arrows to go through set  */}
           {slides.map( slide =>
-            <div key={`${id}-${slide.id}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classNames */}
+            <div key={`${id}-${slide.id}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
               <div className="w-full">
                 <img className="object-contain h-project-row max-h-max-project-row mx-auto" src={`${imgPath}Slide-${id}-${slide.id}.png`} alt={`Slide-${id}-${slide.id}`} />
               </div>
@@ -83,6 +89,7 @@ export default function Projects({ content }) {
         */}
 
       </div>
-    ))
+    ))}
+    </SimpleReactLightbox>
   )
 }
