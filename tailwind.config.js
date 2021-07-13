@@ -15,7 +15,8 @@ module.exports = {
         'lg-sidebar': '360px',
         'sm-nav': '60px',
         'md-nav': '80px',
-        'portfolio-item': '600px'
+        'project-row': '600px',
+        'max-project-row': '80vh',
       },
     },
   },
