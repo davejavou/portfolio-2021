@@ -1,9 +1,7 @@
 export default function Sidebar({ children }) {
   return (
-    <aside className="h-screen sticky top-0 hidden md:block">
-      <div className="w-md-sidebar lg:w-lg-sidebar">
-        {children}
-      </div>
+    <aside className="fixed top-0 left-0 h-full w-md-sidebar lg:w-lg-sidebar hidden md:block">
+      {children}
     </aside>
   )
 }

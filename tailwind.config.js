@@ -10,15 +10,13 @@ module.exports = {
         sans: ["Nunito", ...defaultTheme.fontFamily.sans],
         serif: ["Raleway", ...defaultTheme.fontFamily.serif],
       },
-      width: {
+      spacing: {
         'md-sidebar': '180px',
-        'lg-sidebar': '360px'
-      },
-      height: {
+        'lg-sidebar': '360px',
         'sm-nav': '60px',
         'md-nav': '80px',
         'portfolio-item': '600px'
-      }
+      },
     },
   },
   variants: {
