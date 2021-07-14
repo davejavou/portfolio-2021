@@ -46,25 +46,37 @@ export default function Projects({ content }) {
     prevArrow: <PrevArrow />
   }
 
+
   // Configure Lightbox
   // https://github.com/michelecocuccio/simple-react-lightbox
   // Currently this works by surrounding the root <App /> with <SimpleReactLightbox>, there should be a better way - having the whole lightbox used in this file would be best.
   const { openLightbox } = useLightbox()
-
   const lightboxSettings = {
     settings: {
-      lightboxTransitionSpeed: 0.3
+      lightboxTransitionSpeed: 0.3,
+      slideTransitionSpeed: 0.3,
+      autoplaySpeed: 0,
+      disableWheelControls: true,
+      slideAnimationType: 'both'
     },
     thumbnails: {
       showThumbnails: false,
     }
   }
+  const lightboxCallbacks = {
+    // WIP: Enabling these callbacks causes effect state errors in the console. And my fans to heat up!
+    // WIP: Considering other lightboxes like https://fslightbox.com/react/documentation/control-slide-number, but not sure
+    // onSlideChange: object => console.log(object),
+    // onLightboxOpened: object => console.log(object),
+  };
+
 
   // Route to Project and/or slide
   const { query } = useRouter()
   let targetProject = null
   let targetSlider = null
   let targetSlide = null
+
 
   // Projects & Slides rendering data
   let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
@@ -94,15 +106,18 @@ export default function Projects({ content }) {
     })
   }).flat()
 
+
   // Scroll to target project and/or set the slide
+  // WIP: error in console because of this effect
   useEffect(() => {
-    if (targetProject) {
+    if (targetProject && targetProject.current) {
       targetProject.current.scrollIntoView({ behavior: 'smooth' })
     }
-    if (targetSlider && targetSlide) {
+    if (targetSlider && targetSlider.current && targetSlide) {
       targetSlider.current.slickGoTo(targetSlide)
     }
   }, [targetProject, targetSlider, targetSlide])
+
 
   return (
     <>
@@ -139,7 +154,7 @@ export default function Projects({ content }) {
       )}
 
       {/* Lightbox */}
-      <SRLWrapper options={lightboxSettings} elements={lightboxElements} />
+      <SRLWrapper options={lightboxSettings} elements={lightboxElements} callbacks={lightboxCallbacks} />
     </>
   )
 }
