@@ -7,7 +7,6 @@
 
 html {
   @apply text-sm font-semibold;
-  scroll-behavior: smooth;
 }
 
 /* "React-Slick" Carosuel Dots */
