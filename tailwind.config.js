@@ -17,6 +17,7 @@ module.exports = {
         'md-nav': '80px',
         'project-row': '600px',
         'max-project-row': '80vh',
+        'video-ratio': '56.25%'
       },
     },
   },

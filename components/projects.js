@@ -65,7 +65,6 @@ export default function Projects({ content }) {
     speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />
   }
@@ -119,7 +118,7 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-white text-lg font-light uppercase p-8 pb-1">
+          <div className="flex justify-between text-white text-lg font-light uppercase p-8">
             <span>{client}</span>
             <span>{location}, {year}</span>
           </div>
@@ -128,26 +127,22 @@ export default function Projects({ content }) {
             {/* WIP: Could be an image or youtube video, must click to lightbox, and arrows to go through set  */}
             {slides.map((slide, slideIndex) =>
               <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
-                <div className="w-full">
-                  {(slide.stype === 'image') ?
-                    <img
-                      className="object-contain h-project-row max-h-max-project-row mx-auto"
-                      src={slide.ssrc} alt={title}
-                      onClick={() => {
-                        setLightboxState(!lightboxState)
-                        setlightboxIndex(slide.globalIndex)
-                      }}
-                    />
-                  :
-                    <p
-                      className="text-white bg-black h-project-row max-h-max-project-row mx-auto"
-                      onClick={() => {
-                        setLightboxState(!lightboxState)
-                        setlightboxIndex(slide.globalIndex)
-                      }}
-                    >
-                      Not an image
-                    </p>
+                <div
+                  className="w-full flex flex-col justify-center content-center"
+                  onClick={() => {
+                    setLightboxState(!lightboxState)
+                    setlightboxIndex(slide.globalIndex)
+                  }}
+                >
+                  {(slide.type === 'image') &&
+                    <img className="object-contain h-project-row max-h-max-project-row" src={slide.ssrc} alt={title} />
+                  }
+                  {(slide.type === 'youtube') &&
+                    <div className="h-project-row max-h-max-project-row flex flex-col justify-center content-center">
+                      <div className="relative h-0 overflow-hidden pb-video-ratio">
+                        <iframe className="absolute top-0 left-0 w-full h-full" src={slide.ssrc} title={title} frameBorder="0" allowFullScreen />
+                      </div>
+                    </div>
                   }
                 </div>
               </div>
