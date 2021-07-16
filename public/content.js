@@ -25,7 +25,7 @@ export const portfolio = [
     "color": "#222",
     "slides" : [
       { "type": "image", "ssrc": "/content-images/Slide-2-1.png", "zsrc": "/content-images/Zoom-2-1.png" },
-      { "type": "youtube", "ssrc": "https://www.youtube-nocookie.com/embed/xshEZzpS4CQ", "zsrc": "https://www.youtube.com/watch?v=xshEZzpS4CQ" },
+      { "type": "youtube", "ssrc": "https://www.youtube-nocookie.com/embed/xshEZzpS4CQ?modestbranding=1", "zsrc": "https://www.youtube.com/watch?v=xshEZzpS4CQ&modestbranding=1" },
       { "type": "image", "ssrc": "/content-images/Slide-2-3.png", "zsrc": "/content-images/Zoom-2-3.png" },
       { "type": "image", "ssrc": "/content-images/Slide-2-4.png", "zsrc": "/content-images/Zoom-2-4.png" }
     ]
