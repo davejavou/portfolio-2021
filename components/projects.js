@@ -30,7 +30,7 @@ export default function Projects({ content }) {
   // Projects & Slides rendering data
   /* Data can only be projects or photos */
   const projects = (content === 'photography') ? photography : portfolio
-  const imgPath = '/content-images/'
+
   let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
   // This map is adding ui information to the projects data, and outputting a flat list of all slides for the ligtbox
   const lightboxData = projects.map(project => {
@@ -44,7 +44,7 @@ export default function Projects({ content }) {
       return {
         project,
         slide,
-        src: `${imgPath}Zoom-${project.id}-${slide.id}.png`,
+        src: slide.zsrc,
         caption: (
           <div className="text-white py-8 px-10">
             <h2 className="text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
@@ -116,8 +116,8 @@ export default function Projects({ content }) {
   return (
     <>
       {/* Carosuel */}
-      {projects.map(({id, client, location, year, title, description, credit, color, slides, projectRef, sliderRef}) =>
-        <div key={`project-${id}`} ref={projectRef} style={{background: color}}>
+      {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
+        <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
           <div className="flex justify-between text-white text-lg font-light uppercase p-8 pb-1">
             <span>{client}</span>
@@ -126,17 +126,29 @@ export default function Projects({ content }) {
 
           <Slider ref={sliderRef} {...sliderSettings}>
             {/* WIP: Could be an image or youtube video, must click to lightbox, and arrows to go through set  */}
-            {slides.map(slide =>
-              <div key={`${id}-${slide.id}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
+            {slides.map((slide, slideIndex) =>
+              <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
                 <div className="w-full">
-                  <img
-                    className="object-contain h-project-row max-h-max-project-row mx-auto"
-                    src={`${imgPath}Slide-${id}-${slide.id}.png`} alt={`Slide-${id}-${slide.id}`}
-                    onClick={() => {
-                      setLightboxState(!lightboxState)
-                      setlightboxIndex(slide.globalIndex)
-                    }}
-                  />
+                  {(slide.stype === 'image') ?
+                    <img
+                      className="object-contain h-project-row max-h-max-project-row mx-auto"
+                      src={slide.ssrc} alt={title}
+                      onClick={() => {
+                        setLightboxState(!lightboxState)
+                        setlightboxIndex(slide.globalIndex)
+                      }}
+                    />
+                  :
+                    <p
+                      className="text-white bg-black h-project-row max-h-max-project-row mx-auto"
+                      onClick={() => {
+                        setLightboxState(!lightboxState)
+                        setlightboxIndex(slide.globalIndex)
+                      }}
+                    >
+                      Not an image
+                    </p>
+                  }
                 </div>
               </div>
             )}

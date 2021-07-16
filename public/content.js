@@ -8,10 +8,10 @@ export const portfolio = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#111",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-1-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-4.png" }
     ]
   },
   {
@@ -24,10 +24,10 @@ export const portfolio = [
     "credit":"Video by Jon",
     "color": "#222",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-2-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-1.png" },
+      { "stype": "video", "ssrc": "https://www.youtube.com/watch?v=xshEZzpS4CQ", "ztype": "video", "zsrc": "https://www.youtube.com/watch?v=xshEZzpS4CQ" },
+      { "stype": "image", "ssrc": "/content-images/Slide-2-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-2-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-4.png" }
     ]
   },
   {
@@ -39,10 +39,10 @@ export const portfolio = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#333",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-3-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-4.png" }
     ]
   },
   {
@@ -54,10 +54,10 @@ export const portfolio = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#444",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-4-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-4.png" }
     ]
   }
 ]
@@ -72,10 +72,10 @@ export const photography = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#555",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-1-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-1-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-1-4.png" }
     ]
   },
   {
@@ -87,10 +87,10 @@ export const photography = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#444",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-2-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-2-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-2-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-2-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-2-4.png" }
     ]
   },
   {
@@ -102,10 +102,10 @@ export const photography = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#333",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-3-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-3-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-3-4.png" }
     ]
   },
   {
@@ -117,10 +117,10 @@ export const photography = [
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
     "color": "#222",
     "slides" : [
-      { "id": "1" },
-      { "id": "2" },
-      { "id": "3" },
-      { "id": "4" }
+      { "stype": "image", "ssrc": "/content-images/Slide-4-1.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-1.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-2.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-2.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-3.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-3.png" },
+      { "stype": "image", "ssrc": "/content-images/Slide-4-4.png", "ztype": "image", "zsrc": "/content-images/Zoom-4-4.png" }
     ]
   }
 ]
