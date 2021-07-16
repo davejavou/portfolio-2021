@@ -40,3 +40,15 @@ html {
 .slick-dots li.slick-active button {
   opacity: 1;
 }
+
+/* FS Lightbox Overrides */
+
+/* Hide fullscreen button */
+.fslightbox-toolbar-button:nth-child(1) {
+  display: none;
+}
+
+/* Fix visibility bug seen on slides after clicking prev/next many times. */
+.fslightbox-source {
+  opacity: 1 !important;
+}

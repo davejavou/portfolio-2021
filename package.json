@@ -9,11 +9,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "fslightbox-react": "file:src/lib/fslightbox-react-pro-1.5.1.tgz",
     "next": "latest",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-slick": "^0.28.1",
-    "simple-react-lightbox": "^3.6.6"
+    "react-slick": "^0.28.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",

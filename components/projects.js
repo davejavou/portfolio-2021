@@ -1,8 +1,8 @@
-import { useRef, useEffect } from 'react';
-import { useRouter } from 'next/router'
+import { useState, useRef, useEffect } from 'react';
+import Router, { useRouter } from 'next/router'
 import Slider from 'react-slick'
 import { portfolio, photography } from "../public/content"
-import { SRLWrapper, useLightbox } from 'simple-react-lightbox'
+import FsLightbox from 'fslightbox-react';
 
 function NextArrow({ className, onClick }) {
   return (
@@ -27,10 +27,34 @@ function PrevArrow({ className, onClick }) {
 }
 
 export default function Projects({ content }) {
+  // Projects & Slides rendering data
   /* Data can only be projects or photos */
   const projects = (content === 'photography') ? photography : portfolio
-
   const imgPath = '/content-images/'
+  let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
+  // This map is adding ui information to the projects data, and outputting a flat list of all slides for the ligtbox
+  const lightboxData = projects.map(project => {
+    project.projectRef = useRef()
+    project.sliderRef = useRef()
+    return project.slides.map((slide, index) => {
+      // Add Slide Indexes, one index for the whole page of slides, and one index for this project slider
+      slideglobalIndex++
+      slide.globalIndex = slideglobalIndex
+      slide.sliderIndex = index
+      return {
+        project,
+        slide,
+        src: `${imgPath}Zoom-${project.id}-${slide.id}.png`,
+        caption: (
+          <div className="text-white py-8 px-10">
+            <h2 className="text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
+            <p>({project.location}, {project.year}) {project.description}</p>
+          </div>
+        )
+      }
+    })
+  }).flat() // Flat because the lightbox moves through all slides in all projects.
+
 
   // Configure Carosuel
   // https://react-slick.neostack.com/
@@ -47,76 +71,46 @@ export default function Projects({ content }) {
   }
 
 
-  // Configure Lightbox
-  // https://github.com/michelecocuccio/simple-react-lightbox
-  // Currently this works by surrounding the root <App /> with <SimpleReactLightbox>, there should be a better way - having the whole lightbox used in this file would be best.
-  const { openLightbox } = useLightbox()
-  const lightboxSettings = {
-    settings: {
-      lightboxTransitionSpeed: 0.3,
-      slideTransitionSpeed: 0.3,
-      autoplaySpeed: 0,
-      disableWheelControls: true,
-      slideAnimationType: 'both'
-    },
-    thumbnails: {
-      showThumbnails: false,
+  // Route to Project and/or slide
+  const { query, pathname } = useRouter()
+
+
+  /* Configure Lightbox State */
+  const [lightboxState, setLightboxState] = useState(false)
+  const [lightboxIndex, setlightboxIndex] = useState(null)
+
+
+  // Scroll to and show a url-queried slide, ex: "?s=7"
+  useEffect(() => {
+    const s = isNaN(Number(query.s)) ? null : Number(query.s)
+
+    if (lightboxData[s]) {
+      const project = lightboxData[s].project.projectRef.current || null
+      const slider = lightboxData[s].project.sliderRef.current || null
+      const sliderIndex = lightboxData[s].slide.sliderIndex || 0
+
+      if (project && slider) {
+        project.scrollIntoView({ behavior: 'smooth' })
+        slider.slickGoTo(sliderIndex)
+      }
+    }
+  }, [lightboxData, query])
+
+
+  // Update URL when using the lightbox
+  const router = useRouter()
+  function setUrl(index) {
+    if (typeof index === 'number' && isFinite(index)) {
+      const newUrl = {
+        pathname,
+        query: {
+          s: index
+        }
+      }
+      setlightboxIndex(index)
+      Router.push(newUrl, undefined, { shallow: false, scroll: false })
     }
   }
-  const lightboxCallbacks = {
-    // WIP: Enabling these callbacks causes effect state errors in the console. And my fans to heat up!
-    // WIP: Considering other lightboxes like https://fslightbox.com/react/documentation/control-slide-number, but not sure
-    // onSlideChange: object => console.log(object),
-    // onLightboxOpened: object => console.log(object),
-  };
-
-
-  // Route to Project and/or slide
-  const { query } = useRouter()
-  let targetProject = null
-  let targetSlider = null
-  let targetSlide = null
-
-
-  // Projects & Slides rendering data
-  let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
-  // This map is adding ui information to the projects data, and outputting a flat list of all slides for the ligtbox
-  const lightboxElements = projects.map(project => {
-    project.projectRef = useRef()
-    project.sliderRef = useRef()
-    // Project Query
-    if (project.id == query.p) {
-      targetProject = project.projectRef
-    }
-    return project.slides.map((slide, index) => {
-      // Add Slide Indexes, one index for the whole page of slides, and one index for this project slider
-      slideglobalIndex++
-      slide.globalIndex = slideglobalIndex
-      slide.sliderIndex = index
-      // Slide query. If exists, will overrule any project query.
-      if (slide.id == query.s) {
-        targetProject = project.projectRef
-        targetSlider = project.sliderRef
-        targetSlide = slide.sliderIndex
-      }
-      return {
-        caption: `${project.client}: ${project.title}`,
-        src: `${imgPath}Zoom-${project.id}-${slide.id}.png`
-      }
-    })
-  }).flat()
-
-
-  // Scroll to target project and/or set the slide
-  // WIP: error in console because of this effect
-  useEffect(() => {
-    if (targetProject && targetProject.current) {
-      targetProject.current.scrollIntoView({ behavior: 'smooth' })
-    }
-    if (targetSlider && targetSlider.current && targetSlide) {
-      targetSlider.current.slickGoTo(targetSlide)
-    }
-  }, [targetProject, targetSlider, targetSlide])
 
 
   return (
@@ -138,7 +132,10 @@ export default function Projects({ content }) {
                   <img
                     className="object-contain h-project-row max-h-max-project-row mx-auto"
                     src={`${imgPath}Slide-${id}-${slide.id}.png`} alt={`Slide-${id}-${slide.id}`}
-                    onClick={() => openLightbox(slide.globalIndex)}
+                    onClick={() => {
+                      setLightboxState(!lightboxState)
+                      setlightboxIndex(slide.globalIndex)
+                    }}
                   />
                 </div>
               </div>
@@ -146,15 +143,27 @@ export default function Projects({ content }) {
           </Slider>
 
           <div className="text-white py-8 px-10">
-              <h2 className="text-2xl font-serif pb-2">{title}</h2>
-              <p>{description}</p>
+            <h2 className="text-2xl font-serif pb-2">{title}</h2>
+            <p>{description}</p>
           </div>
 
         </div>
       )}
 
       {/* Lightbox */}
-      <SRLWrapper options={lightboxSettings} elements={lightboxElements} callbacks={lightboxCallbacks} />
+      <FsLightbox
+        sources={lightboxData.map(slide => slide.src)}
+        captions={lightboxData.map(slide => slide.caption)}
+        sourceIndex={lightboxIndex}
+        toggler={lightboxState}
+        onOpen={ e => setUrl(e.stageIndexes.current)}
+        onSlideChange={ e => setUrl(e.stageIndexes.current)}
+        // disableLocalStorage={true}
+        // loadOnlyCurrentSource={true}
+        disableThumbs={true}
+        // initialAnimation="scale-in-long"
+        // slideChangeAnimation="scale-in"
+      />
     </>
   )
 }
