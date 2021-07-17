@@ -9,6 +9,19 @@ html {
   @apply text-sm font-semibold;
 }
 
+.btn {
+  @apply block font-bold p-3 rounded flex justify-center items-center
+}
+.btn-icon {
+  @apply fill-current text-white inline h-5 w-5 mr-1
+}
+.btn-blue {
+  @apply bg-blue-400 text-white;
+}
+.btn-blue:hover {
+  @apply bg-blue-600;
+}
+
 /* "React-Slick" Carosuel Dots */
 /* Adapted from https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.css */
 .slick-dots {
