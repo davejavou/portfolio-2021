@@ -11,7 +11,7 @@ module.exports = {
         serif: ["Raleway", ...defaultTheme.fontFamily.serif],
       },
       spacing: {
-        'md-sidebar': '180px',
+        'md-sidebar': '200px',
         'lg-sidebar': '360px',
         'sm-nav': '60px',
         'md-nav': '80px',
