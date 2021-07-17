@@ -209,10 +209,10 @@ export const portfolio = [
 
 export const photography = [
   {
-    client: "Farah's Jewellery",
+    client: "Luna Flip Jewellery",
     location: "Melbourne",
     year: 2021,
-    title: "2021 Collection",
+    title: "Luna's 2021 Collection",
     description:
       "A photoshoot of the whole spring inventory, shot on a sunny afternoon in a Brighton back garden.",
     color: "#3A413D",
