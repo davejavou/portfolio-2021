@@ -118,7 +118,7 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-white text-lg font-light uppercase p-8">
+          <div className="flex justify-between text-white text-lg font-light uppercase p-8 pb-0">
             <span>{client}</span>
             <span>{location}, {year}</span>
           </div>
@@ -128,14 +128,14 @@ export default function Projects({ content }) {
             {slides.map((slide, slideIndex) =>
               <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
                 <div
-                  className="w-full flex flex-col justify-center content-center"
+                  className="w-full flex flex-col justify-center content-center overflow-visible py-8"
                   onClick={() => {
                     setLightboxState(!lightboxState)
                     setlightboxIndex(slide.globalIndex)
                   }}
                 >
                   {(slide.type === 'image') &&
-                    <img className="object-contain h-project-row max-h-max-project-row" src={slide.ssrc} alt={title} />
+                    <img className="object-contain h-project-row max-h-max-project-row drop-shadow-lg" src={slide.ssrc} alt={title} />
                   }
                   {(slide.type === 'youtube') &&
                     <div className="h-project-row max-h-max-project-row flex flex-col justify-center content-center">

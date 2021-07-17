@@ -171,7 +171,7 @@ export const portfolio = [
     title: "ESPN Games",
     description:
       "At ESPN I designed and developed a number of new games across a variety of sports and alongside a wide range of coporate partners.",
-    color: "#3b3c3d",
+    color: "#BB261A",
     slides: [
       {
         type: "image",
@@ -209,126 +209,311 @@ export const portfolio = [
 
 export const photography = [
   {
-    client: "Farah's Jewelery",
+    client: "Farah's Jewellery",
     location: "Melbourne",
     year: 2021,
-    title: "Inventory Photograhy of Bespoke Jewely",
+    title: "2021 Collection",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
-    color: "#555",
+      "A photoshoot of the whole spring inventory, shot on a sunny afternoon in a Brighton back garden.",
+    color: "#3A413D",
     slides: [
       {
         type: "image",
-        ssrc: "/content-images/Slide-1-1.png",
-        zsrc: "/content-images/Zoom-1-1.png",
+        ssrc: "/content-images/farah-jewellery-01.jpg",
+        zsrc: "/content-images/farah-jewellery-01.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-1-2.png",
-        zsrc: "/content-images/Zoom-1-2.png",
+        ssrc: "/content-images/farah-jewellery-02.jpg",
+        zsrc: "/content-images/farah-jewellery-02.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-1-3.png",
-        zsrc: "/content-images/Zoom-1-3.png",
+        ssrc: "/content-images/farah-jewellery-03.jpg",
+        zsrc: "/content-images/farah-jewellery-03.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-1-4.png",
-        zsrc: "/content-images/Zoom-1-4.png",
+        ssrc: "/content-images/farah-jewellery-04.jpg",
+        zsrc: "/content-images/farah-jewellery-04.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-05.jpg",
+        zsrc: "/content-images/farah-jewellery-05.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-06.jpg",
+        zsrc: "/content-images/farah-jewellery-06.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-07.jpg",
+        zsrc: "/content-images/farah-jewellery-07.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-08.jpg",
+        zsrc: "/content-images/farah-jewellery-08.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-09.jpg",
+        zsrc: "/content-images/farah-jewellery-09.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-10.jpg",
+        zsrc: "/content-images/farah-jewellery-10.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-11.jpg",
+        zsrc: "/content-images/farah-jewellery-11.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-12.jpg",
+        zsrc: "/content-images/farah-jewellery-12.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-13.jpg",
+        zsrc: "/content-images/farah-jewellery-13.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-14.jpg",
+        zsrc: "/content-images/farah-jewellery-14.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-15.jpg",
+        zsrc: "/content-images/farah-jewellery-15.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-16.jpg",
+        zsrc: "/content-images/farah-jewellery-16.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-17.jpg",
+        zsrc: "/content-images/farah-jewellery-17.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/farah-jewellery-18.jpg",
+        zsrc: "/content-images/farah-jewellery-18.jpg",
       },
     ],
   },
   {
-    client: "En plein air",
-    location: "Melbourne",
-    year: 2020,
-    title: "Flowers of Victoria Gardens",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
-    color: "#444",
-    slides: [
-      {
-        type: "image",
-        ssrc: "/content-images/Slide-2-1.png",
-        zsrc: "/content-images/Zoom-2-1.png",
-      },
-      {
-        type: "image",
-        ssrc: "/content-images/Slide-2-2.png",
-        zsrc: "/content-images/Zoom-2-2.png",
-      },
-      {
-        type: "image",
-        ssrc: "/content-images/Slide-2-3.png",
-        zsrc: "/content-images/Zoom-2-3.png",
-      },
-      {
-        type: "image",
-        ssrc: "/content-images/Slide-2-4.png",
-        zsrc: "/content-images/Zoom-2-4.png",
-      },
-    ],
-  },
-  {
-    client: "Julie's Patissierie",
+    client: "Eric S",
     location: "Melbourne",
     year: 2019,
-    title: "Menu Photography for a French Bakery",
+    title: "Eric's Gold",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
-    color: "#333",
+      "Experimenting with super-micro work on real gold found in the wilds of Victoria, all at sub millimeter scales! Don't. Breathe.",
+    color: "#daa520",
     slides: [
       {
         type: "image",
-        ssrc: "/content-images/Slide-3-1.png",
-        zsrc: "/content-images/Zoom-3-1.png",
+        ssrc: "/content-images/eric-gold-01.jpg",
+        zsrc: "/content-images/eric-gold-01.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-3-2.png",
-        zsrc: "/content-images/Zoom-3-2.png",
+        ssrc: "/content-images/eric-gold-02.jpg",
+        zsrc: "/content-images/eric-gold-02.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-3-3.png",
-        zsrc: "/content-images/Zoom-3-3.png",
+        ssrc: "/content-images/eric-gold-03.jpg",
+        zsrc: "/content-images/eric-gold-03.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-3-4.png",
-        zsrc: "/content-images/Zoom-3-4.png",
+        ssrc: "/content-images/eric-gold-04.jpg",
+        zsrc: "/content-images/eric-gold-04.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/eric-gold-05.jpg",
+        zsrc: "/content-images/eric-gold-05.jpg",
       },
     ],
   },
   {
-    client: "Rosie",
+    client: "Caroline Patisserie",
     location: "Melbourne",
-    year: 2018,
-    title: "My Dog Rosie!",
+    year: 2017,
+    title: "Grand-Opening Product Photos",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
-    color: "#222",
+      "This could have been a professional photoshoot, real classy, a great set for a charming client, and I managed to arrange to work with Hanna Hosking of Hang Studios! But there was too much chocolate, too much flavor, too much, did I say chocoalate?",
+    color: "#8E1A11",
     slides: [
       {
         type: "image",
-        ssrc: "/content-images/Slide-4-1.png",
-        zsrc: "/content-images/Zoom-4-1.png",
+        ssrc: "/content-images/caroline-patisserie-01.jpg",
+        zsrc: "/content-images/caroline-patisserie-01.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-4-2.png",
-        zsrc: "/content-images/Zoom-4-2.png",
+        ssrc: "/content-images/caroline-patisserie-02.jpg",
+        zsrc: "/content-images/caroline-patisserie-02.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-4-3.png",
-        zsrc: "/content-images/Zoom-4-3.png",
+        ssrc: "/content-images/caroline-patisserie-03.jpg",
+        zsrc: "/content-images/caroline-patisserie-03.jpg",
       },
       {
         type: "image",
-        ssrc: "/content-images/Slide-4-4.png",
-        zsrc: "/content-images/Zoom-4-4.png",
+        ssrc: "/content-images/caroline-patisserie-04.jpg",
+        zsrc: "/content-images/caroline-patisserie-04.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-05.jpg",
+        zsrc: "/content-images/caroline-patisserie-05.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-06.jpg",
+        zsrc: "/content-images/caroline-patisserie-06.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-07.jpg",
+        zsrc: "/content-images/caroline-patisserie-07.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-08.jpg",
+        zsrc: "/content-images/caroline-patisserie-08.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-09.jpg",
+        zsrc: "/content-images/caroline-patisserie-09.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/caroline-patisserie-10.jpg",
+        zsrc: "/content-images/caroline-patisserie-10.jpg",
+      },
+    ],
+  },
+  {
+    client: "Dave Cutter",
+    location: "Melbourne & Los Angeles",
+    year: 2019,
+    title: "'Keepers'",
+    description:
+      "In 2019 I picked up a new camera, and these shots document some of the fun I've had with it over these last few years.",
+    color: "#615350",
+    slides: [
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-14.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-14.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-02.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-02.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-03.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-03.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-04.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-04.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-05.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-05.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-06.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-06.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-07.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-07.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-08.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-08.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-09.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-09.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-10.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-10.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-11.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-11.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-12.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-12.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-13.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-13.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-01.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-01.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-15.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-15.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-16.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-16.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-17.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-17.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-18.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-18.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-19.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-19.jpg",
+      },
+      {
+        type: "image",
+        ssrc: "/content-images/nikon-life-2019-2020-20.jpg",
+        zsrc: "/content-images/nikon-life-2019-2020-20.jpg",
       },
     ],
   },
