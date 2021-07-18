@@ -140,10 +140,10 @@ export default function Projects({ content }) {
                   }}
                 >
                   {(slide.type === 'image') &&
-                    <img className="object-contain h-slide-height max-h-max-slide-height drop-shadow-lg" src={slide.ssrc} alt={title} />
+                    <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={slide.ssrc} alt={title} />
                   }
                   {(slide.type === 'youtube') &&
-                    <div className="h-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
+                    <div className="h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
                       <div className="relative h-0 overflow-hidden pb-video-ratio">
                         <iframe className="absolute top-0 left-0 w-full h-full" src={slide.ssrc} title={title} frameBorder="0" allowFullScreen />
                       </div>
@@ -154,7 +154,7 @@ export default function Projects({ content }) {
             )}
           </Slider>
 
-          <div className="text-white py-8 px-10">
+          <div className="text-white pb-8 px-10 mx-auto max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
           </div>
