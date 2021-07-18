@@ -5,6 +5,7 @@ import { portfolio, photography } from "../public/content"
 import FsLightbox from 'fslightbox-react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { NavSpacer } from './nav';
 
 const arrowStyle = "z-10 absolute top-1/2 -translate-y-1/2 text-white w-16 h-24 cursor-pointer opacity-25 hover:opacity-100 focus:opacity-100"
 
@@ -116,6 +117,8 @@ export default function Projects({ content }) {
 
   return (
     <>
+      <NavSpacer bg={projects[0].color} className="hidden md:block" />
+
       {/* Carosuel */}
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
@@ -130,17 +133,17 @@ export default function Projects({ content }) {
             {slides.map((slide, slideIndex) =>
               <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
                 <div
-                  className="w-full flex flex-col justify-center content-center overflow-visible py-8"
+                  className="w-full flex flex-col justify-center content-center overflow-visible py-8 max-w-max-slide-width mx-auto cursor-pointer"
                   onClick={() => {
                     setLightboxState(!lightboxState)
                     setlightboxIndex(slide.globalIndex)
                   }}
                 >
                   {(slide.type === 'image') &&
-                    <img className="object-contain h-project-row max-h-max-project-row drop-shadow-lg" src={slide.ssrc} alt={title} />
+                    <img className="object-contain h-slide-height max-h-max-slide-height drop-shadow-lg" src={slide.ssrc} alt={title} />
                   }
                   {(slide.type === 'youtube') &&
-                    <div className="h-project-row max-h-max-project-row flex flex-col justify-center content-center">
+                    <div className="h-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
                       <div className="relative h-0 overflow-hidden pb-video-ratio">
                         <iframe className="absolute top-0 left-0 w-full h-full" src={slide.ssrc} title={title} frameBorder="0" allowFullScreen />
                       </div>

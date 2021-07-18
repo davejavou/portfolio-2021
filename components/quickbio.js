@@ -1,7 +1,7 @@
 export default function QuickBio() {
   return (
     <div className="w-5/6 md:w-3/4 mt-0 lg:mt-20 mx-auto">
-      <img src="/images/portrait.jpg" className="w-full max-w-sm mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
+      <img src="/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
       <h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-3xl">
         Dave Cutter. <br />
         Designer &amp; <br />

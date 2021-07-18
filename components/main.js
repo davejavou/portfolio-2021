@@ -1,6 +1,6 @@
 export default function Main({ children }) {
   return (
-    <main className="flex flex-col h-screen md:ml-md-sidebar lg:ml-lg-sidebar">
+    <main className="relative flex flex-col md:h-screen md:ml-md-sidebar-width lg:ml-lg-sidebar-width">
       {children}
     </main>
   )

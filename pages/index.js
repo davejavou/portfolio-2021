@@ -1,39 +1,36 @@
 import Head from 'next/head'
-import Sidebar from '../components/sidebar'
-import Nav from '../components/nav'
-import MobileNav from '../components/mobilenav'
+import Nav, { MobileNav, NavSpacer } from '../components/nav'
 import Projects from '../components/projects'
 import QuickBio from '../components/quickbio'
 import FullBio from '../components/fullbio'
 import Footer from '../components/footer'
 import Main from '../components/main'
+import Layout from '../components/layout'
 
 export default function Home() {
 
   return (
-    <>
+    <Layout>
       <Head>
-        <title>David Cutter Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Dave Cutter's Portfolio</title>
       </Head>
-
-      <Sidebar>
-        <QuickBio />
-        <Footer />
-      </Sidebar>
 
       <Main>
         <Nav />
         <div className="md:hidden">
           <QuickBio />
           <FullBio />
-          <Footer />
+          <div className="bg-gray-800 shadow-inner">
+            <Footer />
+            <NavSpacer />
+            <MobileNav />
+          </div>
         </div>
         <div className="hidden md:block">
           <Projects />
         </div>
-        <MobileNav />
+
       </Main>
-    </>
+    </Layout>
   )
 }
