@@ -83,7 +83,7 @@ export const portfolio = [
     year: 2019,
     title: "SPT Bridge",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam accumsan blandit mi vitae efficitur. Mauris blandit efficitur molestie. Aliquam ultricies lorem ac odio sodales blandit. Nam vestibulum orci quis mi vehicula, non pulvinar risus tincidunt.",
+      "SPT's Bridge app connects SPT devices to the Game Traka platform. After every game and practice coaches and players upload athletic data to well-tagged events for analysis.",
     color: "#CCB100", // FFDD00 too bright
     slides: [
       {

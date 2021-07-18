@@ -39,7 +39,7 @@ module.exports = {
       },
       spacing: {
         'md-sidebar-width': '200px',
-        'lg-sidebar-width': '360px',
+        'lg-sidebar-width': '400px',
         'md-nav-width': 'calc(100% - 200px)',
         'lg-nav-width': 'calc(100% - 360px)',
         'nav-height': '60px',

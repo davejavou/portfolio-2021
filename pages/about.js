@@ -17,7 +17,7 @@ export default function Home() {
 
       <Main>
         <Nav />
-        <div className="md:hidden">
+        <div className="md:hidden bg-white">
           <QuickBio />
         </div>
         <FullBio />

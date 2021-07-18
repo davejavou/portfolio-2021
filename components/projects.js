@@ -7,12 +7,10 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
 import { NavSpacer } from './nav';
 
-const arrowStyle = "z-10 absolute top-1/2 -translate-y-1/2 text-white w-16 h-24 cursor-pointer opacity-25 hover:opacity-100 focus:opacity-100"
-
 function NextArrow({ className, onClick }) {
   return (
     <Icon
-      className={`${className} ${arrowStyle} right-8`}
+      className={`${className} slick-arrow right-2 md:right-8`}
       onClick={onClick}
       icon={faAngleRight}
     />
@@ -22,7 +20,7 @@ function NextArrow({ className, onClick }) {
 function PrevArrow({ className, onClick }) {
   return (
     <Icon
-      className={`${className} ${arrowStyle} left-8`}
+      className={`${className} slick-arrow left-2 md:left-8`}
       onClick={onClick}
       icon={faAngleLeft}
     />
@@ -49,9 +47,9 @@ export default function Projects({ content }) {
         slide,
         src: slide.zsrc,
         caption: (
-          <div className="text-white py-8 px-10">
+          <div className="text-white py-8 px-10 max-w-prose text-left">
             <h2 className="text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
-            <p>({project.location}, {project.year}) {project.description}</p>
+            <p className="font-sans">({project.location}, {project.year}) {project.description}</p>
           </div>
         )
       }
@@ -123,7 +121,7 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-white text-lg font-light uppercase p-8 pb-0">
+          <div className="flex justify-between text-lg font-light uppercase p-8 pb-0">
             <span>{client}</span>
             <span>{location}, {year}</span>
           </div>
@@ -154,7 +152,7 @@ export default function Projects({ content }) {
             )}
           </Slider>
 
-          <div className="text-white pb-8 px-10 mx-auto max-w-prose">
+          <div className="pb-8 px-10 mx-auto max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
           </div>
@@ -170,11 +168,26 @@ export default function Projects({ content }) {
         toggler={lightboxState}
         onOpen={ e => setUrl(e.stageIndexes.current)}
         onSlideChange={ e => setUrl(e.stageIndexes.current)}
-        // disableLocalStorage={true}
-        // loadOnlyCurrentSource={true}
         disableThumbs={true}
-        // initialAnimation="scale-in-long"
-        // slideChangeAnimation="scale-in"
+        slideshowTime={1000}
+        zoomIncrement={0.75}
+        slideChangeAnimation="fade-in"
+        svg={{
+          slideButtons: {
+            previous: {
+              height: '100px',
+              width: '100px',
+              viewBox: '0 0 256 512',
+              d: 'M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z'
+            },
+            next: {
+              height: '100px',
+              width: '100px',
+              viewBox: '0 0 256 512',
+              d: 'M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z'
+            }
+          }
+        }}
       />
     </>
   )
