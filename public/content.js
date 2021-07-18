@@ -316,7 +316,7 @@ export const photography = [
     title: "Eric's Gold",
     description:
       "Experimenting with super-micro work on real gold found in the wilds of Victoria, all at sub millimeter scales! Don't. Breathe.",
-    color: "#daa520",
+    color: "#272829",
     slides: [
       {
         type: "image",

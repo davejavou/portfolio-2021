@@ -16,10 +16,10 @@ html {
   @apply fill-current text-white inline h-5 w-5 mr-1
 }
 .btn-blue {
-  @apply bg-blue-400 text-white;
+  @apply bg-blue-light text-white hover:bg-blue-lightest;
 }
 .btn-blue:hover {
-  @apply bg-blue-600;
+  @apply bg-blue-light;
 }
 
 .tab {

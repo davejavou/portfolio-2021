@@ -21,7 +21,7 @@ export default function Home() {
           <QuickBio />
         </div>
         <FullBio />
-        <div className="md:hidden bg-gray-800 shadow-inner">
+        <div className="md:hidden bg-gray shadow-inner">
           <Footer />
           <NavSpacer />
           <MobileNav />

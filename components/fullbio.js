@@ -5,7 +5,7 @@ import { faFilePdf, faFileAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function FullBio() {
   return (
-    <div className="h-full bg-blue-500">
+    <div className="h-full bg-blue">
       <NavSpacer className="hidden md:block" />
       <h1 className="md:hidden pt-5 text-center text-white text-2xl uppercase font-serif font-bold ">About Dave</h1>
       <img src="/images/at-work.jpg" className="object-cover w-full max-h-96 mx-auto my-5 shadow-lg" alt="Candid at the water cooler" />

@@ -16,7 +16,7 @@ export default function Portfolio() {
       <Main>
         <Nav />
         <Projects />
-        <div className="md:hidden bg-gray-800 shadow-inner">
+        <div className="md:hidden bg-gray shadow-inner">
           <Footer />
           <NavSpacer />
           <MobileNav />
