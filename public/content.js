@@ -6,7 +6,7 @@ export const portfolio = [
     title: "Mod.io Home Page",
     description:
       "Designing ONE homepage for both gamers and game developers, as well as for desktop, tablet, and mobile, all in one - to serve Mod.io's groundbreaking technology in mod development and distribution across gaming platforms!",
-    color: "#44BFD5",
+    color: "#69B3D7",
     slides: [
       {
         type: "image",

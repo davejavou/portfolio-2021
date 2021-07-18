@@ -121,7 +121,7 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-lg font-light uppercase p-8 pb-0">
+          <div className="flex justify-between text-lg font-light uppercase p-8 -mb-8">
             <span>{client}</span>
             <span>{location}, {year}</span>
           </div>
@@ -131,7 +131,7 @@ export default function Projects({ content }) {
             {slides.map((slide, slideIndex) =>
               <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
                 <div
-                  className="w-full flex flex-col justify-center content-center overflow-visible py-8 max-w-max-slide-width mx-auto cursor-pointer"
+                  className="w-full flex flex-col justify-center content-center overflow-visible py-4 max-w-max-slide-width mx-auto cursor-pointer"
                   onClick={() => {
                     setLightboxState(!lightboxState)
                     setlightboxIndex(slide.globalIndex)
@@ -152,7 +152,7 @@ export default function Projects({ content }) {
             )}
           </Slider>
 
-          <div className="pb-8 px-10 mx-auto max-w-prose">
+          <div className="pb-12 px-10 mx-auto max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
           </div>
