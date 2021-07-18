@@ -16,6 +16,9 @@ export default function FullBio() {
         <p className="mt-5 mb-10 text-white text-lg leading-loose max-w-prose">
           I’m a designer and front-end engineer with 23 years experience in media &amp; software development for startup &amp; enterprise clients. I specialize in responsive design, intuitive UI, and elegant code. I’m a Professional Design Member of AIGA and an Adobe Certified Expert in Photoshop. (A.C.E.) In my free time I study the History &amp; Philosophy of Science and Political Economy at the University of Melbourne, and sail (ASA certified sailor).
         </p>
+        <p className="mt-5 mb-10 text-white text-lg leading-loose max-w-prose">
+          <strong>Dev Highlights:</strong> HTML, CSS, Javascript, React, Node, Angular, Vue, PHP, XML/XSLT, JQuery, VbScript, & Coldfusion
+        </p>
         <a className="btn btn-blue w-full" target="_blank" href="https://www.linkedin.com/in/davejavou/" title="Dave Cutter on LinkedIn">
           <Icon className="btn-icon" icon={faLinkedin} />
           LinkedIn
