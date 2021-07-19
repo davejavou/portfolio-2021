@@ -4,6 +4,7 @@ export const portfolio = [
     location: "Melbourne",
     year: 2021,
     title: "Mod.io Home Page",
+    link: "https://www.mod.io",
     description:
       "Designing ONE homepage for both gamers and game developers, as well as for desktop, tablet, and mobile, all in one - to serve Mod.io's groundbreaking technology in mod development and distribution across gaming platforms!",
     color: "#69B3D7",
@@ -21,7 +22,7 @@ export const portfolio = [
       {
         type: "image",
         ssrc: "/slides/modio-home-03.png",
-        zsrc: "/slides/modio-home-03-zoom.png",
+        zsrc: "/slides/modio-home-03.png",
       },
     ],
   },
@@ -30,6 +31,7 @@ export const portfolio = [
     location: "Melbourne",
     year: 2020,
     title: "Game Traka",
+    link: "https://gametraka.com/",
     description:
       "A complete redesign and redevelopment of Sports Performance Tracking's athlete analytics and performance improvement software system, 'Game Traka', utilizing data from GPS and accelerometer tracking devices worn by athletes all over the world and designed for both sports scientists as well as coaches and players to take full advantage of.",
     credit: "Video Produced by Sports Performance Tracking",
@@ -143,6 +145,7 @@ export const portfolio = [
     location: "Melbourne",
     year: 2018,
     title: "ESPN FootyTips App",
+    link: "https://www.footytips.com.au/",
     description:
       "After the completely redesigned ESPN Footytips App was released, I designed sucessful iterations and new features, creating fresh experiences for Australia's biggest tipping app!,",
     color: "#284A85",

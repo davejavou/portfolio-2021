@@ -8,6 +8,8 @@
 html {
   @apply text-sm font-semibold bg-gray text-white;
 }
+
+/* Smooth scrolling, but not on phone, for performance */
 @media screen and (min-width: 640px) { /* Same breakpoint as tailwind's "sm" */
   html {
     scroll-behavior: smooth;
@@ -15,16 +17,10 @@ html {
 }
 
 .btn {
-  @apply block font-bold text-white p-3 rounded flex justify-center items-center
+  @apply block font-bold text-white p-3 rounded flex justify-center items-center bg-blue-light hover:bg-blue-lightest
 }
 .btn-icon {
   @apply fill-current inline h-5 w-5 mr-1
-}
-.btn-blue {
-  @apply bg-blue-light hover:bg-blue-lightest;
-}
-.btn-blue:hover {
-  @apply bg-blue-lightest;
 }
 
 .tab {
