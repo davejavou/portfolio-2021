@@ -359,13 +359,13 @@ export const photography = [
     year: 2017,
     title: "Grand-Opening Product Photos",
     description:
-      "This could have been a professional photoshoot, real classy, a great set for a charming client, and I managed to arrange to work with Hanna Hosking of Hang Studios! But there was too much chocolate, too much flavor, too much, did I say chocoalate?",
+      "This could have been a professional photoshoot, real classy, a great set for a charming client, and I managed to collaborate with Hanna at Hang Studios! But there was too much chocolate, too much flavor, too much, did I say chocolate?",
     color: "#8E1A11",
     slides: [
       {
         type: "image",
-        ssrc: "/slides/caroline-patisserie-01.jpg",
-        zsrc: "/slides/caroline-patisserie-01.jpg",
+        ssrc: "/slides/caroline-patisserie-03.jpg",
+        zsrc: "/slides/caroline-patisserie-03.jpg",
       },
       {
         type: "image",
@@ -374,8 +374,8 @@ export const photography = [
       },
       {
         type: "image",
-        ssrc: "/slides/caroline-patisserie-03.jpg",
-        zsrc: "/slides/caroline-patisserie-03.jpg",
+        ssrc: "/slides/caroline-patisserie-01.jpg",
+        zsrc: "/slides/caroline-patisserie-01.jpg",
       },
       {
         type: "image",
