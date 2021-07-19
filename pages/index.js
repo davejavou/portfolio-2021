@@ -13,6 +13,7 @@ export default function Home() {
     <Layout>
       <Head>
         <title>Dave Cutter's Portfolio</title>
+        <description>Dave Cutter is a designer and FE developer based in Melbourne. He is currently designing at Art Processors and formerly designed and developed at Sports Performance Tracking, ESPN, and Yahoo!</description>
       </Head>
 
       <Main>

@@ -162,7 +162,7 @@ export default function Projects({ content }) {
           <div className="pb-12 px-5 md:px-10 mx-auto w-full md:max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
-            {link && <a href={link} className="mt-2 flex items-center" target="_blank"><Icon className="fill-current inline h-3 w-3 mr-2" icon={faExternalLinkAlt} />{title}</a>}
+            {link && <a href={link} className="mt-2 flex items-center" target="_blank" rel="noopener"><Icon className="fill-current inline h-3 w-3 mr-2" icon={faExternalLinkAlt} />{title}</a>}
             {credit && <p className="mt-2 text-xs text-blue-lightest">{credit}</p>}
           </div>
 
