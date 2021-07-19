@@ -162,6 +162,7 @@ export default function Projects({ content }) {
           <div className="pb-12 px-10 mx-auto max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
+            {credit && <p className="mt-2 text-xs text-blue-lightest">{credit}</p>}
           </div>
 
         </div>

@@ -32,7 +32,7 @@ export const portfolio = [
     title: "Game Traka",
     description:
       "A complete redesign and redevelopment of Sports Performance Tracking's athlete analytics and performance improvement software system, 'Game Traka', utilizing data from GPS and accelerometer tracking devices worn by athletes all over the world and designed for both sports scientists as well as coaches and players to take full advantage of.",
-    credit: "Video by Jon",
+    credit: "Video Produced by Sports Performance Tracking",
     color: "#32383D",
     slides: [
       {
@@ -93,8 +93,8 @@ export const portfolio = [
     slides: [
       {
         type: "image",
-        ssrc: "",
-        zsrc: "https://youtu.be/XSvFyyYjfc8",
+        ssrc: "/slides/spt-bridge-01.png",
+        zsrc: "/slides/spt-bridge-01.png",
       },
       {
         type: "image",
