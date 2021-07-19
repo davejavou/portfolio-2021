@@ -5,6 +5,10 @@ module.exports = {
   purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    fontFamily: {
+      sans: ["Nunito", "ui-sans-serif", "system-ui", "Arial", "sans-serif"],
+      serif: ["Raleway", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -30,10 +34,6 @@ module.exports = {
       }
     },
     extend: {
-      fontFamily: {
-        sans: ["Nunito", ...defaultTheme.fontFamily.sans],
-        serif: ["Raleway", ...defaultTheme.fontFamily.serif],
-      },
       maxWidth: {
         'max-slide-width': '90%', // Why this needs to be here and does not work in 'spacing' below... I've no idea.
       },

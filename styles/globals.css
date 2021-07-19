@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;700&display=swap');
 
 html {
-  @apply text-sm font-semibold bg-gray text-white;
+  @apply text-sm bg-gray text-white;
 }
 
 /* Smooth scrolling, but not on phone, for performance */

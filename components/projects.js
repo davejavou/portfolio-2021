@@ -128,7 +128,7 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, link, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-sm md:text-lg font-light uppercase px-5 md:px-10 py-8 -mb-8">
+          <div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
             <span>{client}</span>
             <span className="text-right">{location}, {year}</span>
           </div>

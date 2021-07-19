@@ -11,7 +11,7 @@ export default function FullBio() {
       <div className="p-5 max-w-prose mx-auto">
         <img src="/images/at-work.jpg" className="w-full my-5 shadow-lg rounded-md transform rotate-3" alt="Candid at the water cooler" />
         <h2 className="mb-5 font-serif font-bold text-3xl md:text-2xl lg:text-3xl">
-          Dave Cutter <small className="text-xs font-light">(On Right)</small>
+          Dave Cutter <small className="text-xs">(On Right)</small>
         </h2>
         <p className="mt-5 mb-10 text-lg leading-loose max-w-prose">
           I’m a designer and front-end engineer with 23 years experience in media &amp; software development for startup &amp; enterprise clients. I specialize in responsive design, intuitive UI, and elegant code. I’m a Professional Design Member of AIGA and an Adobe Certified Expert in Photoshop. (A.C.E.) In my free time I study the History &amp; Philosophy of Science and Political Economy at the University of Melbourne, and sail (ASA certified sailor).
