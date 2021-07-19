@@ -24,10 +24,11 @@ html {
 }
 
 .tab {
-  @apply flex flex-col justify-center items-center w-1/3 flex-shrink-0 text-sm md:text-2xl uppercase font-serif font-bold shadow-md backdrop-filter backdrop-blur-md filter drop-shadow-md bg-black bg-opacity-60 hover:bg-opacity-30 border-t border-b border-white border-opacity-10
+  @apply flex flex-col justify-center items-center w-1/3 flex-shrink-0 text-sm text-white text-opacity-50 md:text-2xl uppercase font-serif font-bold shadow-md backdrop-filter backdrop-blur-xl border-t border-b border-white border-opacity-10 bg-black bg-opacity-10
 }
 .tab-active {
-  @apply bg-transparent pointer-events-none
+  text-shadow: 0 0 40px white;
+  @apply pointer-events-none text-opacity-100 bg-transparent border-opacity-20
 }
 .tab-icon {
   @apply fill-current inline mr-1 h-5 w-5
