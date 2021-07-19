@@ -27,14 +27,22 @@ function PrevArrow({ className, onClick }) {
   );
 }
 
+function getInt(str) {
+  const num = Number(str)
+  return Number.isInteger(num) ? num : null
+}
+
 export default function Projects({ content }) {
+  const { query, pathname } = useRouter()
+
   // Projects & Slides rendering data
   /* Data can only be projects or photos */
   const projects = (content === 'photography') ? photography : portfolio
 
-  let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
+  // Build Data
   // This map is adding ui information to the projects data, and outputting a flat list of all slides for the ligtbox
-  const lightboxData = projects.map(project => {
+  let slideglobalIndex = -1; // Index of all slides on page across all projects. Start with no slides (-1, because one slide would be index 0)
+  const allSlides = projects.map(project => {
     project.projectRef = useRef()
     project.sliderRef = useRef()
     return project.slides.map((slide, index) => {
@@ -71,44 +79,43 @@ export default function Projects({ content }) {
   }
 
 
-  // Route to Project and/or slide
-  const { query, pathname } = useRouter()
-
-
-  /* Configure Lightbox State */
-  const [lightboxState, setLightboxState] = useState(false)
-  const [lightboxIndex, setlightboxIndex] = useState(null)
+  /* Configure lightbox State */
+  const [lbState, setLbState] = useState(false)
+  const [lbIndex, setLbIndex] = useState(null)
 
 
   // Scroll to and show a url-queried slide, ex: "?s=7"
   useEffect(() => {
-    const s = isNaN(Number(query.s)) ? null : Number(query.s)
+    const s = getInt(query.s)
+    if (s !== null) {
+      goToSlide(s)
+    }
+  }, [query])
 
-    if (lightboxData[s]) {
-      const project = lightboxData[s].project.projectRef.current || null
-      const slider = lightboxData[s].project.sliderRef.current || null
-      const sliderIndex = lightboxData[s].slide.sliderIndex || 0
 
+  // Update URL when using the lightbox
+  function routeSlide(slideIndex) {
+    const s = getInt(slideIndex)
+    if (s !== null) {
+      const newUrl = {
+        pathname,
+        query: { s }
+      }
+      setLbIndex(s)
+      Router.push(newUrl, undefined, { shallow: false, scroll: false })
+    }
+  }
+
+  function goToSlide(slideIndex) {
+    const slideObj = allSlides[slideIndex] || null
+    if (slideObj) {
+      const project = slideObj.project.projectRef.current || null
+      const slider = slideObj.project.sliderRef.current || null
+      const sliderIndex = slideObj.slide.sliderIndex || 0
       if (project && slider) {
         project.scrollIntoView({ behavior: 'smooth' })
         slider.slickGoTo(sliderIndex)
       }
-    }
-  }, [lightboxData, query])
-
-
-  // Update URL when using the lightbox
-  const router = useRouter()
-  function setUrl(index) {
-    if (typeof index === 'number' && isFinite(index)) {
-      const newUrl = {
-        pathname,
-        query: {
-          s: index
-        }
-      }
-      setlightboxIndex(index)
-      Router.push(newUrl, undefined, { shallow: false, scroll: false })
     }
   }
 
@@ -133,8 +140,8 @@ export default function Projects({ content }) {
                 <div
                   className="w-full flex flex-col justify-center content-center overflow-visible py-4 max-w-max-slide-width mx-auto cursor-pointer"
                   onClick={() => {
-                    setLightboxState(!lightboxState)
-                    setlightboxIndex(slide.globalIndex)
+                    setLbState(!lbState)
+                    setLbIndex(slide.globalIndex)
                   }}
                 >
                   {(slide.type === 'image') &&
@@ -162,14 +169,14 @@ export default function Projects({ content }) {
 
       {/* Lightbox */}
       <FsLightbox
-        sources={lightboxData.map(slide => slide.src)}
-        captions={lightboxData.map(slide => slide.caption)}
-        sourceIndex={lightboxIndex}
-        toggler={lightboxState}
-        onOpen={ e => setUrl(e.stageIndexes.current)}
-        onSlideChange={ e => setUrl(e.stageIndexes.current)}
+        sources={allSlides.map(slide => slide.src)}
+        captions={allSlides.map(slide => slide.caption)}
+        sourceIndex={lbIndex}
+        toggler={lbState}
+        onOpen={ e => routeSlide(e.stageIndexes.current)}
+        onSlideChange={ e => routeSlide(e.stageIndexes.current)}
         disableThumbs={true}
-        slideshowTime={1000}
+        slideshowTime={2000}
         zoomIncrement={0.75}
         slideChangeAnimation="fade-in"
         svg={{

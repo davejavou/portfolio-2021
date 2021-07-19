@@ -72,7 +72,7 @@ html {
 /* FS Lightbox Overrides */
 
 /* Hide fullscreen button */
-.fslightbox-toolbar-button:nth-child(1) {
+.fslightbox-toolbar-button:nth-child(4) {
   display: none;
 }
 /* Fix visibility bug seen on slides after clicking prev/next many times. */
