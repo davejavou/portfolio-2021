@@ -53,7 +53,7 @@ export default function Projects({ content }) {
       return {
         project,
         slide,
-        src: slide.zsrc,
+        src: slide.type === 'youtube' ? `https://www.youtube.com/watch?v=${slide.zsrc}&modestbranding=1&rel=0` : slide.zsrc,
         caption: (
           <div className="text-white py-8 px-10 max-w-prose text-left">
             <h2 className="text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
@@ -150,7 +150,7 @@ export default function Projects({ content }) {
                   {(slide.type === 'youtube') &&
                     <div className="h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
                       <div className="relative h-0 overflow-hidden pb-video-ratio">
-                        <iframe className="absolute top-0 left-0 w-full h-full" src={slide.ssrc} title={title} frameBorder="0" allowFullScreen />
+                        <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${slide.ssrc}?modestbranding=1&rel=0`} title={title} frameBorder="0" allowFullScreen />
                       </div>
                     </div>
                   }
