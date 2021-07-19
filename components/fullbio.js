@@ -33,19 +33,14 @@ export default function FullBio() {
             Resume (PDF)
           </a>
         </div>
-        <h3 className="mt-12 mb-2 font-serif font-bold text-lg text-center">
-          Site Credits
-        </h3>
-        <p className="mb-10 text-sm leading-loose text-center">
-          <ul>
-            <li className="uppercase">Made in Melbourne, July 2021</li>
-            <li>Inspired by <a href="http://charliewaite.me/" target="_blank">Charlie Waite's Portfolio</a></li>
-            <li>Portrait of Dave with Tie by A. Labbett</li>
-            <li>Portrait of Dave with Monsters Inc. by C. Heldt</li>
-            <li>Icons by <a href="https://fontawesome.com/" target="_blank">FontAwesome</a></li>
-          </ul>
-        </p>
-
+        <ul className="my-20 text-sm leading-loose text-center text-blue-lightest">
+          <li className="uppercase">Made in Melbourne, July 2021</li>
+          <li>During <a href="https://omny.fm/shows/triple-m-rock-interviews/triple-m-melbourne-lockdown-number-5-parody-song" target="_blank">Lockdown Number Five</a></li>
+          <li className="mt-4">Inspired by <a href="http://charliewaite.me/" target="_blank">Charlie Waite's Portfolio</a></li>
+          <li>Portrait of Dave with Tie by A. Labbett</li>
+          <li>Portrait of Dave with Monsters Inc. by C. Heldt</li>
+          <li>Icons by <a href="https://fontawesome.com/" target="_blank">FontAwesome</a></li>
+        </ul>
       </div>
     </div>
   )
