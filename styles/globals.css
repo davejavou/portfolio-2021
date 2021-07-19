@@ -8,6 +8,11 @@
 html {
   @apply text-sm font-semibold bg-gray text-white;
 }
+@media screen and (min-width: 640px) { /* Same breakpoint as tailwind's "sm" */
+  html {
+    scroll-behavior: smooth;
+  }
+}
 
 .btn {
   @apply block font-bold text-white p-3 rounded flex justify-center items-center
@@ -80,17 +85,20 @@ html {
   opacity: 1 !important;
 }
 /* Fade Animation (FsLightbox does not differentiate between next/prev animation, so no sliding. */
-.fade-in {
-  animation: fade-in .2s ease-out;
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: scale(1.1);
+/* Not on phone, for performance */
+@media screen and (min-width: 640px) { /* Same breakpoint as tailwind's "sm" */
+  .fade-in {
+    animation: fade-in .2s ease-out;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: scale(1.1);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
   }
 }
 
