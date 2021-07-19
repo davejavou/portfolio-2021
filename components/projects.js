@@ -55,9 +55,9 @@ export default function Projects({ content }) {
         slide,
         src: slide.type === 'youtube' ? `https://www.youtube.com/watch?v=${slide.zsrc}&modestbranding=1&rel=0` : slide.zsrc,
         caption: (
-          <div className="text-white py-8 px-10 max-w-prose text-left">
-            <h2 className="text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
-            <p className="font-sans">({project.location}, {project.year}) {project.description}</p>
+          <div className="text-white md:py-8 md:px-10 md:max-w-prose text-left">
+            <h2 className="text-lg md:text-2xl font-serif pb-2">{project.client}: {project.title}</h2>
+            <p className="font-sans text-sm md:text-md">({project.location}, {project.year}) {project.description}</p>
           </div>
         )
       }
@@ -113,7 +113,7 @@ export default function Projects({ content }) {
       const slider = slideObj.project.sliderRef.current || null
       const sliderIndex = slideObj.slide.sliderIndex || 0
       if (project && slider) {
-        project.scrollIntoView({ behavior: 'smooth' })
+        project.scrollIntoView()
         slider.slickGoTo(sliderIndex)
       }
     }
