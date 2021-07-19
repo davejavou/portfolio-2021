@@ -13,7 +13,7 @@ export default function Home() {
     <Layout>
       <Head>
         <title>About Dave Cutter</title>
-        <description>About Dave Cutter, a designer and FE developer currently designing at Art Processors in Melbourne. Formerly designer and developer at Sports Performance Tracking, ESPN, and Yahoo!</description>
+        <meta name="description" content="About Dave Cutter, a designer and FE developer currently designing at Art Processors in Melbourne. Formerly designer and developer at Sports Performance Tracking, ESPN, and Yahoo!" />
       </Head>
 
       <Main>
