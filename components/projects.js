@@ -128,9 +128,9 @@ export default function Projects({ content }) {
       {projects.map(({client, location, year, title, description, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
-          <div className="flex justify-between text-lg font-light uppercase p-8 -mb-8">
+          <div className="flex justify-between text-sm md:text-lg font-light uppercase px-5 md:px-10 py-8 -mb-8">
             <span>{client}</span>
-            <span>{location}, {year}</span>
+            <span className="text-right">{location}, {year}</span>
           </div>
 
           <Slider ref={sliderRef} {...sliderSettings}>
@@ -148,7 +148,7 @@ export default function Projects({ content }) {
                     <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={slide.ssrc} alt={title} />
                   }
                   {(slide.type === 'youtube') &&
-                    <div className="h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
+                    <div className="h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
                       <div className="relative h-0 overflow-hidden pb-video-ratio">
                         <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${slide.ssrc}?modestbranding=1&rel=0`} title={title} frameBorder="0" allowFullScreen />
                       </div>
@@ -159,7 +159,7 @@ export default function Projects({ content }) {
             )}
           </Slider>
 
-          <div className="pb-12 px-10 mx-auto max-w-prose">
+          <div className="pb-12 px-5 md:px-10 mx-auto w-full md:max-w-prose">
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
             {credit && <p className="mt-2 text-xs text-blue-lightest">{credit}</p>}

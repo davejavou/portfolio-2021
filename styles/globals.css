@@ -103,6 +103,10 @@ html {
   background: transparent !important;
 }
 @media screen and (max-width: 640px) { /* Same breakpoint as tailwind's "sm" */
+  .fslightbox-container {
+    background: black !important;
+    backdrop-filter: none;
+  }
   .fslightbox-slide-btn {
     width: 40px;
   }
