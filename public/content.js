@@ -213,6 +213,108 @@ export const portfolio = [
       },
     ],
   },
+  {
+    client: "Yahoo! Sports",
+    location: "Los Angeles",
+    year: 2014,
+    title: "ESPN Rivals App",
+    description:
+      "This project entirely redesigned the existing rivals website into a fully responsive mobile app by reworking the view layer and leaving the BE entirely alone: FE Surgery!",
+    color: "#0A4EA3",
+    slides: [
+      {
+        type: "image",
+        ssrc: "/slides/rivals-mobile-01.png",
+        zsrc: "/slides/rivals-mobile-01.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/rivals-mobile-02.png",
+        zsrc: "/slides/rivals-mobile-02.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/rivals-mobile-03.png",
+        zsrc: "/slides/rivals-mobile-03.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/rivals-mobile-04.png",
+        zsrc: "/slides/rivals-mobile-04.png",
+      },
+    ],
+  },
+  {
+    client: "Meteor Games",
+    location: "Los Angeles",
+    year: 2010,
+    title: "Game UI Designs",
+    description:
+      "While at Meteor Games I wore many hats: graphic designer, FE developer, IT manager... and loved every minute of it, including helping to bring these games to life!",
+    color: "#333",
+    slides: [
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-03.png",
+        zsrc: "/slides/meteor-games-03.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-02.png",
+        zsrc: "/slides/meteor-games-02.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-01.png",
+        zsrc: "/slides/meteor-games-01.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-04.png",
+        zsrc: "/slides/meteor-games-04.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-05.png",
+        zsrc: "/slides/meteor-games-05.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-06.png",
+        zsrc: "/slides/meteor-games-06.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-07.png",
+        zsrc: "/slides/meteor-games-07.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-08.png",
+        zsrc: "/slides/meteor-games-08.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-09.png",
+        zsrc: "/slides/meteor-games-09.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-10.png",
+        zsrc: "/slides/meteor-games-10.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-11.png",
+        zsrc: "/slides/meteor-games-11.png",
+      },
+      {
+        type: "image",
+        ssrc: "/slides/meteor-games-12.png",
+        zsrc: "/slides/meteor-games-12.png",
+      },
+    ],
+  },
 ];
 
 export const photography = [
