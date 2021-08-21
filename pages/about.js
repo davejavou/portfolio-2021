@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Nav, { MobileNav, NavSpacer } from '../components/nav'
+import { aboutDaveCutter } from '../components/content'
 import QuickBio from '../components/quickbio'
 import FullBio from '../components/fullbio'
 import Footer from '../components/footer'
@@ -13,7 +14,7 @@ export default function Home() {
     <Layout>
       <Head>
         <title>About Dave Cutter</title>
-        <meta name="description" content="About Dave Cutter, a designer and FE developer currently designing at Art Processors in Melbourne. Formerly designer and developer at Sports Performance Tracking, ESPN, and Yahoo!" />
+        <meta name="description" content={aboutDaveCutter} />
       </Head>
 
       <Main>

@@ -4,6 +4,7 @@ import Projects from '../components/projects'
 import Footer from '../components/footer'
 import Main from '../components/main'
 import Layout from '../components/layout'
+import { aboutDaveCutter } from '../components/content'
 
 export default function Portfolio() {
 
@@ -11,7 +12,7 @@ export default function Portfolio() {
     <Layout>
       <Head>
         <title>Dave Cutter's Portfolio</title>
-        <meta name="description" content="Dave Cutter is a designer and FE developer based in Melbourne. He is currently designing at Art Processors and formerly designed and developed at Sports Performance Tracking, ESPN, and Yahoo!" />
+        <meta name="description" content={aboutDaveCutter} />
       </Head>
 
       <Main>

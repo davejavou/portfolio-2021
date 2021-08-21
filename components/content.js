@@ -1,3 +1,5 @@
+export const aboutDaveCutter = "Dave Cutter is a designer and FE developer working in Melbourne, Australia. He is currently designing at Art Processors and formerly designed and developed at Sports Performance Tracking, ESPN, and Yahoo!"
+
 export const portfolio = [
   {
     client: "Mod.io",
