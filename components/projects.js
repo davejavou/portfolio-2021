@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Router, { useRouter } from 'next/router'
 import Slider from 'react-slick'
-import { portfolio, photography } from "../public/content"
+import { portfolio, photography } from "./content"
 import FsLightbox from 'fslightbox-react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight, faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
