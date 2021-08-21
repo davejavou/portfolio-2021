@@ -5,7 +5,7 @@ import { faEnvelope, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 export default function QuickBio() {
   return (
     <div className="bg-white text-gray max-w-prose w-3/4 lg:mt-15 mx-auto">
-      <img src="/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
+      <img src="https://davecutter.com/portfolio/public/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
       <h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-4xl">
         Dave Cutter. <br />
         Designer &amp; <span className="inline-block">FE Developer.</span>

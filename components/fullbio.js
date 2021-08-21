@@ -8,7 +8,7 @@ export default function FullBio() {
     <div className="h-full bg-blue">
       <NavSpacer className="hidden md:block" />
       <div className="p-5 max-w-prose mx-auto">
-        <img src="/images/at-work.jpg" className="w-full my-5 shadow-lg rounded-md transform rotate-3" alt="Candid at the water cooler" />
+        <img src="https://davecutter.com/portfolio/public/images/at-work.jpg" className="w-full my-5 shadow-lg rounded-md transform rotate-3" alt="Candid at the water cooler" />
         <h2 className="mb-5 font-serif font-bold text-2xl lg:text-3xl">
           <span className="md:hidden">About </span>Dave Cutter <small className="text-xs font-light">(On Right)</small>
         </h2>
