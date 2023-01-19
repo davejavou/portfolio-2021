@@ -17,10 +17,10 @@ export default function QuickBio() {
         <Icon className="btn-icon" icon={faEnvelope} />
         Email Dave
       </a>
-      <Link href={`/portfolio`}><a className="btn btn-blue w-full mb-10 md:hidden" title="Dave Cutter's Portfolio">
+      <Link href={`/portfolio`} className="btn btn-blue w-full mb-10 md:hidden" title="Dave Cutter's Portfolio">
         <Icon className="tab-icon" icon={faBookOpen} />
         View Portfolio
-      </a></Link>
+      </Link>
     </div>
   )
 }
