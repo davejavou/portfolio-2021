@@ -39,6 +39,7 @@ export default function FullBio() {
           <li>Portrait of Dave with Tie by A. Labbett.</li>
           <li>Portrait of Dave with Monsters Inc. by C. Heldt.</li>
           <li>Icons by <a href="https://fontawesome.com/" target="_blank" rel="noopener">FontAwesome.</a></li>
+          <li>Content Updated April 2024</li>
         </ul>
       </div>
     </div>
