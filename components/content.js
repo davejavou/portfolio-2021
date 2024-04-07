@@ -219,7 +219,7 @@ export const portfolio = [
     client: "Yahoo! Sports",
     location: "Los Angeles",
     year: 2014,
-    title: "ESPN Rivals App",
+    title: "Yahoo! Rivals App",
     description:
       "This project entirely redesigned the existing rivals website into a fully responsive mobile app by reworking the view layer and leaving the BE entirely alone: FE Surgery!",
     color: "#0A4EA3",
