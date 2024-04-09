@@ -33,11 +33,8 @@ module.exports = {
       }
     },
     extend: {
-      maxWidth: {
-        'max-slide-width': '90%', // Why this needs to be here and does not work in 'spacing' below... I've no idea.
-      },
       spacing: {
-        'md-sidebar-width': '200px',
+        'md-sidebar-width': '240px',
         'lg-sidebar-width': '400px',
         'md-nav-width': 'calc(100% - 200px)',
         'lg-nav-width': 'calc(100% - 360px)',

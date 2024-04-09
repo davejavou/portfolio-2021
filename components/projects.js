@@ -26,14 +26,14 @@ function PrevArrow({ className, onClick }) {
 
 function slideContent( {type, ssrc}, title ) {
   return (
-    <div className="w-full flex flex-col justify-center content-center overflow-visible -py-4 max-w-max-slide-width mx-auto">
+    <div className="w-full flex flex-col justify-center content-center overflow-hidden my-4 w-11/12 max-w-[960px] mx-auto rounded-lg">
       {(type === 'image') &&
         <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={ssrc} alt={title} />
       }
       {(type === 'youtube') &&
-        <div className="h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
-          <div className="relative h-0 overflow-hidden pb-video-ratio">
-            <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${ssrc}?rel=0&showinfo=0&autoplay=0`} title={title} allowFullScreen />
+        <div className="flex flex-col justify-center content-center my-4">
+          <div className="relative overflow-hidden pb-video-ratio">
+            <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${ssrc}?rel=0&showinfo=0&autoplay=0&mute=1`} title={title} allowFullScreen />
           </div>
         </div>
       }
@@ -71,7 +71,7 @@ export default function Projects({ content }) {
 
           <div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
             {/* <span>{client}</span> Hiding Client, seems less important, and usually mentioned in title */}
-            <span className="text-right">{location}, {year}</span>
+            <span>{location}, {year}</span>
           </div>
 
           {(slides.length < 2) ?
