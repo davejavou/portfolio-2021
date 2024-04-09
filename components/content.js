@@ -10,7 +10,7 @@ export const portfolio = [
     description:
       "I designed Pladia, a web-based app for storytellers and technicians to create and install location-based smartphone experiences. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
     credit: "Video Produced by Art Processors",
-    color: "#112",
+    color: "#131313",
     slides: [
       {
         type: "youtube",

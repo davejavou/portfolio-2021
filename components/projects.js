@@ -24,16 +24,16 @@ function PrevArrow({ className, onClick }) {
   );
 }
 
-function slideContent( slide, title ) {
+function slideContent( {type, ssrc}, title ) {
   return (
-    <div className="w-full flex flex-col justify-center content-center overflow-visible py-4 max-w-max-slide-width mx-auto">
-      {(slide.type === 'image') &&
-        <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={slide.ssrc} alt={title} />
+    <div className="w-full flex flex-col justify-center content-center overflow-visible -py-4 max-w-max-slide-width mx-auto">
+      {(type === 'image') &&
+        <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={ssrc} alt={title} />
       }
-      {(slide.type === 'youtube') &&
+      {(type === 'youtube') &&
         <div className="h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height flex flex-col justify-center content-center">
           <div className="relative h-0 overflow-hidden pb-video-ratio">
-            <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${slide.ssrc}?modestbranding=1&rel=0`} title={title} frameBorder="0" allowFullScreen />
+            <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${ssrc}?rel=0&showinfo=0&autoplay=0`} title={title} allowFullScreen />
           </div>
         </div>
       }
@@ -53,7 +53,7 @@ export default function Projects({ content }) {
     lazyLoad: true,
     dots: true,
     infinite: true,
-    speed: 300,
+    speed: 250,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
