@@ -5,11 +5,12 @@ export const portfolio = [
     client: "Art Processors",
     location: "Melbourne",
     year: 2022,
-    title: "Pladia",
+    title: "Art Processors: Pladia",
     link: "https://www.artprocessors.net/what-we-do/pladia",
     description:
       "I designed Pladia, a web-based app for storytellers and technicians to create and install location-based smartphone experiences. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
-    credit: "Video Produced by Art Processors",
+    credit: "Video from Art Processors",
+    credit_link: "https://vimeo.com/831709043", // Publically Visible and Downloaded 8 Apr 2024
     color: "#131313",
     slides: [
       {

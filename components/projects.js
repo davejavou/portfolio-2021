@@ -66,7 +66,7 @@ export default function Projects({ content }) {
       <NavSpacer bg={projects[0].color} className="hidden md:block" />
 
       {/* Carosuel */}
-      {projects.map(({/*client,*/ location, year, title, description, link, credit, color, slides, projectRef, sliderRef}, projectIndex) =>
+      {projects.map(({/*client,*/ location, year, title, description, link, credit, credit_link, color, slides, projectRef, sliderRef}, projectIndex) =>
         <div key={projectIndex} ref={projectRef} style={{background: color}}>
 
           <div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
@@ -91,7 +91,7 @@ export default function Projects({ content }) {
             <h2 className="text-2xl font-serif pb-2">{title}</h2>
             <p>{description}</p>
             {link && <a href={link} className="mt-2 flex items-center" target="_blank" rel="noopener"><Icon className="fill-current inline h-3 w-3 mr-2" icon={faExternalLinkAlt} />{title}</a>}
-            {credit && <p className="mt-2 text-xs text-blue-lightest">{credit}</p>}
+            {credit && <p className="mt-2 text-xs text-blue-lightest">{credit_link ? <a href={credit_link} target="_blank">{credit}</a> : credit}</p>}
           </div>
 
         </div>
