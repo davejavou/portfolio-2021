@@ -11,7 +11,7 @@ export const portfolio = [
       "I designed Pladia, a web-based app for storytellers and technicians to create and install location-based smartphone experiences. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
     credit: "Video from Art Processors",
     credit_link: "https://vimeo.com/831709043", // Publically Visible and Downloaded 8 Apr 2024
-    color: "#131313",
+    color: "#A6784F",
     slides: [
       {
         type: "youtube",
@@ -24,8 +24,45 @@ export const portfolio = [
     client: "Mod.io",
     location: "Melbourne",
     year: 2021,
+    title: "Mod.io Marketplace",
+    link: "https://mod.io/g",
+    description:
+      "I redesigned the Mod.io marketplace, updating the information architecture, design system, UI, and UX - from the ground up - to be an easier, more compelling, and more community-driven experience for both publishers and gamers - who collaborated on thousands of mods across platforms.",
+    color: "#161726",
+    slides: [
+      {
+        type: "image",
+        ssrc: "https://davecutter.com/portfolio/public/slides/modio-app-01.png",
+        zsrc: "https://davecutter.com/portfolio/public/slides/modio-app-01.png",
+      },
+      {
+        type: "image",
+        ssrc: "https://davecutter.com/portfolio/public/slides/modio-app-02.png",
+        zsrc: "https://davecutter.com/portfolio/public/slides/modio-app-02.png",
+      },
+      {
+        type: "image",
+        ssrc: "https://davecutter.com/portfolio/public/slides/modio-app-03.png",
+        zsrc: "https://davecutter.com/portfolio/public/slides/modio-app-03.png",
+      },
+      {
+        type: "image",
+        ssrc: "https://davecutter.com/portfolio/public/slides/modio-app-04.png",
+        zsrc: "https://davecutter.com/portfolio/public/slides/modio-app-04.png",
+      },
+      {
+        type: "image",
+        ssrc: "https://davecutter.com/portfolio/public/slides/modio-app-05.png",
+        zsrc: "https://davecutter.com/portfolio/public/slides/modio-app-05.png",
+      },
+    ],
+  },
+  {
+    client: "Mod.io",
+    location: "Melbourne",
+    year: 2021,
     title: "Mod.io Home Page",
-    link: "https://www.mod.io",
+    link: "https://mod.io/",
     description:
       "Designing ONE homepage for both gamers and game developers, as well as for desktop, tablet, and mobile, all in one - to serve Mod.io's groundbreaking technology in mod development and distribution across gaming platforms!",
     color: "#69B3D7",
