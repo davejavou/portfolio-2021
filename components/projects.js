@@ -24,11 +24,17 @@ function PrevArrow({ className, onClick }) {
   );
 }
 
-function slideContent( {type, ssrc}, title ) {
+function slideContent( {type, ssrc, psrc}, title ) {
   return (
-    <div className="flex flex-col justify-center content-center overflow-hidden my-4 w-11/12 max-w-[960px] mx-auto rounded-lg">
+    <div className="flex flex-col justify-center content-center overflow-hidden my-4 w-11/12 max-w-[960px] mx-auto">
       {(type === 'image') &&
         <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={ssrc} alt={title} />
+      }
+      {(type === 'video') &&
+        <video controls disablePictureInPicture muted poster={psrc} className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg">
+          {/* Only using MP$ files for now */}
+          <source src={ssrc} type="video/webm" />
+        </video>
       }
       {(type === 'youtube') &&
         <div className="flex flex-col justify-center content-center my-4">

@@ -13,10 +13,15 @@ export const portfolio = [
     credit_link: "https://vimeo.com/831709043", // Publically Visible and Downloaded 8 Apr 2024
     color: "#A6784F",
     slides: [
+      // {
+      //   type: "youtube",
+      //   ssrc: "dB_Boky4YPo",
+      //   zsrc: "dB_Boky4YPo",
+      // },
       {
-        type: "youtube",
-        ssrc: "dB_Boky4YPo",
-        zsrc: "dB_Boky4YPo",
+        type: "video",
+        ssrc: "https://davecutter.com/portfolio/public/slides/pladia-video.mp4",
+        psrc: "https://davecutter.com/portfolio/public/slides/pladia-video-poster.png",
       },
     ],
   },
@@ -95,10 +100,15 @@ export const portfolio = [
     credit: "Video Produced by Sports Performance Tracking",
     color: "#32383D",
     slides: [
+      // {
+      //   type: "youtube",
+      //   ssrc: "XSvFyyYjfc8",
+      //   zsrc: "XSvFyyYjfc8",
+      // },
       {
-        type: "youtube",
-        ssrc: "XSvFyyYjfc8",
-        zsrc: "XSvFyyYjfc8",
+        type: "video",
+        ssrc: "https://davecutter.com/portfolio/public/slides/spt-gt4-video.mp4",
+        psrc: "https://davecutter.com/portfolio/public/slides/spt-gt4-video-poster.png",
       },
       {
         type: "image",
