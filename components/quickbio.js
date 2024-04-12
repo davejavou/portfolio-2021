@@ -1,5 +1,5 @@
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 export default function QuickBio() {
@@ -13,19 +13,17 @@ export default function QuickBio() {
       <h2 className="my-10 text-lg text-gray-lightest">
         Product Designer at <a className="text-blue-light hover:text-blue-lightest" href="https://www.artprocessors.net/" title="Art Processors" target="_blank" rel="noopener">Art Processors</a>. Designer &amp; developer at <a href="https://www.espn.com.au/" className="text-blue-light hover:text-blue-lightest" title="ESPN/Disney" target="_blank" rel="noopener">ESPN/Disney</a> &amp; <a className="text-blue-light hover:text-blue-lightest" rel="noopener" href="https://sports.yahoo.com/" title="Yahoo! Sports" target="_blank">Yahoo!</a>
       </h2>
-      <div className="flex lg:flex-row md:flex-col sm:flex-row gap-2 my-2">
-        <a className="btn btn-blue w-full flex-grow-1" target="_blank" rel="noopener" href="https://docs.google.com/document/d/1LZtQ4O3Wjzt2EAibHtvVb8OD6I7S0T7hCHDg_aqJudY/edit?usp=sharing" title="Dave Cutter's Resume on Google Docs">
-          <Icon className="btn-icon" icon={faFileAlt} />
-          Resume (Doc)
-        </a>
-        <a className="btn btn-blue w-full flex-grow-1" target="_blank" rel="noopener" href="https://docs.google.com/document/d/1LZtQ4O3Wjzt2EAibHtvVb8OD6I7S0T7hCHDg_aqJudY/export?format=pdf" title="Download Dave Cutter's Resume PDF">
-          <Icon className="btn-icon" icon={faFilePdf} />
-          Resume (PDF)
-        </a>
-      </div>
-      <a className="btn btn-blue w-full mb-12" target="_blank" rel="noopener" href="https://www.linkedin.com/in/davejavou/" title="Dave Cutter on LinkedIn">
+      <a className="btn btn-blue w-full mb-2" target="_blank" rel="noopener" href="https://davecutter.com/portfolio/public/David-Cutter-Resume.pdf" title="Download Dave Cutter's Resume PDF">
+        <Icon className="btn-icon" icon={faFilePdf} />
+        Resume
+      </a>
+      <a className="btn btn-blue w-full mb-2" target="_blank" rel="noopener" href="https://www.linkedin.com/in/davejavou/" title="Dave Cutter on LinkedIn">
         <Icon className="btn-icon" icon={faLinkedin} />
         LinkedIn
+      </a>
+      <a className="btn btn-blue w-full mb-12" target="_blank" rel="noopener" href="mailto:dave@davecutter.com" title="Email Dave">
+        <Icon className="btn-icon" icon={faEnvelope} />
+        Email Dave
       </a>
     </div>
   )
