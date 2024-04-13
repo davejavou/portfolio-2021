@@ -39,10 +39,6 @@ module.exports = {
         'md-nav-width': 'calc(100% - 200px)',
         'lg-nav-width': 'calc(100% - 360px)',
         'nav-height': '60px',
-        'sm-slide-height': '280px',
-        'md-slide-height': '400px',
-        'lg-slide-height': '600px',
-        'max-slide-height': '80vh',
         'video-ratio': '56.25%'
       },
     },

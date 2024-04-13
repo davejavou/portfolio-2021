@@ -26,7 +26,7 @@ function PrevArrow({ className, onClick }) {
 
 function slideContent( {type, ssrc, psrc}, title ) {
   return (
-    <div className="flex flex-col justify-center content-center my-4 h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height w-11/12 max-w-[960px] mx-auto">
+    <div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-[960px] mx-auto">
       {(type === 'image') &&
         <img className="object-contain" src={ssrc} alt={title} />
       }
