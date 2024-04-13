@@ -26,20 +26,19 @@ function PrevArrow({ className, onClick }) {
 
 function slideContent( {type, ssrc, psrc}, title ) {
   return (
-    <div className="flex flex-col justify-center content-center overflow-hidden my-4 w-11/12 max-w-[960px] mx-auto">
+    <div className="flex flex-col justify-center content-center my-4 h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height w-11/12 max-w-[960px] mx-auto">
       {(type === 'image') &&
-        <img className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg" src={ssrc} alt={title} />
+        <img className="object-contain" src={ssrc} alt={title} />
       }
       {(type === 'video') &&
-        <video controls disablePictureInPicture muted poster={psrc} className="object-contain h-sm-slide-height md:h-md-slide-height lg:h-lg-slide-height max-h-max-slide-height drop-shadow-lg">
-          {/* Only using MP$ files for now */}
-          <source src={ssrc} type="video/webm" />
+        <video controls disablePictureInPicture muted playsinline poster={psrc} className="drop-shadow-lg rounded-lg">
+          <source src={ssrc} />
         </video>
       }
       {(type === 'youtube') &&
         <div className="flex flex-col justify-center content-center my-4">
           <div className="relative overflow-hidden pb-video-ratio">
-            <iframe className="absolute top-0 left-0 w-full h-full" src={`https://www.youtube-nocookie.com/embed/${ssrc}?rel=0&showinfo=0&autoplay=0&mute=1`} title={title} allowFullScreen />
+            <iframe className="absolute top-0 left-0 w-full h-full drop-shadow-lg rounded-lg" src={`https://www.youtube-nocookie.com/embed/${ssrc}?rel=0&showinfo=0&autoplay=0&mute=1`} title={title} allowFullScreen />
           </div>
         </div>
       }
@@ -84,7 +83,7 @@ export default function Projects({ content }) {
             // No Slider if only one slide  
             slides.map((slide) => slideContent(slide, title))
             :
-            <Slider ref={sliderRef} {...sliderSettings}>
+            <Slider ref={sliderRef} {...sliderSettings} className="max-w-[1280px] mx-auto">
               {slides.map((slide, slideIndex) =>
                 <div key={`${projectIndex}-${slideIndex}`}> {/* This container div will be styled by react-slick carosuel. Do not style or add classes */}
                   {slideContent(slide, title)}
