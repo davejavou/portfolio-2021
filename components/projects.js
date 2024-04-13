@@ -31,7 +31,7 @@ function slideContent( {type, ssrc, psrc}, title ) {
         <img className="object-contain" src={ssrc} alt={title} />
       }
       {(type === 'video') &&
-        <video controls disablePictureInPicture muted playsinline poster={psrc} className="drop-shadow-lg rounded-lg">
+        <video autoplay muted playsinline disablepictureinpicture controls poster={psrc} type="video/mp4" className="drop-shadow-lg rounded-lg">
           <source src={ssrc} />
         </video>
       }
