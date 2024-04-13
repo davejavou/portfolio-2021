@@ -31,7 +31,8 @@ function slideContent( {type, ssrc, psrc}, title ) {
         <img className="object-contain" src={ssrc} alt={title} />
       }
       {(type === 'video') &&
-        <video controls muted playsinline poster={psrc} src={ssrc} type="video/mp4" className="drop-shadow-lg rounded-lg" />
+        // Note the capitalization in "playsInline" to get it through NextJS to the browser. "playsinline" was stripped
+        <video controls muted playsInline poster={psrc} src={ssrc} type="video/mp4" className="drop-shadow-lg rounded-lg" />
       }
       {(type === 'youtube') &&
         <div className="flex flex-col justify-center content-center my-4">
