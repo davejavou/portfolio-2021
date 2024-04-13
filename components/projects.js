@@ -32,7 +32,7 @@ function slideContent( {type, ssrc, psrc}, title ) {
       }
       {(type === 'video') &&
         // Note the capitalization in "playsInline" to get it through NextJS to the browser. "playsinline" was stripped
-        <video controls muted playsInline poster={psrc} src={ssrc} type="video/mp4" className="drop-shadow-lg rounded-lg" />
+        <video autoPlay loop controls muted playsInline poster={psrc} src={ssrc} type="video/mp4" className="drop-shadow-lg rounded-lg" />
       }
       {(type === 'youtube') &&
         <div className="flex flex-col justify-center content-center my-4">
