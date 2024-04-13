@@ -27,15 +27,15 @@ export function MobileNav() {
 
   return (
     <div className="z-20 flex md:hidden fixed -bottom-px h-nav-height w-full">
-      <Link href={`/`} className={cn('tab', {'tab-active' : pathname === '/' || pathname ==='/about'})}>
+      <Link href={`/`} title="About Dave Cutter" className={cn('tab', {'tab-active' : pathname === '/' || pathname ==='/about'})}>
         <Icon className="tab-icon" icon={faUser} />
-        David Cutter
+        About
       </Link>
-      <Link href={`/portfolio`} className={cn('tab', {'tab-active' : pathname === '/portfolio'})}>
+      <Link href={`/portfolio`} title="Dave's Portfolio" className={cn('tab', {'tab-active' : pathname === '/portfolio'})}>
         <Icon className="tab-icon" icon={faBookOpen} />
         Portfolio
       </Link>
-      <Link href={`/photography`} className={cn('tab', {'tab-active' : pathname === '/photography'})}>
+      <Link href={`/photography`} title="Dave's Photography" className={cn('tab', {'tab-active' : pathname === '/photography'})}>
         <Icon className="tab-icon" icon={faCameraRetro} />
         Photography
       </Link>

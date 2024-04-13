@@ -1,10 +1,11 @@
+import Link from 'next/link'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faFilePdf, faFileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faFileAlt, faBookOpen } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 export default function QuickBio() {
   return (
-    <div className="bg-white text-gray max-w-prose w-5/6 lg:mt-15 mx-auto">
+    <div className="bg-white text-gray max-w-prose w-5/6 lg:mt-15 pb-8 mx-auto">
       <img src="https://davecutter.com/portfolio/public/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
       <h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-4xl">
         Dave Cutter. <br />
@@ -21,10 +22,10 @@ export default function QuickBio() {
         <Icon className="btn-icon" icon={faLinkedin} />
         LinkedIn
       </a>
-      <a className="btn btn-blue w-full mb-12" target="_blank" rel="noopener" href="mailto:dave@davecutter.com" title="Email Dave">
-        <Icon className="btn-icon" icon={faEnvelope} />
-        Email Dave
-      </a>
+      <Link href={`/portfolio`} title="Dave's Portfolio" className="md:hidden btn btn-blue w-full mb-2">
+        <Icon className="tab-icon" icon={faBookOpen} />
+        Portfolio
+      </Link>
     </div>
   )
 }
