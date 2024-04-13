@@ -20,7 +20,7 @@ export const portfolio = [
       // },
       {
         type: "video",
-        ssrc: "https://davecutter.com/portfolio/public/slides/pladia-video.mp4",
+        ssrc: "https://davecutter.com/portfolio/public/slides/pladia-video-720.mp4",
         psrc: "https://davecutter.com/portfolio/public/slides/pladia-video-poster.png",
       },
     ],
@@ -107,7 +107,7 @@ export const portfolio = [
       // },
       {
         type: "video",
-        ssrc: "https://davecutter.com/portfolio/public/slides/spt-gt4-video.mp4",
+        ssrc: "https://davecutter.com/portfolio/public/slides/spt-gt4-video-720.mp4",
         psrc: "https://davecutter.com/portfolio/public/slides/spt-gt4-video-poster.png",
       },
       {
