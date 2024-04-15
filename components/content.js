@@ -1,4 +1,4 @@
-export const aboutDaveCutter = "Dave Cutter is a designer and FE developer working in Melbourne, Australia. He is currently designing at Art Processors and formerly designed and developed at Sports Performance Tracking, ESPN, and Yahoo!"
+export const aboutDaveCutter = "I’m Dave, a product designer and front-end developer with 25 years experience in software product development for startup & enterprise clients. I specialise in human-centred design, intuitive UX & UI, and elegant front-end code. I also study the History & Philosophy of Science and International Politics at the University of Melbourne."
 
 export const portfolio = [
   {
@@ -8,7 +8,7 @@ export const portfolio = [
     title: "Art Processors: Pladia",
     link: "https://www.artprocessors.net/what-we-do/pladia",
     description:
-      "I designed Pladia, a web-based app for storytellers and technicians to create and install location-based smartphone experiences. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
+      "I designed Pladia: a professional experience design app for museum and art gallery storytellers and technicians. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
     credit: "Video from Art Processors",
     credit_link: "https://vimeo.com/831709043", // Publically Visible and Downloaded 8 Apr 2024
     color: "#A6784F",
