@@ -26,13 +26,13 @@ export const portfolio = [
     ],
   },
   {
-    client: "Mod.io",
+    client: "mod.io",
     location: "Melbourne",
     year: 2021,
-    title: "Mod.io Marketplace",
+    title: "mod.io Marketplace",
     link: "https://mod.io/g",
     description:
-      "I redesigned the Mod.io marketplace, updating the information architecture, design system, UI, and UX - from the ground up - to be an easier, more compelling, and more community-driven experience for both publishers and gamers - who collaborated on thousands of mods across platforms.",
+      "I redesigned the mod.io marketplace, updating the information architecture, design system, UI, and UX - from the ground up - to be an easier, more compelling, and more community-driven experience for both publishers and gamers - who collaborated on thousands of mods across platforms.",
     color: "#161726",
     slides: [
       {
@@ -63,13 +63,13 @@ export const portfolio = [
     ],
   },
   {
-    client: "Mod.io",
+    client: "mod.io",
     location: "Melbourne",
     year: 2021,
-    title: "Mod.io Home Page",
+    title: "mod.io Home Page",
     link: "https://mod.io/",
     description:
-      "Designing ONE homepage for both gamers and game developers, as well as for desktop, tablet, and mobile, all in one - to serve Mod.io's groundbreaking technology in mod development and distribution across gaming platforms!",
+      "Designing ONE homepage for both gamers and game developers, as well as for desktop, tablet, and mobile, all in one - to serve mod.io's groundbreaking technology in mod development and distribution across gaming platforms!",
     color: "#69B3D7",
     slides: [
       {
