@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Typhoon Test</title>
+        <link type="text/css" rel="stylesheet" href="typhoon.css">
+        <style>
+        	html, body {
+        		height: 100%;
+        		margin: 0;
+        		padding: 0;
+        		background-color: #013058;
+        	}
+        	img.site {
+        		border: none;
+        		width: 100vw;
+        	}
+        </style>
+    </head>
+    <body>
+
+        <img class="site" src="example-website.png" alt="Example Website Under Interstitial" />
+
+		<div id="typhoon-canvas"></div>
+
+		<div id="typhoon-html">
+		    <h1>
+		        <span class="top">Think this</span>
+		        <span class="middle">interrupted</span>
+		        <span class="bottom">your day?</span>
+		    </h1>
+		    <div class="photos">
+		        <!-- All Photos Labeled for Commercial Reuse as of collection on Dec 18, 2013. Google Image Search and Flickr Image Search-->
+		        <img src="photos/01.jpg" data-caption="Damage to a school classroom in Tacloban." data-attribution="Henry Donati/Department for International Development" data-copywrite="Attribution License" data-original="http://www.flickr.com/photos/dfid/11290331494/" />
+		        <img src="photos/02.jpg" data-caption="Tacloban, Philippines" data-attribution="WFP/Praveen Agrawal" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844364424/" />
+		        <img src="photos/03.jpg" data-caption="Cebu, Philippines" data-attribution="Pio Arce/Genesis Photos - World Vision" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844671344/" />
+		        <!--<img src="photos/04.jpg" data-caption="Une femme dans un abri improvisé à Guiuan le 15 novembre." data-attribution="Kennedy, Liam, MCSN" data-copywrite="Public domain photograph from defenseimagery.mil." data-original="http://commons.wikimedia.org/wiki/File:131115-N-BD107-734_GUIUAN,_Eastern_Samar_Province,_Republic_of_the_Philippines_(Nov._15,_2013)_A_Guiuan_woman_stands_outside_of_her_makeshift_shack_in_the_aftermath_of_Super_Typhoon_Haiyan_131115-N-BD107-734.jpg" />-->
+		        <!--<img src="photos/05.jpg" data-caption="Typhoon Haiyan - Cebu" data-attribution="Pio Arce/Genesis Photos - World Vision" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844671034/" />-->
+		        <!--<img src="photos/06.jpg" data-caption="Typhoon Haiyan - Cebu" data-attribution="Pio Arce/Genesis Photos - World Vision" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844671754/" />-->
+		        <!--<img src="photos/07.jpg" data-caption="Typhoon Haiyan - Cebu" data-attribution="Pio Arce/Genesis Photos - World Vision" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844672554/" />-->
+		        <img src="photos/08.jpg" data-caption="A few palm trees remain standing amid the destruction." data-attribution="Henry Donati/Department for International Development" data-copywrite="Attribution License" data-original="http://www.flickr.com/photos/dfid/11290331484/" />
+		        <img src="photos/09.jpg" data-caption="Tacloban, Philippines" data-attribution="WFP/Praveen Agrawal" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10844582363/" />
+		        <img src="photos/10.jpg" data-caption="Only a church on the outskirts remains unscathed." data-attribution="DFID - UK Department for International Development" data-copywrite="Creative Commons Attribution 2.0 Generic" data-original="http://commons.wikimedia.org/wiki/File:Aerial_view_of_Tacloban_after_Typhoon_Haiyan.jpg" />
+		        <img src="photos/11.jpg" data-caption="A Philippine resident sits outside of his home." data-attribution="Kennedy, Liam, MCSN" data-copywrite="Public domain photograph from defenseimagery.mil." data-original="http://commons.wikimedia.org/wiki/File:A_Philippine_resident_sits_outside_of_his_home_in_the_aftermath_of_Super_Typhoon_Haiyan_131115-N-BD107-722.jpg" />
+		        <img src="photos/12.jpg" data-caption="A father and daughter lay on a concrete slab." data-attribution="Kennedy, Liam, MCSN" data-copywrite="Public domain photograph from defenseimagery.mil." data-original="http://commons.wikimedia.org/wiki/File:A_Philippine_resident_and_his_daughter_lay_on_a_concrete_slab_in_the_aftermath_of_Typhoon_Haiyan_131115-N-BD107-727.jpg" />
+		        <img src="photos/13.jpg" data-caption="Tanauan Church" data-attribution="Flickr: Yo Yo Man" data-copywrite="Attribution License" data-original="http://www.flickr.com/photos/43879155@N00/11364785954/" />
+		        <!--<img src="photos/14.jpg" data-caption="Tifón Haiyan-Yolanda en Filipinas (BCDI y Manos Unidas)" data-attribution="Flickr: Mans Unides" data-copywrite="Attribution License" data-original="http://www.flickr.com/photos/mansunides/11307393653/" />-->
+		        <img src="photos/15.jpg" data-caption="This child is one of the lucky survivors. Leyte Province" data-attribution="Arlynn Aquino EU/ECHO" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10800156554/" />
+		        <img src="photos/16.jpg" data-caption="Huge piles of debris litter the roads." data-attribution="Arlynn Aquino EU/ECHO" data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/69583224@N05/10800021215/" />
+		        <!--<img src="photos/17.jpg" data-caption="Die Menschen flehen verzweifelt unm Hilfe." data-attribution="Flickr: ASB Deutschland e.V." data-copywrite="Some rights reserved" data-original="http://www.flickr.com/photos/asb_de/10927803044/" />-->
+		        <div class="attribution-display"></div>
+		        <div class="caption-display"></div>
+		    </div>
+		    <p class="body-text">Devastation has interrupted millions of lives. Please keep giving to the American Red Cross to aid the victims of Typhoon Haiyan.</p>
+		    <a href="http://www.crowdrise.com/typhoonhaiyanadsupply/" title="Give to the Red Cross and help the victims of Typhoon Haiyan." target="_blank" class="give-button">Give Now!</a>
+		    <div class="close-button">Close</div>
+		    <p class="tiny-text">
+		        <span class="icon"></span>
+		        Ad Space
+		        <span class="publisher-thanks">Generously Donated by <span class="publisher-name"></span> <br/> and </span>
+		        made possible by AdSupply.com.<br/>
+		        Please Give Today.
+		    </p>
+		</div>
+
+    </body>
+    <script id="typhoon-script" data-publisher="Publisher Name" src="typhoon.js"></script>
+</html>

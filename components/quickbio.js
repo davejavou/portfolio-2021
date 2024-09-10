@@ -6,7 +6,7 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 export default function QuickBio() {
   return (
     <div className="bg-white text-gray max-w-prose w-5/6 lg:mt-15 pb-8 mx-auto">
-      <img src="https://davecutter.com/portfolio/public/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
+      <img src="/portfolio_2021/assets/images/portrait.jpg" className="max-h-72 mx-auto my-10 rounded-full border-4 border-white shadow-xl" alt="A Portrait of the Artist." />
       <h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-4xl">
         Dave Cutter. <br />
         Designer &amp; <span className="inline-block">FE Developer.</span>
@@ -18,7 +18,7 @@ export default function QuickBio() {
         <Icon className="tab-icon" icon={faBookOpen} />
         Portfolio
       </Link>
-      <a className="btn btn-blue w-full mb-2" target="_blank" rel="noopener" href="https://davecutter.com/portfolio/public/David-Cutter-Resume.pdf" title="Download Dave Cutter's Resume PDF">
+      <a className="btn btn-blue w-full mb-2" target="_blank" rel="noopener" href="/portfolio_2021/assets/David-Cutter-Resume.pdf" title="Download Dave Cutter's Resume PDF">
         <Icon className="btn-icon" icon={faFilePdf} />
         Resume
       </a>
