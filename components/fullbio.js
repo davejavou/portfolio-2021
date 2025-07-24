@@ -2,7 +2,7 @@ import { NavSpacer } from './nav';
 
 export default function FullBio() {
   return (
-    <div className="md:h-screen bg-blue">
+    <div className="md:min-h-screen bg-blue">
       <NavSpacer className="hidden md:block" />
       <div className="p-5 max-w-prose mx-auto">
         <img src="/portfolio_2021/assets/images/at-work.jpg" className="w-full my-5 shadow-lg rounded-md transform rotate-3" alt="Candid at the water cooler" />
