@@ -3,7 +3,8 @@
  */
 const nextConfig = {
   output: 'export',
-  basePath: '/portfolio_2021', // Even when running dev, you will need to add this to the URL, ex: http://localhost:3000/portfolio_2021
+  // Required because of server folder structure. Without this line, the JS would look in / instead of /portfolio_2021
+  basePath: '/portfolio_2021',
 
   // Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
   // Because my server does not support clean URLs
