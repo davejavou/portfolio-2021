@@ -1,6 +1,6 @@
 {
   "name": "david-cutter-portfolio-2021",
-  "version": "2025.07.24",
+  "version": "2025.09.23",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,22 +8,22 @@
     "start": "npx serve@latest out"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.0.0",
-    "@fortawesome/free-brands-svg-icons": "^7.0.0",
-    "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
+    "@fortawesome/free-brands-svg-icons": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
+    "@fortawesome/react-fontawesome": "^3.0.2",
     "classnames": "^2.5.1",
-    "next": "^15.4.3",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-slick": "^0.30.3"
+    "next": "^15.5.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-slick": "^0.31.0"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/postcss": "^4.1.13",
     "autoprefixer": "^10.4.21",
-    "npm-check-updates": "^18.0.2",
+    "npm-check-updates": "^18.3.0",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.11"
+    "tailwindcss": "^4.1.13"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "yarn@4.10.3"
 }
