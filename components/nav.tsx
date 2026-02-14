@@ -8,7 +8,7 @@ import cn from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export function NavSpacer({ className, bg }) {
+export function NavSpacer({ className, bg }: { className?: string; bg?: string }) {
 	return (
 		<div
 			className={`${className} h-nav-height w-full block shrink-0`}

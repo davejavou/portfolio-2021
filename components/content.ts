@@ -1,7 +1,9 @@
-export const aboutDaveCutter =
+import type { Project } from "../types/content";
+
+export const aboutDaveCutter: string =
 	"I’m Dave, a product designer and front-end developer with 25 years experience in software product development for startup & enterprise clients. I specialise in human-centred design, intuitive UX & UI, and elegant front-end code. I also study the History & Philosophy of Science and International Politics at the University of Melbourne.";
 
-export const portfolio = [
+export const portfolio: Project[] = [
 	{
 		key: 1,
 		client: "Art Processors",
@@ -448,7 +450,7 @@ export const portfolio = [
 	},
 ];
 
-export const photography = [
+export const photography: Project[] = [
 	{
 		key: 1,
 		client: "Luna Flip Jewellery",

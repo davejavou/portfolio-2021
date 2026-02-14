@@ -1,4 +1,4 @@
-export default function IconIsland({ className }) {
+export default function IconIsland({ className }: { className?: string }) {
 	return (
 		<svg
 			className={className}
