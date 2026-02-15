@@ -6,15 +6,16 @@
  *
  *   - Next.js <Link> auto-prepends basePath to href — just use bare paths.
  *
- *   - Next.js <Image> does NOT auto-prepend basePath when images.unoptimized
- *     is true (required for static export). Use assetPath() for Image src.
+ *   - ExportedImage (next-image-export-optimizer) handles basePath via its
+ *     own prop — pass the raw path as src (e.g. "/assets/photo.jpg") and
+ *     set basePath={BASE_PATH}. Do NOT wrap src with assetPath().
  *
- *   - Raw HTML elements (<a>, <video>, <link>, <iframe>) also do NOT get
+ *   - Raw HTML elements (<a>, <video>, <link>, <iframe>) do NOT get
  *     basePath prepended. Use assetPath() for these to build the full URL.
  *
  * Example:
  *   <Link href="/about" />                              // Next.js adds /portfolio_2021 automatically
- *   <Image src={assetPath("/assets/photo.jpg")} />     // We add /portfolio_2021 manually
+ *   <ExportedImage src="/assets/photo.jpg" basePath={BASE_PATH} /> // optimizer handles basePath
  *   <video src={assetPath("/assets/video.mp4")} />     // We add /portfolio_2021 manually
  *   <a href={assetPath("/assets/resume.pdf")} />       // We add /portfolio_2021 manually
  */

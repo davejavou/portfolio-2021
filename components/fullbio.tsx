@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { assetPath } from "../lib/assets";
+import ExportedImage from "next-image-export-optimizer";
+import { BASE_PATH, assetPath } from "../lib/assets";
 import { NavSpacer } from "./nav";
 
 export default function FullBio() {
@@ -8,13 +8,14 @@ export default function FullBio() {
 			<NavSpacer className="hidden md:block" />
 			<div className="p-5 max-w-prose m-auto">
 				<div className="relative w-full my-5 transform rotate-4 -mt-6 md:mt-4">
-					<Image
-						src={assetPath("/assets/images/at-work.jpg")}
+					<ExportedImage
+						src="/assets/images/at-work.jpg"
 						className="shadow-lg rounded-md"
 						alt="Candid at the water cooler"
-						width="1200"
-						height="689"
+						width={1200}
+						height={689}
 						loading="eager"
+						basePath={BASE_PATH}
 					/>
 				</div>
 				<h2 className="mb-8 font-serif font-bold text-2xl lg:text-3xl">

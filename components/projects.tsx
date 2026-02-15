@@ -5,9 +5,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import { useCallback, useEffect, useState } from "react";
-import { assetPath } from "../lib/assets";
+import { BASE_PATH, assetPath } from "../lib/assets";
 import type { ContentType, Slide } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
@@ -103,12 +103,13 @@ function slideContent(slide: Slide, title: string) {
 	return (
 		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto">
 			{slide.type === "image" && (
-				<Image
+				<ExportedImage
 					className="object-contain"
-					src={assetPath(slide.ssrc)}
+					src={slide.ssrc}
 					alt={title}
 					width={1280}
 					height={720}
+					basePath={BASE_PATH}
 				/>
 			)}
 			{slide.type === "video" && (

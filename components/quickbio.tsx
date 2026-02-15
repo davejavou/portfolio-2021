@@ -1,21 +1,22 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBookOpen, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
-import { assetPath } from "../lib/assets";
+import { BASE_PATH, assetPath } from "../lib/assets";
 
 export default function QuickBio() {
 	return (
 		<div className="bg-white text-gray max-w-prose w-5/6 pb-16 md:pb-8 mx-auto">
 			<div className="max-w-72 aspect-square relative mx-auto my-10">
-				<Image
-					src={assetPath("/assets/images/portrait.jpg")}
+				<ExportedImage
+					src="/assets/images/portrait.jpg"
 					alt="A Portrait of the Artist."
 					className="rounded-full border-4 border-white shadow-xl"
 					width={512}
 					height={512}
 					loading="eager"
+					basePath={BASE_PATH}
 				/>
 			</div>
 
