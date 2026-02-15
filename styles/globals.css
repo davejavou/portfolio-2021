@@ -88,6 +88,10 @@
 .embla-dot-active {
 	opacity: 1;
 }
+.embla-arrow svg {
+	width: 50%;
+	height: 50%;
+}
 
 /* View Transitions API — crossfade between pages */
 ::view-transition-old(root),

@@ -136,7 +136,7 @@ function Carousel({
 
 function slideContent(slide: Slide, title: string) {
 	return (
-		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto">
+		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-full">
 			{slide.type === "image" && (
 				<ExportedImage
 					className="object-contain"
@@ -163,7 +163,7 @@ function slideContent(slide: Slide, title: string) {
 	);
 }
 
-export default function Projects({ content }: { content?: ContentType }) {
+export default function Projects({ content, className }: { content?: ContentType, className?: string }) {
 	const projects = content === "photography" ? photography : portfolio;
 
 	return (
@@ -183,7 +183,7 @@ export default function Projects({ content }: { content?: ContentType }) {
 					color,
 					slides,
 				}) => (
-					<div key={`project-${projectKey}`} style={{ background: color }}>
+					<div key={`project-${projectKey}`} style={{ background: color }} className={className}>
 						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
 							<span>
 								{location}, {year}
@@ -200,7 +200,7 @@ export default function Projects({ content }: { content?: ContentType }) {
 							<Carousel slides={slides} projectKey={projectKey} title={title} />
 						)}
 
-						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose">
+						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose pt-8">
 							<h2 className="text-2xl font-serif pb-2">{title}</h2>
 							<p>{description}</p>
 							{link && (

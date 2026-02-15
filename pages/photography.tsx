@@ -16,7 +16,12 @@ export default function Photography() {
 
 			<Main>
 				<Nav />
-				<Projects content="photography" />
+
+				<Projects
+					content="photography"
+					className="[&_img]:shadow-xl [&_img]:rounded-lg" // Add shadow and rounded corners to all images in photography projects
+				/>
+
 				<div className="md:hidden bg-gray shadow-inner">
 					<Footer />
 					<NavSpacer />

@@ -1,5 +1,5 @@
 import ExportedImage from "next-image-export-optimizer";
-import { BASE_PATH, assetPath } from "../lib/assets";
+import { BASE_PATH } from "../lib/assets";
 import { NavSpacer } from "./nav";
 
 export default function FullBio() {
@@ -19,10 +19,10 @@ export default function FullBio() {
 					/>
 				</div>
 				<h2 className="mb-8 font-serif font-bold text-2xl lg:text-3xl">
-					<span className="md:hidden">About </span>Dave{" "}
-					<small className="text-xs font-light italic">(On Right)</small>
+					About Dave
+					<small className="text-xs font-light italic ml-2">(On Right)</small>
 				</h2>
-				<p className="mt-5 mb-10 text-lg leading-relaxed max-w-prose text-pretty">
+				<p className="mt-5 mb-8 text-lg leading-relaxed max-w-prose text-pretty text-justify">
 					I’m a designer and front-end engineer with 25 years experience in
 					media &amp; software development for startup &amp; enterprise clients.
 					I specialize in responsive design, intuitive UI, and elegant code. I’m
@@ -31,19 +31,19 @@ export default function FullBio() {
 					the History &amp; Philosophy of Science at the University of
 					Melbourne.
 				</p>
-				<p className="mt-5 mb-10 text-lg leading-relaxed max-w-prose text-pretty">
+				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty text-justify">
 					<strong>Dev Highlights:</strong> HTML, CSS, Javascript, React,
 					Typescript, Tailwind, ShadCN, Angular, Vue, PHP, XML/XSLT, JQuery,
 					VbScript, & Coldfusion.
 				</p>
-				<p className="mt-5 mb-10 text-lg leading-relaxed max-w-prose text-pretty">
+				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty text-justify">
 					<strong>Design Highlights:</strong> User & Humanity Centered Design,
 					UI, UX, Research, Figma, Sketch, Adobe, & Design Systems.
 				</p>
 
 				{/* Footer */}
 
-				<ul className="my-20 text-sm leading-relaxed text-center text-blue-lightest">
+				<ul className="my-16 text-sm leading-relaxed text-center text-blue-lightest">
 					<li className="uppercase">Made in Melbourne</li>
 					{/* Originally Created July 2021 */}
 					<li className="italic">
@@ -62,7 +62,7 @@ export default function FullBio() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Charlie Waite's Portfolio.
+							Charlie Waite
 						</a>
 					</li>
 					<li>Portrait of Dave with Tie by A. Labbett.</li>
