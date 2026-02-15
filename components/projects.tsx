@@ -7,7 +7,7 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
 import ExportedImage from "next-image-export-optimizer";
 import { useCallback, useEffect, useState } from "react";
-import { BASE_PATH, assetPath } from "../lib/assets";
+import { assetPath, BASE_PATH } from "../lib/assets";
 import type { ContentType, Slide } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";

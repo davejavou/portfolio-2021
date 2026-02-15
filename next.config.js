@@ -7,15 +7,9 @@ const nextConfig = {
 	// Must match the BASE_PATH in lib/assets.ts
 	basePath: "/portfolio_2021",
 
-	// Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
+	// Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`
 	// Because my server does not support clean URLs
 	trailingSlash: true,
-
-	// Optional: Prevent automatic `/me` -> `/me/`, instead preserve `href`
-	// skipTrailingSlashRedirect: true,
-
-	// Optional: Change the output directory `out` -> `dist`
-	// distDir: 'dist',
 
 	images: {
 		loader: "custom",
@@ -30,7 +24,7 @@ const nextConfig = {
 		nextImageExportOptimizer_exportFolderPath: "out",
 		nextImageExportOptimizer_quality: "75",
 		nextImageExportOptimizer_storePicturesInWEBP: "true",
-		nextImageExportOptimizer_exportFolderName: "nextImageExportOptimizer",
+		nextImageExportOptimizer_exportFolderName: "optimized",
 		nextImageExportOptimizer_generateAndUseBlurImages: "true",
 		nextImageExportOptimizer_remoteImageCacheTTL: "0",
 	},
