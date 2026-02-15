@@ -22,7 +22,7 @@ export default function FullBio() {
 					About Dave
 					<small className="text-xs font-light italic ml-2">(On Right)</small>
 				</h2>
-				<p className="mt-5 mb-8 text-lg leading-relaxed max-w-prose text-pretty text-justify">
+				<p className="mt-5 mb-8 text-lg leading-relaxed max-w-prose text-pretty md:text-justify">
 					I’m a designer and front-end engineer with 25 years experience in
 					media &amp; software development for startup &amp; enterprise clients.
 					I specialize in responsive design, intuitive UI, and elegant code. I’m
@@ -31,12 +31,12 @@ export default function FullBio() {
 					the History &amp; Philosophy of Science at the University of
 					Melbourne.
 				</p>
-				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty text-justify">
+				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty md:text-justify">
 					<strong>Dev Highlights:</strong> HTML, CSS, Javascript, React,
 					Typescript, Tailwind, ShadCN, Angular, Vue, PHP, XML/XSLT, JQuery,
 					VbScript, & Coldfusion.
 				</p>
-				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty text-justify">
+				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty md:text-justify">
 					<strong>Design Highlights:</strong> User & Humanity Centered Design,
 					UI, UX, Research, Figma, Sketch, Adobe, & Design Systems.
 				</p>
