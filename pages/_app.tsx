@@ -5,9 +5,11 @@ import { Nunito, Raleway } from "next/font/google";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import "../styles/globals.css";
+import { cn } from "../lib/cn";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above.
 // Goal is to avoid FOUC (Flash of Unstyled Content) when using Font Awesome icons.
+// Further, class "wa-cloak" hides elements until the fonts are loaded and applied.
 config.autoAddCss = false;
 
 // Load Fonts
@@ -35,7 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<Component
 			style={{ background: "purple" }}
-			className={`${raleway.className} ${nunito.className}`}
+			className={cn("wa-cloak", raleway.className, nunito.className)}
 			{...pageProps}
 		/>
 	);
