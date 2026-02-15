@@ -92,3 +92,17 @@
 .embla-dot-active {
 	opacity: 1;
 }
+
+/* View Transitions API — crossfade between pages */
+::view-transition-old(root),
+::view-transition-new(root) {
+	animation-duration: 250ms;
+	animation-timing-function: ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0ms;
+	}
+}
