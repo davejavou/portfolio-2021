@@ -24,6 +24,7 @@ function Carousel({
 	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+	const [loadedSlides, setLoadedSlides] = useState<Set<number>>(new Set([0]));
 
 	const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
 	const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
@@ -32,19 +33,39 @@ function Carousel({
 		[emblaApi],
 	);
 
+	// Set up Embla carousel and handle slide changes and manage lazy loading of slides
 	useEffect(() => {
 		if (!emblaApi) return;
 
+		// Get the list of scroll snap points from Embla and store in state for rendering pagination dots
 		setScrollSnaps(emblaApi.scrollSnapList());
 
-		const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+		// Handler for when a new slide is selected
+		const onSelect = () => {
+			const newIndex = emblaApi.selectedScrollSnap();
+			setSelectedIndex(newIndex);
+
+			// Load the current slide and adjacent ones
+			setLoadedSlides((prev) => {
+				const newLoaded = new Set(prev);
+				const indices = [newIndex - 1, newIndex, newIndex + 1].filter(
+					(i) => i >= 0 && i < slides.length,
+				);
+				for (const i of indices) {
+					newLoaded.add(i);
+				}
+				return newLoaded;
+			});
+		};
+		// Listen for slide changes and trigger the onSelect handler to update state and manage lazy loading
 		emblaApi.on("select", onSelect);
 		onSelect();
 
+		// Clean up event listener on unmount or when dependencies change
 		return () => {
 			emblaApi.off("select", onSelect);
 		};
-	}, [emblaApi]);
+	}, [emblaApi, slides.length]);
 
 	const totalSlides = slides.length;
 
@@ -56,14 +77,28 @@ function Carousel({
 		>
 			<div className="overflow-hidden" ref={emblaRef}>
 				<div className="flex">
-					{slides.map((slide) => (
-						<div
-							className="flex-[0_0_100%] min-w-0"
-							key={`project-${projectKey}-slide-${slide.key}`}
-						>
-							{slideContent(slide, title)}
-						</div>
-					))}
+					{slides.map((slide, index) =>
+						loadedSlides.has(index) ? (
+							<div
+								className="flex-[0_0_100%] min-w-0"
+								key={`project-${projectKey}-slide-${slide.key}`}
+							>
+								{slideContent(slide, title)}
+							</div>
+						) : (
+							<div
+								className="flex-[0_0_100%] min-w-0"
+								key={`project-${projectKey}-slide-${slide.key}`}
+							>
+								{/* Placeholder for unloaded slide */}
+								<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto">
+									<div className="bg-gray-200 animate-pulse rounded-lg h-64 flex items-center justify-center">
+										Loading...
+									</div>
+								</div>
+							</div>
+						),
+					)}
 				</div>
 			</div>
 
