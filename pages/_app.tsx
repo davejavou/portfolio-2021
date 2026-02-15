@@ -2,9 +2,11 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import type { AppProps } from "next/app";
 import { Nunito, Raleway } from "next/font/google";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import "../styles/globals.css";
+import { aboutDave } from "../components/content";
 import { cn } from "../lib/cn";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above.
@@ -34,11 +36,30 @@ export default function App({ Component, pageProps }: AppProps) {
 		};
 	}, [router.events]);
 
+	const structuredData = {
+		"@context": "https://schema.org",
+		"@type": "Person",
+		name: "Dave Cutter",
+		jobTitle: "UX Engineer, Product Designer, and Front End Developer",
+		description: aboutDave,
+		url: "https://davecutter.com",
+	};
+
 	return (
-		<Component
-			style={{ background: "purple" }}
-			className={cn("wa-cloak", raleway.className, nunito.className)}
-			{...pageProps}
-		/>
+		<>
+			<Head>
+				{/* SEO: Canonical URL */}
+				<link rel="canonical" href={`https://davecutter.com${router.asPath}`} />
+				{/* SEO: Structured Data */}
+				<script type="application/ld+json">
+					{JSON.stringify(structuredData)}
+				</script>
+			</Head>
+			<Component
+				style={{ background: "purple" }}
+				className={cn("wa-cloak", raleway.className, nunito.className)}
+				{...pageProps}
+			/>
+		</>
 	);
 }

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { aboutDaveCutter } from "../components/content";
+import { aboutDave } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
@@ -11,7 +11,7 @@ export default function Photography() {
 		<Layout>
 			<Head>
 				<title>Dave Cutter's Photography</title>
-				<meta name="description" content={aboutDaveCutter} />
+				<meta name="description" content={aboutDave} />
 			</Head>
 
 			<Main>

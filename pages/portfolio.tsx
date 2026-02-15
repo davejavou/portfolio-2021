@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useWindowSize } from "usehooks-ts";
-import { aboutDaveCutter } from "../components/content";
+import { aboutDave } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
@@ -17,7 +17,7 @@ export default function Portfolio() {
 		<Layout>
 			<Head>
 				<title>Dave Cutter's Portfolio</title>
-				<meta name="description" content={aboutDaveCutter} />
+				<meta name="description" content={aboutDave} />
 			</Head>
 
 			<Main>
