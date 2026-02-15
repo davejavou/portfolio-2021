@@ -7,7 +7,7 @@ import { assetPath } from "../lib/assets";
 
 export default function QuickBio() {
 	return (
-		<div className="bg-white text-gray max-w-prose w-5/6 lg:mt-nav-height pb-16 md:pb-8 mx-auto">
+		<div className="bg-white text-gray max-w-prose w-5/6 pb-16 md:pb-8 mx-auto">
 			<div className="max-w-72 aspect-square relative mx-auto my-10">
 				<Image
 					src={assetPath("/assets/images/portrait.jpg")}
@@ -19,12 +19,12 @@ export default function QuickBio() {
 				/>
 			</div>
 
-			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-4xl">
+			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-3xl">
 				Dave Cutter. <br />
 				UX&nbsp;Designer &amp; Engineer.
 			</h1>
 
-			<h2 className="my-10 text-lg text-gray-lightest">
+			<h2 className="my-10 text-lg text-gray-lightest text-pretty">
 				Senior Product Designer & Frontend Developer at{" "}
 				<a
 					className="text-blue-light hover:text-blue-lightest"
