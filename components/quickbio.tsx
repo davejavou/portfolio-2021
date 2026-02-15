@@ -7,7 +7,7 @@ import { assetPath } from "../lib/assets";
 
 export default function QuickBio() {
 	return (
-		<div className="bg-white text-gray max-w-prose w-5/6 lg:mt-nav-height pb-8 mx-auto">
+		<div className="bg-white text-gray max-w-prose w-5/6 lg:mt-nav-height pb-16 md:pb-8 mx-auto">
 			<div className="max-w-72 aspect-square relative mx-auto my-10">
 				<Image
 					src={assetPath("/assets/images/portrait.jpg")}
@@ -21,8 +21,9 @@ export default function QuickBio() {
 
 			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-4xl">
 				Dave Cutter. <br />
-				Designer &amp; <span className="inline-block">FE Developer.</span>
+				UX&nbsp;Designer &amp; Engineer.
 			</h1>
+
 			<h2 className="my-10 text-lg text-gray-lightest">
 				Senior Product Designer & Frontend Developer at{" "}
 				<a
@@ -65,6 +66,7 @@ export default function QuickBio() {
 					Yahoo!
 				</a>
 			</h2>
+
 			<Link
 				href={`/portfolio`}
 				title="Dave's Portfolio"
@@ -73,36 +75,39 @@ export default function QuickBio() {
 				<Icon className="tab-icon" icon={faBookOpen} />
 				Portfolio
 			</Link>
-			<a
-				className="btn btn-blue w-full mb-2"
-				target="_blank"
-				rel="noopener noreferrer"
-				href={assetPath("/assets/David-Cutter-Resume.pdf")}
-				title="Download Dave Cutter's Resume PDF"
-			>
-				<Icon className="btn-icon" icon={faFilePdf} />
-				Resume
-			</a>
-			<a
-				className="btn btn-blue w-full mb-2"
-				target="_blank"
-				rel="noopener noreferrer"
-				href="https://www.linkedin.com/in/davejavou/"
-				title="Dave Cutter on LinkedIn"
-			>
-				<Icon className="btn-icon" icon={faLinkedin} />
-				LinkedIn
-			</a>
-			<a
-				className="btn btn-blue w-full mb-2"
-				target="_blank"
-				rel="noopener noreferrer"
-				href="https://github.com/davejavou"
-				title="Dave Cutter on GitHub"
-			>
-				<Icon className="btn-icon" icon={faGithub} />
-				GitHub
-			</a>
+
+			<div className="flex gap-2 md:flex-col">
+				<a
+					className="btn btn-blue grow"
+					target="_blank"
+					rel="noopener noreferrer"
+					href={assetPath("/assets/David-Cutter-Resume.pdf")}
+					title="Download Dave Cutter's Resume PDF"
+				>
+					<Icon className="btn-icon" icon={faFilePdf} />
+					Resume
+				</a>
+				<a
+					className="btn btn-blue grow"
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://www.linkedin.com/in/davejavou/"
+					title="Dave Cutter on LinkedIn"
+				>
+					<Icon className="btn-icon" icon={faLinkedin} />
+					LinkedIn
+				</a>
+				<a
+					className="btn btn-blue grow"
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://github.com/davejavou"
+					title="Dave Cutter on GitHub"
+				>
+					<Icon className="btn-icon" icon={faGithub} />
+					GitHub
+				</a>
+			</div>
 		</div>
 	);
 }

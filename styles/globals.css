@@ -57,7 +57,7 @@
 	}
 	.tab-active {
 		text-shadow: 0 0 40px white;
-		@apply pointer-events-none text-white bg-transparent border-white/20;
+		@apply pointer-events-none text-white bg-white/10 border-white/20;
 	}
 	.tab-icon {
 		@apply fill-current inline mr-1 h-5 w-5;
