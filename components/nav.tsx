@@ -8,7 +8,13 @@ import cn from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-export function NavSpacer({ className, bg }: { className?: string; bg?: string }) {
+export function NavSpacer({
+	className,
+	bg,
+}: {
+	className?: string;
+	bg?: string;
+}) {
 	return (
 		<div
 			className={`${className} h-nav-height w-full block shrink-0`}
@@ -23,7 +29,10 @@ export default function Nav() {
 	const { pathname } = useRouter();
 
 	return (
-		<div className="z-20 hidden md:flex fixed -top-px h-nav-height w-full md:w-md-nav-width lg:w-lg-nav-width">
+		<nav
+			aria-label="Main navigation"
+			className="z-20 hidden md:flex fixed -top-px h-nav-height w-full md:w-md-nav-width lg:w-lg-nav-width"
+		>
 			<Link
 				href={`/`}
 				className={cn("tab", {
@@ -44,7 +53,7 @@ export default function Nav() {
 			>
 				About
 			</Link>
-		</div>
+		</nav>
 	);
 }
 
@@ -52,7 +61,10 @@ export function MobileNav() {
 	const { pathname } = useRouter();
 
 	return (
-		<div className="z-20 flex md:hidden fixed -bottom-px h-nav-height w-full">
+		<nav
+			aria-label="Main navigation"
+			className="z-20 flex md:hidden fixed -bottom-px h-nav-height w-full"
+		>
 			<Link
 				href={`/`}
 				title="About Dave Cutter"
@@ -79,6 +91,6 @@ export function MobileNav() {
 				<Icon className="tab-icon" icon={faCameraRetro} />
 				Photography
 			</Link>
-		</div>
+		</nav>
 	);
 }

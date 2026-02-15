@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { assetPath } from "../lib/assets";
 import { NavSpacer } from "./nav";
 
 export default function FullBio() {
@@ -8,7 +9,7 @@ export default function FullBio() {
 			<div className="p-5 max-w-prose mx-auto">
 				<div className="relative w-full my-5 transform rotate-3">
 					<Image
-						src="/portfolio_2021/assets/images/at-work.jpg"
+						src={assetPath("/assets/images/at-work.jpg")}
 						className="shadow-lg rounded-md"
 						alt="Candid at the water cooler"
 						width="1200"
@@ -37,6 +38,9 @@ export default function FullBio() {
 					<strong>Design Highlights:</strong> User & Humanity Centered Design,
 					UI, UX, Research, Figma, Sketch, Adobe, & Design Systems
 				</p>
+
+				{/* Footer */}
+
 				<ul className="my-20 text-sm leading-relaxed text-center text-blue-lightest">
 					<li className="uppercase">Made in Melbourne, July 2021</li>
 					<li className="italic">
@@ -44,14 +48,18 @@ export default function FullBio() {
 						<a
 							href="https://omny.fm/shows/triple-m-rock-interviews/triple-m-melbourne-lockdown-number-5-parody-song"
 							target="_blank"
-							rel="noopener"
+							rel="noopener noreferrer"
 						>
 							Lockdown Number Five.
 						</a>
 					</li>
 					<li className="mt-4">
 						Design Inspired by{" "}
-						<a href="http://charliewaite.me/" target="_blank" rel="noopener">
+						<a
+							href="http://charliewaite.me/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							Charlie Waite's Portfolio.
 						</a>
 					</li>
@@ -59,11 +67,15 @@ export default function FullBio() {
 					<li>Portrait of Dave with Monsters Inc. by C. Heldt.</li>
 					<li>
 						Icons by{" "}
-						<a href="https://fontawesome.com/" target="_blank" rel="noopener">
+						<a
+							href="https://fontawesome.com/"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 							FontAwesome.
 						</a>
 					</li>
-					<li className="mt-4">Last Update October 2025</li>
+					<li className="mt-4">Last Update February 2026</li>
 				</ul>
 			</div>
 		</div>

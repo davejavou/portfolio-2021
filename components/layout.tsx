@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { assetPath } from "../lib/assets";
 import Footer from "./footer";
 import QuickBio from "./quickbio";
 import Sidebar from "./sidebar";
@@ -10,19 +11,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 				<link
 					rel="apple-touch-icon"
 					sizes="180x180"
-					href="/portfolio_2021/assets/apple-touch-icon.png"
+					href={assetPath("/assets/apple-touch-icon.png")}
 				/>
 				<link
 					rel="icon"
 					type="image/png"
 					sizes="32x32"
-					href="/portfolio_2021/assets/favicon-32x32.png"
+					href={assetPath("/assets/favicon-32x32.png")}
 				/>
 				<link
 					rel="icon"
 					type="image/png"
 					sizes="16x16"
-					href="/portfolio_2021/assets/favicon-16x16.png"
+					href={assetPath("/assets/favicon-16x16.png")}
 				/>
 			</Head>
 			<Sidebar>

@@ -6,7 +6,7 @@ export default function Footer() {
 			<div className="flex justify-around w-3/4 lg:w-1/2 mx-auto pt-8 pb-5">
 				<a
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 					href="https://cutterscove.com/"
 					title="Watch the fish at Cutter's Cove"
 				>

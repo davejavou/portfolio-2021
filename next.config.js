@@ -4,6 +4,7 @@
 const nextConfig = {
 	output: "export",
 	// Required because of server folder structure. Without this line, the JS would look in / instead of /portfolio_2021
+	// Must match the BASE_PATH in lib/assets.ts
 	basePath: "/portfolio_2021",
 
 	// Optional: Change links `/me` -> `/me/` and emit `/me.html` -> `/me/index.html`

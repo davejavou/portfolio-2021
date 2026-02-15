@@ -3,13 +3,14 @@ import { faBookOpen, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
+import { assetPath } from "../lib/assets";
 
 export default function QuickBio() {
 	return (
 		<div className="bg-white text-gray max-w-prose w-5/6 lg:mt-nav-height pb-8 mx-auto">
 			<div className="max-w-72 aspect-square relative mx-auto my-10">
 				<Image
-					src="/portfolio_2021/assets/images/portrait.jpg"
+					src={assetPath("/assets/images/portrait.jpg")}
 					alt="A Portrait of the Artist."
 					className="rounded-full border-4 border-white shadow-xl"
 					width={512}
@@ -29,7 +30,7 @@ export default function QuickBio() {
 					href="https://factsmgt.com.au/"
 					title="Nelnet International"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					Nelnet
 				</a>
@@ -39,7 +40,7 @@ export default function QuickBio() {
 					className="text-blue-light hover:text-blue-lightest"
 					title="ESPN/Disney"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					Art Processors
 				</a>
@@ -49,14 +50,14 @@ export default function QuickBio() {
 					className="text-blue-light hover:text-blue-lightest"
 					title="ESPN"
 					target="_blank"
-					rel="noopener"
+					rel="noopener noreferrer"
 				>
 					ESPN
 				</a>{" "}
 				&amp;{" "}
 				<a
 					className="text-blue-light hover:text-blue-lightest"
-					rel="noopener"
+					rel="noopener noreferrer"
 					href="https://sports.yahoo.com/"
 					title="Yahoo! Sports"
 					target="_blank"
@@ -75,8 +76,8 @@ export default function QuickBio() {
 			<a
 				className="btn btn-blue w-full mb-2"
 				target="_blank"
-				rel="noopener"
-				href="/portfolio_2021/assets/David-Cutter-Resume.pdf"
+				rel="noopener noreferrer"
+				href={assetPath("/assets/David-Cutter-Resume.pdf")}
 				title="Download Dave Cutter's Resume PDF"
 			>
 				<Icon className="btn-icon" icon={faFilePdf} />
@@ -85,7 +86,7 @@ export default function QuickBio() {
 			<a
 				className="btn btn-blue w-full mb-2"
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 				href="https://www.linkedin.com/in/davejavou/"
 				title="Dave Cutter on LinkedIn"
 			>
@@ -95,7 +96,7 @@ export default function QuickBio() {
 			<a
 				className="btn btn-blue w-full mb-2"
 				target="_blank"
-				rel="noopener"
+				rel="noopener noreferrer"
 				href="https://github.com/davejavou"
 				title="Dave Cutter on GitHub"
 			>

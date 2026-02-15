@@ -7,6 +7,7 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { assetPath } from "../lib/assets";
 import type { ContentType, Slide } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
@@ -15,7 +16,11 @@ function Carousel({
 	slides,
 	projectKey,
 	title,
-}: { slides: Slide[]; projectKey: number; title: string }) {
+}: {
+	slides: Slide[];
+	projectKey: number;
+	title: string;
+}) {
 	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 	const [selectedIndex, setSelectedIndex] = useState(0);
 	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
@@ -41,8 +46,14 @@ function Carousel({
 		};
 	}, [emblaApi]);
 
+	const totalSlides = slides.length;
+
 	return (
-		<div className="embla relative max-w-7xl mx-auto">
+		<section
+			className="embla relative max-w-7xl mx-auto"
+			aria-roledescription="carousel"
+			aria-label={`Slides for ${title}`}
+		>
 			<div className="overflow-hidden" ref={emblaRef}>
 				<div className="flex">
 					{slides.map((slide) => (
@@ -56,16 +67,22 @@ function Carousel({
 				</div>
 			</div>
 
-			<Icon
+			<button
+				type="button"
 				className="embla-arrow left-2 md:left-8"
 				onClick={scrollPrev}
-				icon={faAngleLeft}
-			/>
-			<Icon
+				aria-label="Previous slide"
+			>
+				<Icon icon={faAngleLeft} />
+			</button>
+			<button
+				type="button"
 				className="embla-arrow right-2 md:right-8"
 				onClick={scrollNext}
-				icon={faAngleRight}
-			/>
+				aria-label="Next slide"
+			>
+				<Icon icon={faAngleRight} />
+			</button>
 
 			<div className="embla-dots">
 				{scrollSnaps.map((snap, index) => (
@@ -74,48 +91,37 @@ function Carousel({
 						key={`dot-${projectKey}-${snap}`}
 						className={`embla-dot${index === selectedIndex ? " embla-dot-active" : ""}`}
 						onClick={() => scrollTo(index)}
+						aria-label={`Go to slide ${index + 1} of ${totalSlides}`}
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 }
 
 function slideContent(slide: Slide, title: string) {
 	return (
-		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-[960px] mx-auto">
+		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto">
 			{slide.type === "image" && (
 				<Image
 					className="object-contain"
-					src={slide.ssrc}
+					src={assetPath(slide.ssrc)}
 					alt={title}
 					width={1280}
 					height={720}
 				/>
 			)}
 			{slide.type === "video" && (
-				// Note the capitalization in "playsInline" to get it through NextJS to the browser. "playsinline" was stripped
 				<video
 					autoPlay
 					loop
 					muted
-					playsInline
-					poster={slide.psrc}
-					src={slide.ssrc}
+					playsInline // Capitalization to get it through NextJS to the browser
+					preload="metadata"
+					poster={assetPath(slide.psrc)}
+					src={assetPath(slide.ssrc)}
 					className="drop-shadow-lg rounded-lg"
 				/>
-			)}
-			{slide.type === "youtube" && (
-				<div className="flex flex-col justify-center content-center my-4">
-					<div className="relative overflow-hidden pb-video-ratio">
-						<iframe
-							className="absolute top-0 left-0 w-full h-full drop-shadow-lg rounded-lg"
-							src={`https://www.youtube-nocookie.com/embed/${slide.ssrc}?rel=0&showinfo=0&autoplay=0&mute=1`}
-							title={title}
-							allowFullScreen
-						/>
-					</div>
-				</div>
 			)}
 		</div>
 	);
@@ -141,10 +147,7 @@ export default function Projects({ content }: { content?: ContentType }) {
 					color,
 					slides,
 				}) => (
-					<div
-						key={`project-${projectKey}`}
-						style={{ background: color }}
-					>
+					<div key={`project-${projectKey}`} style={{ background: color }}>
 						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
 							<span>
 								{location}, {year}
@@ -158,11 +161,7 @@ export default function Projects({ content }: { content?: ContentType }) {
 								</div>
 							))
 						) : (
-							<Carousel
-								slides={slides}
-								projectKey={projectKey}
-								title={title}
-							/>
+							<Carousel slides={slides} projectKey={projectKey} title={title} />
 						)}
 
 						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose">
@@ -173,7 +172,7 @@ export default function Projects({ content }: { content?: ContentType }) {
 									href={link}
 									className="mt-2 flex items-center"
 									target="_blank"
-									rel="noopener"
+									rel="noopener noreferrer"
 								>
 									<Icon
 										className="fill-current inline h-3 w-3 mr-2"
@@ -185,7 +184,11 @@ export default function Projects({ content }: { content?: ContentType }) {
 							{credit && (
 								<p className="mt-2 text-xs text-blue-lightest">
 									{credit_link ? (
-										<a href={credit_link} target="_blank" rel="noopener">
+										<a
+											href={credit_link}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
 											{credit}
 										</a>
 									) : (
