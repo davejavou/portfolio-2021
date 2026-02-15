@@ -4,9 +4,9 @@ import {
 	faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import cn from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { cn } from "../lib/cn";
 
 export function NavSpacer({
 	className,

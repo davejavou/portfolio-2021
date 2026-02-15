@@ -7,13 +7,11 @@ import { useEffect } from "react";
 import "../styles/globals.css";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above.
-// (See https://fontawesome.com/docs/web/use-with/react/use-with#nextjs for more details.)
 // Goal is to avoid FOUC (Flash of Unstyled Content) when using Font Awesome icons.
 config.autoAddCss = false;
 
 // Load Fonts
-// Goal is to avoid FOUT (Flash of Unstyled Text) when using Google Fonts.
-// By using the next/font/google package, we can ensure that the fonts are loaded and applied before rendering the page content.
+// Goal is to avoid FOUC: ensure that the fonts are loaded and applied before rendering the page content.
 const raleway = Raleway({ subsets: ["latin"], weight: ["600", "700"] });
 const nunito = Nunito({ subsets: ["latin"], weight: ["600", "700"] });
 
