@@ -17,7 +17,11 @@ config.autoAddCss = false;
 
 // Load Fonts
 // Goal is to avoid FOUC: ensure that the fonts are loaded and applied before rendering the page content.
-const raleway = Raleway({ subsets: ["latin"], weight: ["600", "700"] });
+const raleway = Raleway({
+	subsets: ["latin"],
+	weight: ["600", "700"],
+	preload: false,
+});
 const nunito = Nunito({ subsets: ["latin"], weight: ["600", "700"] });
 
 export default function App({ Component, pageProps }: AppProps) {
