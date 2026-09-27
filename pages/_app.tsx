@@ -44,6 +44,17 @@ export default function App({ Component, pageProps }: AppProps) {
 		jobTitle: "UX Engineer, Product Designer, and Front End Developer",
 		description: aboutDave,
 		url: "https://davecutter.com",
+		knowsAbout: [
+			"AI in product design",
+			"AI in software development",
+			"Human-centered design",
+			"Front-end engineering",
+			"Product design",
+			"UX design",
+			"UI design",
+			"Responsive design",
+			"History & Philosophy of Science & Technology",
+		],
 	};
 
 	return (

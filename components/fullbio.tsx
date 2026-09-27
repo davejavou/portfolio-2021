@@ -25,11 +25,12 @@ export default function FullBio() {
 				<p className="mt-5 mb-8 text-lg leading-relaxed max-w-prose text-pretty md:text-justify">
 					I’m a designer and front-end engineer with 25 years experience in
 					media &amp; software development for startup &amp; enterprise clients.
-					I specialize in responsive design, intuitive UI, and elegant code. I’m
-					a Professional Design Member of AIGA and an Adobe Certified Expert in
-					Photoshop. (A.C.E.) In my free time I raise a family, sail, and study
-					the History &amp; Philosophy of Science at the University of
-					Melbourne.
+					I have extensive hands-on experience applying AI in product design and
+					software development. I specialize in responsive design, intuitive UI,
+					and elegant code. I’m a Professional Design Member of AIGA and an
+					Adobe Certified Expert in Photoshop. (A.C.E.) In my free time I raise
+					a family, sail, and study the History &amp; Philosophy of Science &
+					Technology at the University of Melbourne.
 				</p>
 				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty md:text-justify">
 					<strong>Dev Highlights:</strong> HTML, CSS, Javascript, React,
