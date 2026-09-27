@@ -163,7 +163,13 @@ function slideContent(slide: Slide, title: string) {
 	);
 }
 
-export default function Projects({ content, className }: { content?: ContentType, className?: string }) {
+export default function Projects({
+	content,
+	className,
+}: {
+	content?: ContentType;
+	className?: string;
+}) {
 	const projects = content === "photography" ? photography : portfolio;
 
 	return (
@@ -183,7 +189,11 @@ export default function Projects({ content, className }: { content?: ContentType
 					color,
 					slides,
 				}) => (
-					<div key={`project-${projectKey}`} style={{ background: color }} className={className}>
+					<div
+						key={`project-${projectKey}`}
+						style={{ background: color }}
+						className={className}
+					>
 						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
 							<span>
 								{location}, {year}

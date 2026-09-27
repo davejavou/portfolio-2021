@@ -56,7 +56,9 @@ export default function FullBio() {
 						</a>
 					</li>
 					<li className="mt-4">
-						I acknowledge the Traditional Owners of the unceded land on which I work, learn, and live: the Wurundjeri Woi Wurrung and Bunurong peoples.
+						I acknowledge the Traditional Owners of the unceded land on which I
+						work, learn, and live: the Wurundjeri Woi Wurrung and Bunurong
+						peoples.
 					</li>
 					<li className="mt-4">
 						Design Inspired by{" "}
