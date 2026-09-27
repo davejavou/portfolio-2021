@@ -15,11 +15,13 @@ function Carousel({
 	slides,
 	projectKey,
 	carouselId,
+	eagerImageSlideKey,
 	title,
 }: {
 	slides: Slide[];
 	projectKey: number;
 	carouselId: string;
+	eagerImageSlideKey?: number;
 	title: string;
 }) {
 	const {
@@ -48,7 +50,13 @@ function Carousel({
 								className="flex-[0_0_100%] min-w-0"
 								key={`project-${projectKey}-slide-${slide.key}`}
 							>
-								{slideContent(slide, title)}
+								{slideContent(
+									slide,
+									title,
+									slide.type === "image" && slide.key === eagerImageSlideKey
+										? "eager"
+										: "lazy",
+								)}
 							</div>
 						) : (
 							<div
@@ -99,7 +107,11 @@ function Carousel({
 	);
 }
 
-function slideContent(slide: Slide, title: string) {
+function slideContent(
+	slide: Slide,
+	title: string,
+	loading: "eager" | "lazy" = "lazy",
+) {
 	return (
 		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-full">
 			{slide.type === "image" && (
@@ -110,6 +122,7 @@ function slideContent(slide: Slide, title: string) {
 					width={1280}
 					height={720}
 					basePath={BASE_PATH}
+					loading={loading}
 				/>
 			)}
 			{slide.type === "video" && (
@@ -137,6 +150,10 @@ export default function Projects({
 }) {
 	const contentType = content ?? "portfolio";
 	const projects = contentType === "photography" ? photography : portfolio;
+	const firstCarousel = projects.find((project) => project.slides.length > 1);
+	const firstCarouselImageSlide = firstCarousel?.slides.find(
+		(slide) => slide.type === "image",
+	);
 
 	return (
 		<>
@@ -177,6 +194,11 @@ export default function Projects({
 								slides={slides}
 								projectKey={projectKey}
 								carouselId={`${contentType}:${projectKey}`}
+								eagerImageSlideKey={
+									projectKey === firstCarousel?.key
+										? firstCarouselImageSlide?.key
+										: undefined
+								}
 								title={title}
 							/>
 						)}
