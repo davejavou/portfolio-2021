@@ -83,7 +83,7 @@ export default function FullBio() {
 							FontAwesome.
 						</a>
 					</li>
-					<li className="mt-4 font-bold">Updated February 2026</li>
+					<li className="mt-4 font-bold">Updated September 2026</li>
 				</ul>
 			</div>
 		</div>
