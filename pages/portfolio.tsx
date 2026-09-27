@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { useWindowSize } from "usehooks-ts";
 import { aboutDave } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
@@ -8,11 +7,6 @@ import Nav, { MobileNav, NavSpacer } from "../components/nav";
 import Projects from "../components/projects";
 
 export default function Portfolio() {
-	// Determine Mobile vs Desktop for conditional Nav and Footer
-	const { width } = useWindowSize();
-	const isMobile = width < 768;
-	const isDesktop = width >= 768;
-
 	return (
 		<Layout>
 			<Head>
@@ -21,15 +15,13 @@ export default function Portfolio() {
 			</Head>
 
 			<Main>
-				{isDesktop && <Nav />}
+				<Nav />
 				<Projects />
-				{isMobile && (
-					<div className="md:hidden bg-gray shadow-inner">
-						<Footer />
-						<NavSpacer />
-						<MobileNav />
-					</div>
-				)}
+				<div className="md:hidden bg-gray shadow-inner">
+					<Footer />
+					<NavSpacer />
+					<MobileNav />
+				</div>
 			</Main>
 		</Layout>
 	);

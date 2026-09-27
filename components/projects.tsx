@@ -5,8 +5,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import ExportedImage from "next-image-export-optimizer";
+import { useEffect, useRef } from "react";
 import { assetPath, BASE_PATH } from "../lib/assets";
-import type { ContentType, Slide } from "../types/content";
+import type { ContentType, Slide, VideoSlide } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
 import { useProjectCarousel } from "./use-project-carousel";
@@ -125,19 +126,48 @@ function slideContent(
 					loading={loading}
 				/>
 			)}
-			{slide.type === "video" && (
-				<video
-					autoPlay
-					loop
-					muted
-					playsInline // Capitalization to get it through NextJS to the browser
-					preload="metadata"
-					poster={assetPath(slide.psrc)}
-					src={assetPath(slide.ssrc)}
-					className="drop-shadow-lg rounded-lg"
-				/>
-			)}
+			{slide.type === "video" && <AutoplayVideo slide={slide} />}
 		</div>
+	);
+}
+
+function AutoplayVideo({ slide }: { slide: VideoSlide }) {
+	const videoRef = useRef<HTMLVideoElement>(null);
+
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				if (entry?.isIntersecting) {
+					void video.play().catch(() => undefined);
+				} else {
+					video.pause();
+				}
+			},
+			{ threshold: 0.25 },
+		);
+
+		observer.observe(video);
+
+		return () => {
+			observer.disconnect();
+			video.pause();
+		};
+	}, []);
+
+	return (
+		<video
+			ref={videoRef}
+			loop
+			muted
+			playsInline // Capitalization to get it through NextJS to the browser
+			preload="none"
+			poster={assetPath(slide.psrc)}
+			src={assetPath(slide.ssrc)}
+			className="drop-shadow-lg rounded-lg"
+		/>
 	);
 }
 
