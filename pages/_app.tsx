@@ -1,5 +1,6 @@
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { Provider } from "jotai";
 import type { AppProps } from "next/app";
 import { Nunito, Raleway } from "next/font/google";
 import Head from "next/head";
@@ -46,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	};
 
 	return (
-		<>
+		<Provider>
 			<Head>
 				{/* SEO: Canonical URL */}
 				<link rel="canonical" href={`https://davecutter.com${router.asPath}`} />
@@ -60,6 +61,6 @@ export default function App({ Component, pageProps }: AppProps) {
 				className={cn("wa-cloak", raleway.className, nunito.className)}
 				{...pageProps}
 			/>
-		</>
+		</Provider>
 	);
 }

@@ -4,68 +4,33 @@ import {
 	faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import useEmblaCarousel from "embla-carousel-react";
 import ExportedImage from "next-image-export-optimizer";
-import { useCallback, useEffect, useState } from "react";
 import { assetPath, BASE_PATH } from "../lib/assets";
 import type { ContentType, Slide } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
+import { useProjectCarousel } from "./use-project-carousel";
 
 function Carousel({
 	slides,
 	projectKey,
+	carouselId,
 	title,
 }: {
 	slides: Slide[];
 	projectKey: number;
+	carouselId: string;
 	title: string;
 }) {
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
-	const [selectedIndex, setSelectedIndex] = useState(0);
-	const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
-	const [loadedSlides, setLoadedSlides] = useState<Set<number>>(new Set([0]));
-
-	const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
-	const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
-	const scrollTo = useCallback(
-		(index: number) => emblaApi?.scrollTo(index),
-		[emblaApi],
-	);
-
-	// Set up Embla carousel and handle slide changes and manage lazy loading of slides
-	useEffect(() => {
-		if (!emblaApi) return;
-
-		// Get the list of scroll snap points from Embla and store in state for rendering pagination dots
-		setScrollSnaps(emblaApi.scrollSnapList());
-
-		// Handler for when a new slide is selected
-		const onSelect = () => {
-			const newIndex = emblaApi.selectedScrollSnap();
-			setSelectedIndex(newIndex);
-
-			// Load the current slide and adjacent ones
-			setLoadedSlides((prev) => {
-				const newLoaded = new Set(prev);
-				const indices = [newIndex - 1, newIndex, newIndex + 1].filter(
-					(i) => i >= 0 && i < slides.length,
-				);
-				for (const i of indices) {
-					newLoaded.add(i);
-				}
-				return newLoaded;
-			});
-		};
-		// Listen for slide changes and trigger the onSelect handler to update state and manage lazy loading
-		emblaApi.on("select", onSelect);
-		onSelect();
-
-		// Clean up event listener on unmount or when dependencies change
-		return () => {
-			emblaApi.off("select", onSelect);
-		};
-	}, [emblaApi, slides.length]);
+	const {
+		emblaRef,
+		selectedIndex,
+		scrollSnaps,
+		loadedSlides,
+		scrollPrev,
+		scrollNext,
+		scrollTo,
+	} = useProjectCarousel({ carouselId, slideCount: slides.length });
 
 	const totalSlides = slides.length;
 
@@ -170,7 +135,8 @@ export default function Projects({
 	content?: ContentType;
 	className?: string;
 }) {
-	const projects = content === "photography" ? photography : portfolio;
+	const contentType = content ?? "portfolio";
+	const projects = contentType === "photography" ? photography : portfolio;
 
 	return (
 		<>
@@ -207,7 +173,12 @@ export default function Projects({
 								</div>
 							))
 						) : (
-							<Carousel slides={slides} projectKey={projectKey} title={title} />
+							<Carousel
+								slides={slides}
+								projectKey={projectKey}
+								carouselId={`${contentType}:${projectKey}`}
+								title={title}
+							/>
 						)}
 
 						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose pt-8">
