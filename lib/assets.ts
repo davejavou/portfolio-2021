@@ -1,8 +1,8 @@
 /**
  * basePath utility for static asset references.
  *
- * This site is deployed to a subfolder on the server (e.g., example.com/portfolio_2021/).
- * The basePath is set in next.config.js and affects how assets are resolved:
+ * This site is deployed at the domain root. Keep BASE_PATH empty in sync with
+ * next.config.js so local asset paths resolve directly from `/`:
  *
  *   - Next.js <Link> auto-prepends basePath to href — just use bare paths.
  *
@@ -14,16 +14,16 @@
  *     basePath prepended. Use assetPath() for these to build the full URL.
  *
  * Example:
- *   <Link href="/about" />                              // Next.js adds /portfolio_2021 automatically
+ *   <Link href="/about" />                              // Next.js uses /about
  *   <ExportedImage src="/assets/photo.jpg" basePath={BASE_PATH} /> // optimizer handles basePath
- *   <video src={assetPath("/assets/video.mp4")} />     // We add /portfolio_2021 manually
- *   <a href={assetPath("/assets/resume.pdf")} />       // We add /portfolio_2021 manually
+ *   <video src={assetPath("/assets/video.mp4")} />     // Resolves to /assets/video.mp4
+ *   <a href={assetPath("/assets/resume.pdf")} />       // Resolves to /assets/resume.pdf
  */
 
 /** Must match the basePath in next.config.js */
-export const BASE_PATH = "/portfolio_2021";
+export const BASE_PATH = "";
 
 /** Prepend basePath to a local asset path for use in raw HTML elements */
 export function assetPath(path: string): string {
-	return `${BASE_PATH}${path}`;
+	return BASE_PATH ? `${BASE_PATH}${path}` : path;
 }
