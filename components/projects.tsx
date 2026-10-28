@@ -2,10 +2,12 @@ import {
 	faAngleLeft,
 	faAngleRight,
 	faExternalLinkAlt,
+	faPause,
+	faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import ExportedImage from "next-image-export-optimizer";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { assetPath, BASE_PATH } from "../lib/assets";
 import type { ContentType, Slide, VideoSlide } from "../types/content";
 import { photography, portfolio } from "./content";
@@ -133,6 +135,8 @@ function slideContent(
 
 function AutoplayVideo({ slide }: { slide: VideoSlide }) {
 	const videoRef = useRef<HTMLVideoElement>(null);
+	const [isPlaying, setIsPlaying] = useState(false);
+	const [playbackError, setPlaybackError] = useState(false);
 
 	useEffect(() => {
 		const video = videoRef.current;
@@ -158,16 +162,48 @@ function AutoplayVideo({ slide }: { slide: VideoSlide }) {
 	}, []);
 
 	return (
-		<video
-			ref={videoRef}
-			loop
-			muted
-			playsInline // Capitalization to get it through NextJS to the browser
-			preload="none"
-			poster={assetPath(slide.psrc)}
-			src={assetPath(slide.ssrc)}
-			className="drop-shadow-lg rounded-lg"
-		/>
+		<div className="relative w-full">
+			<video
+				ref={videoRef}
+				controls={false}
+				loop
+				muted
+				playsInline // Capitalization to get it through NextJS to the browser
+				preload="none"
+				poster={assetPath(slide.psrc)}
+				src={assetPath(slide.ssrc)}
+				className="block h-auto max-w-full drop-shadow-lg rounded-lg"
+				onPlay={() => setIsPlaying(true)}
+				onPause={() => setIsPlaying(false)}
+			/>
+			<button
+				type="button"
+				className="absolute bottom-4 right-4 flex size-14 items-center justify-center rounded-full bg-black/70 text-white shadow-lg hover:bg-black/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+				onClick={() => {
+					const video = videoRef.current;
+					if (!video) return;
+
+					setPlaybackError(false);
+					if (video.paused) {
+						void video.play().catch(() => setPlaybackError(true));
+					} else {
+						video.pause();
+					}
+				}}
+				aria-label={isPlaying ? "Pause video" : "Play video"}
+			>
+				<Icon
+					icon={isPlaying ? faPause : faPlay}
+					aria-hidden="true"
+					size="xl"
+				/>
+			</button>
+			{playbackError && (
+				<p className="sr-only" role="status">
+					Video playback could not be started.
+				</p>
+			)}
+		</div>
 	);
 }
 
