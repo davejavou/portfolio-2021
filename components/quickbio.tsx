@@ -1,14 +1,14 @@
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBookOpen, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
-import { BASE_PATH, assetPath } from "../lib/assets";
+import ExportedImage from "next-image-export-optimizer";
+import { assetPath, BASE_PATH } from "../lib/assets";
 
 export default function QuickBio() {
 	return (
 		<div className="bg-white text-gray max-w-prose w-5/6 pb-16 md:pb-8 mx-auto">
-			<div className="max-w-72 aspect-square relative mx-auto my-10">
+			<div className="max-w-64 aspect-square relative mx-auto my-10">
 				<ExportedImage
 					src="/assets/images/portrait.jpg"
 					alt="A Portrait of the Artist."
@@ -20,58 +20,15 @@ export default function QuickBio() {
 				/>
 			</div>
 
-			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-2xl lg:text-3xl">
+			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-xl lg:text-2xl">
 				Dave Cutter. <br />
-				UX&nbsp;Designer &amp; Engineer.
+				UI/UX Designer &amp; FE Engineer.
 			</h1>
-
-			<h2 className="my-10 text-lg text-gray-lightest text-pretty">
-				Senior Product Designer & Frontend Developer at{" "}
-				<a
-					className="text-blue-light hover:text-blue-lightest"
-					href="https://factsmgt.com.au/"
-					title="Nelnet International"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Nelnet
-				</a>
-				. Previously at{" "}
-				<a
-					href="https://www.artprocessors.net/"
-					className="text-blue-light hover:text-blue-lightest"
-					title="ESPN/Disney"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Art Processors
-				</a>
-				,{" "}
-				<a
-					href="https://www.espn.com.au/"
-					className="text-blue-light hover:text-blue-lightest"
-					title="ESPN"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					ESPN
-				</a>{" "}
-				&amp;{" "}
-				<a
-					className="text-blue-light hover:text-blue-lightest"
-					rel="noopener noreferrer"
-					href="https://sports.yahoo.com/"
-					title="Yahoo! Sports"
-					target="_blank"
-				>
-					Yahoo!
-				</a>
-			</h2>
 
 			<Link
 				href={`/portfolio`}
 				title="Dave's Portfolio"
-				className="md:hidden btn btn-blue w-full mb-2"
+				className="md:hidden btn w-full mb-2"
 			>
 				<Icon className="tab-icon" icon={faBookOpen} />
 				Portfolio
@@ -79,7 +36,7 @@ export default function QuickBio() {
 
 			<div className="flex gap-2 md:flex-col">
 				<a
-					className="btn btn-blue grow"
+					className="btn grow"
 					target="_blank"
 					rel="noopener noreferrer"
 					href={assetPath("/assets/David-Cutter-Resume.pdf")}
@@ -89,7 +46,7 @@ export default function QuickBio() {
 					Resume
 				</a>
 				<a
-					className="btn btn-blue grow"
+					className="btn grow"
 					target="_blank"
 					rel="noopener noreferrer"
 					href="https://www.linkedin.com/in/davejavou/"
@@ -97,16 +54,6 @@ export default function QuickBio() {
 				>
 					<Icon className="btn-icon" icon={faLinkedin} />
 					LinkedIn
-				</a>
-				<a
-					className="btn btn-blue grow"
-					target="_blank"
-					rel="noopener noreferrer"
-					href="https://github.com/davejavou"
-					title="Dave Cutter on GitHub"
-				>
-					<Icon className="btn-icon" icon={faGithub} />
-					GitHub
 				</a>
 			</div>
 		</div>
