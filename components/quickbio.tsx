@@ -8,7 +8,7 @@ import { assetPath, BASE_PATH } from "../lib/assets";
 export default function QuickBio() {
 	return (
 		<div className="bg-white text-gray max-w-prose w-5/6 pb-16 md:pb-8 mx-auto">
-			<div className="max-w-64 aspect-square relative mx-auto my-10">
+			<div className="max-w-44 aspect-square relative mx-auto my-10">
 				<ExportedImage
 					src="/assets/images/portrait.jpg"
 					alt="A Portrait of the Artist."
@@ -20,10 +20,16 @@ export default function QuickBio() {
 				/>
 			</div>
 
-			<h1 className="my-10 mx-auto font-serif font-bold text-3xl md:text-xl lg:text-2xl">
+			<h1 className="my-5 mx-auto font-serif font-bold text-3xl md:text-xl lg:text-2xl">
 				Dave Cutter. <br />
-				UI/UX Designer &amp; FE Engineer.
+				Product Designer &amp; Engineer.
 			</h1>
+
+			<h2 className="my-5 text-lg text-gray-lightest text-pretty">
+				Helping teams into the future of product design and development. I start
+				with curiosity, research with discipline, code with efficiency, and
+				collaborate to deliver exceptional results.
+			</h2>
 
 			<Link
 				href={`/portfolio`}
@@ -56,6 +62,8 @@ export default function QuickBio() {
 					LinkedIn
 				</a>
 			</div>
+
+			{/* <TestimonialCarousel /> */}
 		</div>
 	);
 }

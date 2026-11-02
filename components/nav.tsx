@@ -45,7 +45,7 @@ export default function Nav() {
 				href={`/photography`}
 				className={cn("tab", { "tab-active": pathname === "/photography" })}
 			>
-				Photography
+				Photos
 			</Link>
 			<Link
 				href={`/about`}
@@ -89,7 +89,7 @@ export function MobileNav() {
 				className={cn("tab", { "tab-active": pathname === "/photography" })}
 			>
 				<Icon className="tab-icon" icon={faCameraRetro} />
-				Photography
+				Photos
 			</Link>
 		</nav>
 	);

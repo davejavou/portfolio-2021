@@ -22,8 +22,8 @@
 
 	--spacing-md-sidebar-width: 300px;
 	--spacing-lg-sidebar-width: 400px;
-	--spacing-md-nav-width: calc(100% - 200px);
-	--spacing-lg-nav-width: calc(100% - 360px);
+	--spacing-md-nav-width: calc(100% - var(--spacing-md-sidebar-width));
+	--spacing-lg-nav-width: calc(100% - var(--spacing-lg-sidebar-width));
 	--spacing-nav-height: 60px;
 	--spacing-video-ratio: 56.25%;
 }
