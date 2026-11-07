@@ -7,7 +7,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import "../styles/globals.css";
-import { aboutDave } from "../components/content";
+import { aboutDave, daveTitle, knowsAbout } from "../components/content";
 import { cn } from "../lib/cn";
 
 // Prevent Font Awesome from adding its CSS since we did it manually above.
@@ -45,20 +45,10 @@ export default function App({ Component, pageProps }: AppProps) {
 		"@context": "https://schema.org",
 		"@type": "Person",
 		name: "Dave Cutter",
-		jobTitle: "UX Engineer, Product Designer, and Front End Developer",
+		jobTitle: daveTitle,
 		description: aboutDave,
 		url: "https://davecutter.com",
-		knowsAbout: [
-			"AI in product design",
-			"AI in software development",
-			"Human-centered design",
-			"Front-end engineering",
-			"Product design",
-			"UX design",
-			"UI design",
-			"Responsive design",
-			"History & Philosophy of Science & Technology",
-		],
+		knowsAbout: knowsAbout,
 	};
 
 	return (

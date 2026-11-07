@@ -1,7 +1,38 @@
 import type { Project } from "../types/content";
 
+export const daveTitle: string = "Product Builder & Technologist.";
+
 export const aboutDave: string =
-	"I’m Dave, a product designer and front-end developer with 25 years experience in software product development for startup & enterprise clients, and extensive experience applying AI in product design and software development. I specialise in human-centred design, intuitive UX & UI, and elegant front-end code. I also study the History & Philosophy of Science and International Politics at the University of Melbourne.";
+	"With 25 years of experience across the product landscape spanning strategy, design, and front-end engineering, Dave Cutter helps teams take digital products from concept to launch by integrating practical AI workflows, cross functional leadership, and resilient code.";
+
+export const quickPitch: string =
+	"I build intuitive digital products through product discipline, design research, technical expertise, and cross-functional experience.";
+
+export const professionalDescription: string =
+	"With 25 years of experience across the product landscape spanning strategy, design, and front-end engineering, I help teams take digital products from concept to launch. My work integrates practical AI workflows to streamline product development and production. I focus on creating intuitive UI/UX with resilient code towards solid and iterable solutions. I’m a Professional Design Member of AIGA and an Adobe Certified Expert (A.C.E.). Outside of work, I help raise a family and study the History & Philosophy of Science & Technology at the University of Melbourne.";
+
+export const devHighlights: string =
+	"React.js • Node.js • Angular • Vue • JavaScript • HTML5 • CSS3 • Tailwind • Electron.js • PHP • WCAG • Responsive Design • Storybook • Playwright • Claude / Copilot";
+
+export const designHighlights: string =
+	"Human-Centred Design • UI/UX Design • Design Systems • Information Architecture • Rapid Prototyping • Figma • Adobe Cloud: Indesign, Premiere, After Effects, A.C.E. in Photoshop";
+
+export const productHighlights: string =
+	"Agile & Scrum Methodologies • Product Roadmapping • MoSCoW Prioritization • User Research & Usability Testing • UX Writing • Stakeholder Engagement • Risk Planning";
+
+export const knowsAbout: string[] = [
+	"Product Management",
+	"Product Strategy",
+	"Product Ownership",
+	"Product Development Lifecycle",
+	"AI-Assisted Product Development",
+	"Cross-Functional Leadership",
+	"UI/UX Design",
+	"Front-End Engineering",
+	"Design Research",
+	"Responsive Web Design",
+	"Science & Technology Studies",
+];
 
 export const portfolio: Project[] = [
 	{

@@ -4,6 +4,7 @@ import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
 import { assetPath, BASE_PATH } from "../lib/assets";
+import { daveTitle, quickPitch } from "./content";
 
 export default function QuickBio() {
 	return (
@@ -22,13 +23,11 @@ export default function QuickBio() {
 
 			<h1 className="my-5 mx-auto font-serif font-bold text-3xl md:text-xl lg:text-2xl">
 				Dave Cutter. <br />
-				Product Designer &amp; Engineer.
+				{daveTitle}
 			</h1>
 
 			<h2 className="my-5 text-lg text-gray-lightest text-pretty">
-				Helping teams into the future of product design and development. I start
-				with curiosity, research with discipline, code with efficiency, and
-				collaborate to deliver exceptional results.
+				{quickPitch}
 			</h2>
 
 			<Link

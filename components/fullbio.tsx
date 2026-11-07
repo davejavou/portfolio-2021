@@ -1,5 +1,11 @@
 import ExportedImage from "next-image-export-optimizer";
 import { BASE_PATH } from "../lib/assets";
+import {
+	designHighlights,
+	devHighlights,
+	productHighlights,
+	professionalDescription,
+} from "./content";
 import { NavSpacer } from "./nav";
 
 export default function FullBio() {
@@ -23,23 +29,16 @@ export default function FullBio() {
 					<small className="text-xs font-light italic ml-2">(On Right)</small>
 				</h2>
 				<p className="mt-5 mb-8 text-lg leading-relaxed max-w-prose text-pretty">
-					I’m a designer and front-end engineer with 25 years experience in
-					media &amp; software development for startup &amp; enterprise clients.
-					I have extensive hands-on experience applying AI in product design and
-					software development. I specialize in responsive design, intuitive UI,
-					and elegant code. I’m a Professional Design Member of AIGA and an
-					Adobe Certified Expert in Photoshop. (A.C.E.) In my free time I raise
-					a family, sail, and study the History &amp; Philosophy of Science &
-					Technology at the University of Melbourne.
+					{professionalDescription}
 				</p>
 				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty">
-					<strong>Dev Highlights:</strong> HTML, CSS, Javascript, React,
-					Typescript, Tailwind, ShadCN, Angular, Vue, PHP, XML/XSLT, JQuery,
-					VbScript, & Coldfusion.
+					<strong>Product Highlights:</strong> {productHighlights}
 				</p>
 				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty">
-					<strong>Design Highlights:</strong> User & Humanity Centered Design,
-					UI, UX, Research, Figma, Sketch, Adobe, & Design Systems.
+					<strong>Design Highlights:</strong> {designHighlights}
+				</p>
+				<p className="mt-5 mb-8 leading-relaxed max-w-prose text-pretty">
+					<strong>Dev Highlights:</strong> {devHighlights}
 				</p>
 
 				{/* Footer */}

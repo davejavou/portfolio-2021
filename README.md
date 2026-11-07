@@ -1,7 +1,6 @@
 # Dave Cutter's Portfolio
 
 This portfolio was made in July 2021, in Melbourne Australia during the fifth lockdown. It is created with [Next.js](https://nextjs.org/) and [Tailwind CSS](https://tailwindcss.com/). Additionally supported by [React-Slick](https://react-slick.neostack.com/), and [FontAwesome](https://fontawesome.com/).
- - April 2024: Updated with recent work.
 
 ## Learning Jotai
 
@@ -29,4 +28,3 @@ The atom family is keyed by stable project ids, and the Jotai store lives at the
 The viewport-width hook remains outside Jotai. It is only used by one page to choose responsive navigation, so it doesn't need shared application state.
 
 Further reading: [atom](https://jotai.org/docs/core/atom), [useAtom](https://jotai.org/docs/core/use-atom), [Provider](https://jotai.org/docs/core/provider), and [atom families](https://jotai.org/docs/utilities/family).
-
