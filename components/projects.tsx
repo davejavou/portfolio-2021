@@ -240,7 +240,10 @@ export default function Projects({
 				}) => (
 					<div
 						key={`project-${projectKey}`}
-						style={{ background: color }}
+						style={{
+							backgroundColor: color,
+							backgroundImage: `linear-gradient(150deg, color-mix(in srgb, ${color} 90%, black), ${color})`,
+						}}
 						className={className}
 					>
 						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">

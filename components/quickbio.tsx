@@ -61,8 +61,6 @@ export default function QuickBio() {
 					LinkedIn
 				</a>
 			</div>
-
-			{/* <TestimonialCarousel /> */}
 		</div>
 	);
 }
