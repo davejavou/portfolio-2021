@@ -13,7 +13,7 @@ export default function QuickBio() {
 				<ExportedImage
 					src="/assets/images/portrait.jpg"
 					alt="A Portrait of the Artist."
-					className="rounded-full border-4 border-white shadow-xl"
+					className="rounded-full border-6 border-white shadow-xl"
 					width={512}
 					height={512}
 					loading="eager"
