@@ -14,100 +14,119 @@ const themeColor = "#CCB100";
 const sections = [
 	{
 		key: "bridge",
-		title: "1. Problem & Business Context",
-		image: "/assets/case-studies/spt-bridge/01 Bridge.png",
+		title: "🎨 A new visual language",
+		image: "/assets/case-studies/spt-bridge/spt-bridge.png",
 		alt: "SPT Bridge project overview",
-		text: "SPT Bridge connects SPT devices - GPS telemetry and biometric Bluetooth hardware worn in a player's on-field jersey - to the Game Traka training platform. After every game or practice, coaches and players pair the devices to a computer and upload athletic data to well-tagged events for analysis.",
-		details:
-			"The current Bridge is difficult and tedious: users download files larger than 10 MB from each device, identify players by serial-number filenames, upload files to each player online, trim and segment performances, and clear the devices. We set out to automate as much of this process as possible, eliminate pain points, reduce frustration, and delight users.",
-		label: "Why the redesign mattered",
-		detailsTwo:
-			"Moving data from the devices to the cloud is essential to the product. If the handoff is frustrating or unreliable, the rest of the analytics experience has little value. Bad or missing data harms the trust and usefulness of the whole platform.",
-		bullets: [
-			"Automatic download and upload, with no file handling",
-			"Data changes that are lossless or revertible, never deleted",
-			"Automatic timing with useful date ranges and comparisons",
-			"Simplified player accounts for the coach staff who use them",
-			"Useful printable views on every page",
-			"Trimming and segmenting in Bridge, not in a separate system",
-			"Graceful handling of device errors and easy firmware updates",
-			"Compatibility with the upcoming Gametraka redesign",
+		scope: "Redesign our Bridge!",
+		text: "The current Bridge is difficult and tedious.",
+		workflow: [
+			"Download files larger than 10 MB from each device",
+			"Identify players by serial-number filenames",
+			"Upload files to each player online",
+			"Trim and segment each performance",
+			"Clear devices",
 		],
+		details:
+			"Let's automate most of this process and eliminate pain points, reduce frustration and delight users.",
+		label: "Product goal",
+		detailsTwo:
+			"Moving data from the devices to the cloud is essential. If it is frustrating or difficult, the rest of the product is useless — bad data or garbage data destroys the product.",
+		bullets: [
+			"Automatic download and upload — no more file handling",
+			"Data changes that are lossless or reversible, never deleted",
+			"Time data automatically, with useful ranges and comparisons",
+			"Simplify player accounts, which are rarely used outside coach staff",
+			"Do trimming and segmentation in Bridge, not afterwards",
+			"Handle device errors gracefully",
+			"Make firmware updates easy",
+			"Make every page a useful printout",
+		],
+		callout:
+			"Directly from user research, we learned that printing a large view for the locker room wall can be more effective than an interactive dashboard. Lead with user needs, not the technology.",
 	},
 	{
 		key: "gametraka",
-		title: "2. Users, Pain Points & Research",
-		image: "/assets/case-studies/spt-bridge/05 Qualitative Interviews.png",
+		title: "🔎 Field research (locker rooms too!)",
+		image: "/assets/case-studies/spt-bridge/interviews.png",
 		alt: "Qualitative interview findings",
-		text: "The primary users were coaches and the small coaching-staff teams who operated Bridge. Athletes and sports scientists relied on the resulting data, so each role had to be considered across the journey.",
+		text: "Coaches and small coaching teams operated Bridge. Athletes and sports scientists relied on the data it produced, so the whole journey had to make sense — not only the person tapping the screen.",
 		details:
-			"Users fear losing data, find serial-number filenames difficult to reconcile, and are burdened by repeated account and device setup. Uploading usually happens late at night after all other activities, while trimming and tagging are skipped or treated as separate, exhausting jobs.",
+			"Users were worried about losing data. Serial-number filenames were hard to reconcile, repeated setup was exhausting, and uploads often happened late at night after everything else was done. Trimming and tagging felt like separate jobs — so they were frequently skipped.",
 		bullets: [
-			"Coaches: clear collection, device tracking, player setup, and fast upload",
-			"Athletes: confidence that effort and performance data are captured correctly",
-			"Sports scientists: trustworthy, timely, well-tagged data for analysis",
-			"Shared pain: complex workflows, uncertain deletion, and fear of lost data",
-			"Archive rather than delete: users dislike losing data and clearing devices without reassurance",
-			"Player tracking and date-range comparisons, including year-on-year views",
-			"Support for player users without accounts, a highly requested coach workflow",
-			"Device and player printouts for on-field sharing and collection",
-			"Trimming and segmenting as part of the upload workflow",
+			"Coaches needed clear collection, tracking, setup and fast upload",
+			"Athletes needed confidence that their effort was captured",
+			"Sports scientists needed trustworthy, timely and well-tagged data",
+			"Everyone shared the fear of complex steps and permanent deletion",
+			"Archiving felt safer than clearing a device and watching data disappear",
+			"Year-on-year and date-range comparisons made patterns visible",
+			"Player users without accounts were a practical, highly requested need",
+			"Printouts helped the bridge from screen to training field",
+			"Competitor research reviewed how similar products handled device-to-cloud workflows",
+			"A broader survey of bulk-data upload patterns identified familiar, proven interaction models",
 		],
 		research:
-			"We ran two research modes with 20 participants: coaches, athletes, and sports scientists. Everyone completed a survey covering ways of working, priorities, pain points, and positive moments. With 10 interested participants, we conducted longer interviews and observed the tools in the field and in the locker room.",
+			"I worked with 20 coaches, athletes and sports scientists. Everyone took part in a survey about priorities, pain points and moments that worked; ten went further with interviews and observations of the tools in the field and the locker room. I also reviewed competitor approaches and surveyed broader design patterns for bulk data uploading.",
 	},
 	{
 		key: "journey",
-		title: "3. Design Explorations & Decisions",
-		image: "/assets/case-studies/spt-bridge/04 Journey Map.png",
+		title: "🧭 Making the complex feel obvious",
+		image: "/assets/case-studies/spt-bridge/journey-map.png",
 		alt: "Journey map for the SPT Bridge experience",
-		text: "With the quantitative and qualitative findings in hand, we mapped journeys for coaches, athletes, and sports scientists. The maps showed not only the golden path, but also moments of pain, delight, delay, and risk.",
+		text: "The research led to journeys for coaches, athletes and sports scientists. We were looking beyond the happy path — there were too many opportunities to feel delayed, uncertain or disappointed along the way.",
 		bullets: [
-			"Automate download and upload rather than ask users to manage files",
-			"Replace serial numbers with remembered player names and identities",
-			"Archive data instead of deleting it, with reversible device-clearing steps",
-			"Bring trimming and segmenting into the one upload workflow",
-			"Support device, cloud, firmware, account, and lost-device error states",
-			"Use player headshots and printable views to aid physical collection",
-			"Keep the golden path clear while preserving alternative and recovery paths",
+			"Automate transfer instead of asking people to manage files",
+			"Remember player names and identities instead of serial numbers",
+			"Archive before clearing, with reversible steps",
+			"Keep trimming and segmentation in one coherent upload flow",
+			"Design for device, cloud, firmware, account and lost-device failures",
+			"Use headshots and printouts to reconnect the interface with the field",
+			"Keep the core path clear without hiding alternatives or recovery",
 		],
 	},
 	{
 		key: "interviews",
-		title: "4. Engineering & Product Collaboration",
-		image: "/assets/case-studies/spt-bridge/07 Wireframes.png",
+		title: "✏️ Iterating together",
+		image: "/assets/case-studies/spt-bridge/wireframes.png",
 		alt: "SPT Bridge wireframes",
-		text: "Engineering and product decisions were made together. I translated hardware, server, data, and cloud constraints into workflows and testable states, then reviewed the direction with the engineering team and in-house sports scientist.",
+		text: "Hardware, server, data and cloud constraints could easily have become someone else's problem. Instead, product and engineering decisions stayed close, and I reviewed the direction with the engineering team and in-house sports scientist.",
 		details:
-			"Discovery, mapping, wireframes, high-resolution design, rich prototyping, and front-end implementation remained closely connected. This allowed the team to validate direction early, resolve edge cases without handoff gaps, and deliver steadily over a nine-month project.",
+			"Discovery, journey mapping, wireframes, high-resolution design, prototyping and implementation overlapped. That kept decisions testable and let us resolve edge cases early rather than lose them in handoff. It was a nine-month project, and the loop stayed unusually short.",
 		bullets: [
-			"Technical reviews exposed hardware, firmware, and server constraints early",
-			"Sports-science input protected the meaning and integrity of performance data",
-			"Prototypes helped stakeholders make decisions about real workflows",
-			"Design and implementation shared the same owner to reduce translation loss",
+			"Technical reviews surfaced firmware and server constraints early",
+			"Sports-science input protected the meaning of the performance data",
+			"Realistic prototypes helped people make decisions with confidence",
+			"Sharing design and implementation reduced translation loss",
 		],
 	},
 	{
 		key: "golden-path",
-		title: "5. Hi-Res Design & Production",
+		title: "💎 Final Mocks and Code",
 		image: "/assets/case-studies/spt-bridge/06 Golden Path.png",
 		alt: "Golden path for SPT Bridge",
-		text: "The reinvented Bridge experience made the path from physical device to usable platform data clearer and more reliable.",
+		text: "The final experience turned a collection of devices and data files into one clear job: collect it, check it, understand it.",
 		details:
-			"The final workflow supported direct data transfer, remembered player identities, data validation, trimming and segmentation, useful printouts, reversible clearing, firmware updates, and an experience designed for the next Gametraka platform.",
+			"Bridge now supported direct transfer, remembered player identities, data validation, trimming and segmentation, practical printouts, reversible clearing and firmware updates — all while establishing a foundation for Gametraka's next chapter.",
+		production:
+			"The design did not stop at polished screens. We continued to evolve it in code as the team moved from mockups to the real production environment — working with living data, device edge cases and the constraints of the deployed application.",
+		bullets: [
+			"Stayed close to implementation as static designs became usable interfaces",
+			"Tested the experience against real data, not idealized sample records",
+			"Used usability testing to refine hierarchy, feedback and recovery paths",
+			"Allowed implementation findings to reshape the final design",
+		],
 	},
 	{
 		key: "wireframes",
-		title: "6. Outcomes & Lessons Learned",
-		text: "The work contributed to a 3,100% year-on-year increase in telemetry data uploads, demonstrating the impact of reducing friction in the device-to-platform workflow.",
+		title: "🚀 So. Much. Better.",
+		text: "Reducing friction in the device-to-platform workflow contributed to a 3,100% year-on-year increase in telemetry uploads.",
 		details:
-			"The project showed the value of involving domain experts while keeping workflows simple. Complex steps should be automated or moved into the appropriate moment rather than left for users to reconstruct after the fact.",
+			"The biggest lesson was to treat complexity as a design responsibility, not a user burden. Domain experts helped us protect the integrity of the data; the interface helped people act on it without becoming experts in the software.",
 		bullets: [
-			"Protect data and make recovery visible before asking users to delete or clear",
-			"Validate and simplify the core task before expanding feature coverage",
-			"Do not design around familiar but inefficient habits without question",
-			"Pair technical knowledge with on-field research to make safer decisions",
-			"Close product, design, and engineering loops to deliver complex products faster",
+			"Protect data and make recovery visible before asking people to clear or delete",
+			"Simplify the core job before expanding feature coverage",
+			"Question familiar habits when the interface can make them safer",
+			"Pair technical knowledge with on-field research",
+			"Keep product, design and engineering loops close",
 		],
 	},
 ] as const;
@@ -123,12 +142,12 @@ export default function SptBridge() {
 				<title>Case Study: SPT Bridge — Dave Cutter</title>
 				<meta
 					name="description"
-					content="Case study: SPT Bridge, a mobile app for connecting athlete devices to the Game Traka platform."
+					content="Case study: redesigning SPT Bridge to move athlete data from on-field devices to the Game Traka platform."
 				/>
 				<meta property="og:title" content="SPT Bridge — Dave Cutter" />
 				<meta
 					property="og:description"
-					content="A case study of the SPT Bridge athlete data platform."
+					content="A case study of simplifying a complex athlete data workflow."
 				/>
 			</Head>
 
@@ -175,14 +194,14 @@ export default function SptBridge() {
 									Summary
 								</p>
 								<p className="text-xl leading-relaxed md:text-2xl">
-									SPT Bridge connects SPT GPS telemetry and biometric Bluetooth
-									devices to the Game Traka training platform. After games and
-									practice, coaches and players upload athletic data to tagged
-									events for analysis.
+									SPT Bridge moved GPS and biometric data from the devices worn
+									on-field to the Game Traka platform — making an athlete's
+									effort useful to coaches, athletes and sports scientists.
 								</p>
 								<p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-light">
-									Redesigning a difficult, error-prone workflow contributed to a
-									3,100% year-on-year increase in telemetry data uploads.
+									I redesigned the end-to-end workflow, from device collection
+									to platform analysis. The result contributed to a 3,100%
+									year-on-year increase in telemetry uploads.
 								</p>
 							</div>
 							<div className="border-t border-gray-light/30 pt-4 md:border-t-0 md:border-l md:pl-8">
@@ -240,12 +259,39 @@ export default function SptBridge() {
 								)}
 
 								<div className="mx-auto mt-8 max-w-prose md:mt-12">
+									{"scope" in section && (
+										<p className="mb-6 text-sm font-bold uppercase tracking-[0.16em] text-white/60">
+											Scope
+										</p>
+									)}
+									{"scope" in section && (
+										<p className="mb-8 font-serif text-3xl font-bold leading-tight md:text-4xl">
+											{section.scope}
+										</p>
+									)}
 									<p className="text-lg leading-relaxed md:text-xl">
 										{section.text}
 									</p>
+									{"workflow" in section && (
+										<ul className="mt-6 space-y-3">
+											{section.workflow.map((item) => (
+												<li
+													key={item}
+													className="relative pl-5 before:absolute before:left-0 before:content-['-']"
+												>
+													{item}
+												</li>
+											))}
+										</ul>
+									)}
 									{"details" in section && (
 										<p className="mt-6 text-lg leading-relaxed md:text-xl">
 											{section.details}
+										</p>
+									)}
+									{"production" in section && (
+										<p className="mt-6 text-lg leading-relaxed md:text-xl">
+											{section.production}
 										</p>
 									)}
 									{"research" in section && (
@@ -264,16 +310,28 @@ export default function SptBridge() {
 										</p>
 									)}
 									{"bullets" in section && (
-										<ul className="mt-8 space-y-3 border-t border-white/20 pt-8">
-											{section.bullets.map((bullet) => (
-												<li
-													key={bullet}
-													className="relative pl-5 before:absolute before:left-0 before:content-['-']"
-												>
-													{bullet}
-												</li>
-											))}
-										</ul>
+										<>
+											{section.key === "bridge" && (
+												<p className="mt-8 text-sm font-bold uppercase tracking-[0.16em] text-white/60">
+													Stakeholder priorities
+												</p>
+											)}
+											<ul className="mt-8 space-y-3 border-t border-white/20 pt-8">
+												{section.bullets.map((bullet) => (
+													<li
+														key={bullet}
+														className="relative pl-5 before:absolute before:left-0 before:content-['-']"
+													>
+														{bullet}
+													</li>
+												))}
+											</ul>
+										</>
+									)}
+									{"callout" in section && (
+										<aside className="mt-10 border-l-4 border-yellow px-5 py-2 text-lg leading-relaxed md:text-xl">
+											{section.callout}
+										</aside>
 									)}
 								</div>
 							</div>
@@ -318,6 +376,31 @@ export default function SptBridge() {
 										Sports Scientist
 									</p>
 									<p>Ben Sharpe</p>
+								</div>
+							</div>
+
+							<div className="mt-12 grid gap-8 border-t border-gray-light/30 pt-8 md:grid-cols-2">
+								<div>
+									<p className="text-sm font-bold uppercase text-gray-light">
+										What I wanted to show you…
+									</p>
+									<p className="mt-3 leading-relaxed">
+										A beautiful interface matters — but in this project, trust
+										and data integrity mattered more. I wanted to show how good
+										design can make a high-stakes, technically complex workflow
+										feel calm, clear and human.
+									</p>
+								</div>
+								<div>
+									<p className="text-sm font-bold uppercase text-gray-light">
+										What I learned…
+									</p>
+									<p className="mt-3 leading-relaxed">
+										Domain experts are invaluable when they have room to share
+										their knowledge. Working closely with engineering and sports
+										science led to safer decisions and a simpler product — the
+										kind of collaboration that turns complexity into confidence.
+									</p>
 								</div>
 							</div>
 
