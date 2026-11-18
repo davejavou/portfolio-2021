@@ -26,8 +26,7 @@ const sections = [
 			"Upload files to each athlete online",
 			"Trim and segment each performance before resetting devices",
 		],
-		details:
-			"Let's automate most of this process & eliminate pain points.",
+		details: "Let's automate most of this process & eliminate pain points.",
 		label: "Product goal",
 		detailsTwo:
 			"Moving data from the devices to the cloud is essential. If frustrating, the rest of the product is absolutely useless. No one even sees their dashboard without data. The Bridge is the product's first essential foot forward and it has to be right!",
@@ -182,10 +181,14 @@ export default function SptBridge() {
 									Summary
 								</p>
 								<p className="text-pretty text-xl leading-relaxed md:text-2xl">
-													SPT Bridge moved data from the devices worn on-field to the Game Traka platform. An unavoidable first step for coaches, athletes, and sports scientists. Best foot forward.
+									SPT Bridge moved data from the devices worn on-field to the
+									Game Traka platform. An unavoidable first step for coaches,
+									athletes, and sports scientists. Best foot forward.
 								</p>
 								<p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-gray-light">
-									I redesigned the end-to-end product, from device management to assignments, trimming, and upload. The result contributed to a 3,100% YoY increase in engagement.
+									I redesigned the end-to-end product, from device management to
+									assignments, trimming, and upload. The result contributed to a
+									3,100% YoY increase in engagement.
 								</p>
 							</div>
 							<div className="border-t border-gray-light/30 pt-4 md:border-t-0 md:border-l md:pl-8">
@@ -368,10 +371,10 @@ export default function SptBridge() {
 										What I wanted to show you…
 									</p>
 									<p className="mt-3 text-pretty leading-relaxed">
-										A beautiful interface matters — but in this project, trust
-										and data integrity mattered more. I wanted to show how good
+										A beautiful UI matters but in this project, flow, trust and
+										data integrity were paramount. I wanted to show how good
 										design can make a high-stakes, technically complex workflow
-										feel calm, clear, and human.
+										feel calm, clear, and straightforward.
 									</p>
 								</div>
 								<div>
@@ -379,10 +382,10 @@ export default function SptBridge() {
 										What I learned…
 									</p>
 									<p className="mt-3 text-pretty leading-relaxed">
-										Domain experts are invaluable when they have room to share
-										their knowledge. Working closely with engineering and sports
-										science led to safer decisions and a simpler product — the
-										kind of collaboration that turns complexity into confidence.
+										Domain experts are invaluable. Working closely with
+										engineering and sports science led to safer decisions and a
+										far simpler product, this was the kind of collaboration that
+										turns complexity into confidence!
 									</p>
 								</div>
 							</div>
