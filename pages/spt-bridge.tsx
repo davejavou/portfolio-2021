@@ -1,12 +1,14 @@
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import Head from "next/head";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
+import { portfolio } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
 import Nav, { MobileNav, NavSpacer } from "../components/nav";
 import { ProjectCarousel } from "../components/projects";
-import { portfolio } from "../components/content";
 import { BASE_PATH } from "../lib/assets";
 
 const themeColor = "#CCB100";
@@ -14,7 +16,7 @@ const themeColor = "#CCB100";
 const sections = [
 	{
 		key: "bridge",
-		title: "🎨 A new visual language",
+		title: "🎨 A Reinvention",
 		image: "/assets/case-studies/spt-bridge/spt-bridge.png",
 		alt: "SPT Bridge project overview",
 		scope: "Redesign our Bridge!",
@@ -85,7 +87,7 @@ const sections = [
 	},
 	{
 		key: "interviews",
-		title: "✏️ Iterating together",
+		title: "✏️ Iterating Wireframes & Prototypes",
 		image: "/assets/case-studies/spt-bridge/wireframes.png",
 		alt: "SPT Bridge wireframes",
 		text: "Hardware, server, data and cloud constraints could easily have become someone else's problem. Instead, product and engineering decisions stayed close, and I reviewed the direction with the engineering team and in-house sports scientist.",
@@ -101,7 +103,7 @@ const sections = [
 	{
 		key: "golden-path",
 		title: "💎 Final Mocks and Code",
-		image: "/assets/case-studies/spt-bridge/06 Golden Path.png",
+		image: "/assets/case-studies/spt-bridge/mocks.png",
 		alt: "Golden path for SPT Bridge",
 		text: "The final experience turned a collection of devices and data files into one clear job: collect it, check it, understand it.",
 		details:
@@ -157,8 +159,9 @@ export default function SptBridge() {
 
 				<Link
 					href="/portfolio"
-					className="fixed right-3 top-3 z-50 rounded-full bg-gray px-4 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg md:hidden"
+					className="fixed right-3 top-3 z-50 flex items-center gap-2 rounded-full bg-gray px-4 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg md:hidden"
 				>
+					<Icon icon={faAngleLeft} />
 					Back to portfolio
 				</Link>
 
@@ -180,8 +183,9 @@ export default function SptBridge() {
 							</h1>
 							<Link
 								href="/portfolio"
-								className="hidden md:inline-block mt-6 text-base text-white hover:underline"
+								className="hidden md:inline-flex items-center gap-2 mt-6 text-base text-white hover:underline"
 							>
+								<Icon icon={faAngleLeft} />
 								Back to portfolio
 							</Link>
 						</div>
@@ -407,8 +411,9 @@ export default function SptBridge() {
 							<div className="mt-12 border-t border-gray-light/30 pt-8">
 								<Link
 									href="/portfolio"
-									className="inline-flex min-h-14 items-center justify-center rounded-md bg-gray-dark px-6 py-4 text-lg font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-dark"
+									className="inline-flex min-h-14 items-center justify-center gap-3 rounded-md bg-gray-dark px-6 py-4 text-lg font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gray-dark"
 								>
+									<Icon icon={faAngleLeft} />
 									Back to portfolio
 								</Link>
 							</div>
