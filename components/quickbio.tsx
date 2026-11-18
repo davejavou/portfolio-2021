@@ -1,5 +1,5 @@
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faBookOpen, faFilePdf } from "@fortawesome/free-solid-svg-icons";
+import { faBookOpen, faFileAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
@@ -44,10 +44,10 @@ export default function QuickBio() {
 					className="btn grow"
 					target="_blank"
 					rel="noopener noreferrer"
-					href={assetPath("/assets/David-Cutter-Resume.pdf")}
-					title="Download Dave Cutter's Resume PDF"
+					href={assetPath("/assets/David-Cutter-Resume.docx")}
+					title="Download Dave Cutter's Resume"
 				>
-					<Icon className="btn-icon" icon={faFilePdf} />
+					<Icon className="btn-icon" icon={faFileAlt} />
 					Resume
 				</a>
 				<a
