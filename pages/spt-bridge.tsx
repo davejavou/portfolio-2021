@@ -122,7 +122,7 @@ const bridgeProject = portfolio.find(
 
 export default function SptBridge() {
 	return (
-		<Layout hideSidebar>
+		<Layout>
 			<Head>
 				<title>Case Study: SPT Bridge - Dave Cutter</title>
 				<meta
@@ -136,8 +136,8 @@ export default function SptBridge() {
 				/>
 			</Head>
 
-			<Main fullWidth>
-				<Nav fullWidth />
+			<Main>
+				<Nav />
 				<NavSpacer bg={themeColor} className="hidden md:block" />
 
 				<Link
