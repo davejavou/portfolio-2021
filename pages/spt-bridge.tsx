@@ -222,7 +222,7 @@ export default function SptBridge() {
 											width={2000}
 											height={1200}
 											basePath={BASE_PATH}
-											className="h-auto w-full"
+											className="mx-auto block h-auto max-h-140 max-w-full w-auto"
 											sizes="(max-width: 768px) 100vw, 1280px"
 											loading={index === 0 ? "eager" : "lazy"}
 										/>
