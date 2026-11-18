@@ -111,7 +111,7 @@ const sections = [
 			"Protect data and make recovery visible before asking people to clear or delete.",
 			"Simplify the core job before expanding feature coverage and question familiar habits when the interface can make them safer.",
 			"Pair technical knowledge with on-field research and keep product, design, and engineering loops close.",
-			"Make upload the last, satisfying step — 'I love getting my cuppa, watching the upload, and walking away.'",
+			"Make upload the last, satisfying step: 'I love getting my cuppa, watching the upload, and walking away.'",
 		],
 	},
 ] as const;
@@ -124,12 +124,12 @@ export default function SptBridge() {
 	return (
 		<Layout hideSidebar>
 			<Head>
-				<title>Case Study: SPT Bridge — Dave Cutter</title>
+				<title>Case Study: SPT Bridge - Dave Cutter</title>
 				<meta
 					name="description"
 					content="Case study: redesigning SPT Bridge to move athlete data from on-field devices to the Game Traka platform."
 				/>
-				<meta property="og:title" content="SPT Bridge — Dave Cutter" />
+				<meta property="og:title" content="SPT Bridge - Dave Cutter" />
 				<meta
 					property="og:description"
 					content="A case study of simplifying a complex data workflow."
