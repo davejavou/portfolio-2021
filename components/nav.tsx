@@ -34,7 +34,7 @@ export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 			className={`z-20 hidden md:flex fixed -top-px h-nav-height w-full ${fullWidth ? "" : "md:w-md-nav-width lg:w-lg-nav-width"}`}
 		>
 			<Link
-				href={`/`}
+				href="/portfolio"
 				className={cn("tab", {
 					"tab-active":
 						pathname === "/" ||
