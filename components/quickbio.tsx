@@ -61,6 +61,14 @@ export default function QuickBio() {
 					LinkedIn
 				</a>
 			</div>
+			<Link
+				href="/spt-bridge"
+				title="View the SPT Bridge case study"
+				className="flex btn w-full mt-2"
+			>
+				<Icon className="btn-icon" icon={faBookOpen} />
+				Case Study: SPT Bridge
+			</Link>
 		</div>
 	);
 }

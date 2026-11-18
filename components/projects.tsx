@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
 import ExportedImage from "next-image-export-optimizer";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { assetPath, BASE_PATH } from "../lib/assets";
 import type { ContentType, Slide, VideoSlide } from "../types/content";
@@ -14,7 +15,7 @@ import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
 import { useProjectCarousel } from "./use-project-carousel";
 
-function Carousel({
+export function ProjectCarousel({
 	slides,
 	projectKey,
 	carouselId,
@@ -237,6 +238,7 @@ export default function Projects({
 					credit_link,
 					color,
 					slides,
+					caseStudy,
 				}) => (
 					<div
 						key={`project-${projectKey}`}
@@ -259,7 +261,7 @@ export default function Projects({
 								</div>
 							))
 						) : (
-							<Carousel
+							<ProjectCarousel
 								slides={slides}
 								projectKey={projectKey}
 								carouselId={`${contentType}:${projectKey}`}
@@ -275,6 +277,16 @@ export default function Projects({
 						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose pt-8">
 							<h2 className="text-2xl font-serif pb-2">{title}</h2>
 							<p>{description}</p>
+							{caseStudy && (
+								<div className="mt-6 flex justify-center">
+									<Link
+										href={caseStudy}
+										className="inline-flex min-h-14 items-center justify-center rounded-md bg-gray-dark px-6 py-4 text-lg font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+									>
+										View case study
+									</Link>
+								</div>
+							)}
 							{link && (
 								<a
 									href={link}

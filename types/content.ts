@@ -31,6 +31,7 @@ export type Project = {
 	color: string;
 	slides: Slide[];
 	link?: string;
+	caseStudy?: string;
 	credit?: string;
 	credit_link?: string;
 };

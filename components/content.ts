@@ -217,6 +217,7 @@ export const portfolio: Project[] = [
 		description:
 			"SPT's Bridge app connects SPT devices to the Game Traka platform. After every game and practice coaches and players upload athletic data to well-tagged events for analysis.",
 		color: "#CCB100", // FFDD00 too bright
+		caseStudy: "/spt-bridge",
 		slides: [
 			{
 				key: 1,

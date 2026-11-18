@@ -25,18 +25,21 @@ export function NavSpacer({
 	);
 }
 
-export default function Nav() {
+export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 	const { pathname } = useRouter();
 
 	return (
 		<nav
 			aria-label="Main navigation"
-			className="z-20 hidden md:flex fixed -top-px h-nav-height w-full md:w-md-nav-width lg:w-lg-nav-width"
+			className={`z-20 hidden md:flex fixed -top-px h-nav-height w-full ${fullWidth ? "" : "md:w-md-nav-width lg:w-lg-nav-width"}`}
 		>
 			<Link
 				href={`/`}
 				className={cn("tab", {
-					"tab-active": pathname === "/" || pathname === "/portfolio",
+					"tab-active":
+						pathname === "/" ||
+						pathname === "/portfolio" ||
+						pathname === "/spt-bridge",
 				})}
 			>
 				Portfolio
@@ -78,7 +81,9 @@ export function MobileNav() {
 			<Link
 				href={`/portfolio`}
 				title="Dave's Portfolio"
-				className={cn("tab", { "tab-active": pathname === "/portfolio" })}
+				className={cn("tab", {
+					"tab-active": pathname === "/portfolio" || pathname === "/spt-bridge",
+				})}
 			>
 				<Icon className="tab-icon" icon={faBookOpen} />
 				Portfolio

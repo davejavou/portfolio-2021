@@ -4,7 +4,13 @@ import Footer from "./footer";
 import QuickBio from "./quickbio";
 import Sidebar from "./sidebar";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({
+	children,
+	hideSidebar = false,
+}: {
+	children: React.ReactNode;
+	hideSidebar?: boolean;
+}) {
 	return (
 		<>
 			<Head>
@@ -26,10 +32,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 					href={assetPath("/assets/favicon-16x16.png")}
 				/>
 			</Head>
-			<Sidebar>
-				<QuickBio />
-				<Footer />
-			</Sidebar>
+			{!hideSidebar && (
+				<Sidebar>
+					<QuickBio />
+					<Footer />
+				</Sidebar>
+			)}
 			{children}
 		</>
 	);
