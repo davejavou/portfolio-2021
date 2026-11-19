@@ -31,7 +31,7 @@ export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 	return (
 		<nav
 			aria-label="Main navigation"
-			className={`z-20 hidden md:flex fixed -top-px h-nav-height w-full ${fullWidth ? "" : "md:w-md-nav-width lg:w-lg-nav-width"}`}
+			className={`z-20 hidden md:flex fixed -top-px h-nav-height w-full bg-gray/90 ${fullWidth ? "" : "md:w-md-nav-width lg:w-lg-nav-width"}`}
 		>
 			<Link
 				href="/portfolio"
@@ -66,7 +66,7 @@ export function MobileNav() {
 	return (
 		<nav
 			aria-label="Main navigation"
-			className="z-20 flex md:hidden fixed -bottom-px h-nav-height w-full"
+			className="mobile-nav z-20 flex md:hidden fixed bottom-0 h-nav-height w-full bg-gray/90"
 		>
 			<Link
 				href={`/`}

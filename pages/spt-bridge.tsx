@@ -140,14 +140,6 @@ export default function SptBridge() {
 				<Nav />
 				<NavSpacer bg={themeColor} className="hidden md:block" />
 
-				<Link
-					href="/portfolio"
-					className="fixed right-3 top-3 z-50 flex items-center gap-2 rounded-full bg-gray px-4 py-2 text-sm font-bold uppercase tracking-wide text-white shadow-lg md:hidden"
-				>
-					<Icon icon={faAngleLeft} />
-					Back to portfolio
-				</Link>
-
 				<article>
 					<header
 						className="px-5 md:px-10 py-12 md:py-20"
@@ -166,7 +158,7 @@ export default function SptBridge() {
 							</h1>
 							<Link
 								href="/portfolio"
-								className="hidden md:inline-flex items-center gap-2 mt-6 text-base text-white hover:underline"
+								className="mt-6 inline-flex items-center gap-2 text-base text-white hover:underline"
 							>
 								<Icon icon={faAngleLeft} />
 								Back to portfolio

@@ -64,6 +64,17 @@
 	}
 }
 
+/* Keep the fixed mobile bar aligned as browser chrome changes the visible viewport. */
+.mobile-nav {
+	bottom: 0;
+}
+
+@supports (height: 100dvh) {
+	.mobile-nav {
+		bottom: calc(100vh - 100dvh);
+	}
+}
+
 /* Embla Carousel Dots */
 .embla-dots {
 	z-index: 9;
