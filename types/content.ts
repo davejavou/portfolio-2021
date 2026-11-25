@@ -45,7 +45,6 @@ export type Project = {
 	key: number;
 	client: string;
 	location: string;
-	year: number;
 	title: string;
 	description: string;
 	color: string;

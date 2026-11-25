@@ -379,7 +379,7 @@ function BeforeAfterDisplay({
 	title: string;
 	loading: "eager" | "lazy";
 }) {
-	const [position, setPosition] = useState(25);
+	const [position, setPosition] = useState(85);
 	const [isAnimating, setIsAnimating] = useState(false);
 
 	return (
@@ -563,7 +563,6 @@ export default function Projects({
 				({
 					key: projectKey,
 					location,
-					year,
 					title,
 					description,
 					link,
@@ -582,9 +581,7 @@ export default function Projects({
 						className={className}
 					>
 						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
-							<span>
-								{location}, {year}
-							</span>
+							<span>{location}</span>
 						</div>
 
 						{slides.length < 2 ? (

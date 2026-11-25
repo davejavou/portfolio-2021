@@ -38,10 +38,10 @@ export const portfolio: Project[] = [
 	{
 		key: 10,
 		client: "FACTS",
-		location: "Melbourne, Australia",
-		year: 2024,
-		title: "FACTS School Management",
-		description: "Before-and-after screens from FACTS School Management.",
+		location: "Melbourne",
+		title: "School Management Modernisation",
+		description:
+			"As the sole product designer and front-end engineer, I led the modernization of FACTS School Management, a platform with more than 800 pages and tools for teachers, staff, parents, and students. I built a comprehensive design system and architected a new React-based front-end stack, creating a consistent, scalable foundation for improving complex workflows across the product.",
 		color: "#155F8B",
 		slides: [
 			{
@@ -70,8 +70,14 @@ export const portfolio: Project[] = [
 			},
 			{
 				key: 5,
+				type: "before-after",
+				beforeSrc: "/assets/slides/facts-05-old.png",
+				afterSrc: "/assets/slides/facts-05-new.png",
+			},
+			{
+				key: 6,
 				type: "laptop",
-				ssrc: "/assets/slides/facts-05.png",
+				ssrc: "/assets/slides/facts-student-insights-01.png",
 				scrollable: true,
 				imageHeight: 2623,
 			},
@@ -81,7 +87,6 @@ export const portfolio: Project[] = [
 		key: 1,
 		client: "Art Processors",
 		location: "Melbourne",
-		year: 2022,
 		title: "Art Processors: Pladia",
 		link: "https://artprocessors.net/pladia",
 		description:
@@ -107,7 +112,6 @@ export const portfolio: Project[] = [
 		key: 2,
 		client: "mod.io",
 		location: "Melbourne",
-		year: 2021,
 		title: "mod.io Marketplace",
 		link: "https://mod.io/g",
 		description:
@@ -150,7 +154,6 @@ export const portfolio: Project[] = [
 		key: 3,
 		client: "mod.io",
 		location: "Melbourne",
-		year: 2021,
 		title: "mod.io Home Page",
 		link: "https://mod.io/",
 		description:
@@ -181,7 +184,6 @@ export const portfolio: Project[] = [
 		key: 4,
 		client: "Sports Performance Tracking",
 		location: "Melbourne",
-		year: 2020,
 		title: "Game Traka",
 		link: "https://gametraka.com/",
 		description:
@@ -254,7 +256,6 @@ export const portfolio: Project[] = [
 		key: 5,
 		client: "Sports Performance Tracking",
 		location: "Melbourne",
-		year: 2019,
 		title: "SPT Bridge",
 		description:
 			"SPT's Bridge app connects SPT devices to the Game Traka platform. After every game and practice coaches and players upload athletic data to well-tagged events for analysis.",
@@ -321,7 +322,6 @@ export const portfolio: Project[] = [
 		key: 6,
 		client: "ESPN / Disney",
 		location: "Melbourne",
-		year: 2018,
 		title: "ESPN FootyTips App",
 		link: "https://www.footytips.com.au/",
 		description:
@@ -358,7 +358,6 @@ export const portfolio: Project[] = [
 		key: 7,
 		client: "ESPN / Disney",
 		location: "Melbourne",
-		year: 2017,
 		title: "ESPN Games",
 		description:
 			"At ESPN I designed and developed a number of new games across a variety of sports and alongside a wide range of coporate partners.",
@@ -406,7 +405,6 @@ export const portfolio: Project[] = [
 		key: 8,
 		client: "Yahoo! Sports",
 		location: "Los Angeles",
-		year: 2014,
 		title: "Yahoo! Rivals App",
 		description:
 			"This project entirely redesigned the existing rivals website into a fully responsive mobile app by reworking the view layer and leaving the BE entirely alone: FE Surgery!",
@@ -442,7 +440,6 @@ export const portfolio: Project[] = [
 		key: 9,
 		client: "Meteor Games",
 		location: "Los Angeles",
-		year: 2010,
 		title: "Game UI Designs",
 		description:
 			"While at Meteor Games I wore many hats: graphic designer, FE developer, IT manager... and loved every minute of it, including helping to bring these games to life!",
@@ -529,7 +526,6 @@ export const photography: Project[] = [
 		key: 1,
 		client: "Luna Flip Jewellery",
 		location: "Melbourne",
-		year: 2021,
 		title: "Luna's 2021 Collection",
 		description:
 			"A photoshoot of the whole spring inventory, shot on a sunny afternoon in a Brighton back garden.",
@@ -649,7 +645,6 @@ export const photography: Project[] = [
 		key: 2,
 		client: "Eric S",
 		location: "Melbourne",
-		year: 2019,
 		title: "Eric's Gold",
 		description:
 			"Experimenting with super-micro work on real gold found in the wilds of Victoria, all at sub millimeter scales! Don't. Breathe.",
@@ -691,7 +686,6 @@ export const photography: Project[] = [
 		key: 3,
 		client: "Caroline Patisserie",
 		location: "Melbourne",
-		year: 2017,
 		title: "Grand-Opening Product Photos",
 		description:
 			"This could have been a professional photoshoot, real classy, a great set for a charming client, and I managed to collaborate with Hanna at Hang Studios! But there was too much chocolate, too much flavor, too much, did I say chocolate?",
@@ -745,7 +739,6 @@ export const photography: Project[] = [
 		key: 4,
 		client: "Dave Cutter",
 		location: "Melbourne & Los Angeles",
-		year: 2019,
 		title: "'Keepers'",
 		description:
 			"In 2019 I picked up a new camera, and these shots document some of the fun I've had with it over these last few years.",
