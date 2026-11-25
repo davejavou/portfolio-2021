@@ -27,6 +27,9 @@ export function NavSpacer({
 
 export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 	const { pathname } = useRouter();
+	const isPortfolio = ["/", "/portfolio", "/spt-bridge"].includes(pathname);
+	const isPhotography = pathname === "/photography";
+	const isAbout = pathname === "/about";
 
 	return (
 		<nav
@@ -35,24 +38,22 @@ export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 		>
 			<Link
 				href="/portfolio"
-				className={cn("tab", {
-					"tab-active":
-						pathname === "/" ||
-						pathname === "/portfolio" ||
-						pathname === "/spt-bridge",
-				})}
+				aria-current={isPortfolio ? "page" : undefined}
+				className={cn("tab", { "tab-active": isPortfolio })}
 			>
 				Portfolio
 			</Link>
 			<Link
 				href={`/photography`}
-				className={cn("tab", { "tab-active": pathname === "/photography" })}
+				aria-current={isPhotography ? "page" : undefined}
+				className={cn("tab", { "tab-active": isPhotography })}
 			>
 				Photos
 			</Link>
 			<Link
 				href={`/about`}
-				className={cn("tab", { "tab-active": pathname === "/about" })}
+				aria-current={isAbout ? "page" : undefined}
+				className={cn("tab", { "tab-active": isAbout })}
 			>
 				About
 			</Link>
@@ -62,18 +63,20 @@ export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 
 export function MobileNav() {
 	const { pathname } = useRouter();
+	const isAbout = pathname === "/" || pathname === "/about";
+	const isPortfolio = pathname === "/portfolio" || pathname === "/spt-bridge";
+	const isPhotography = pathname === "/photography";
 
 	return (
 		<nav
 			aria-label="Main navigation"
-			className="mobile-nav z-20 flex md:hidden fixed bottom-0 h-nav-height w-full bg-gray/90"
+			className="mobile-nav z-20 flex md:hidden sticky top-0 h-nav-height w-full bg-gray/90"
 		>
 			<Link
 				href={`/`}
 				title="About Dave Cutter"
-				className={cn("tab", {
-					"tab-active": pathname === "/" || pathname === "/about",
-				})}
+				aria-current={isAbout ? "page" : undefined}
+				className={cn("tab", { "tab-active": isAbout })}
 			>
 				<Icon className="tab-icon" icon={faUser} />
 				About
@@ -81,9 +84,8 @@ export function MobileNav() {
 			<Link
 				href={`/portfolio`}
 				title="Dave's Portfolio"
-				className={cn("tab", {
-					"tab-active": pathname === "/portfolio" || pathname === "/spt-bridge",
-				})}
+				aria-current={isPortfolio ? "page" : undefined}
+				className={cn("tab", { "tab-active": isPortfolio })}
 			>
 				<Icon className="tab-icon" icon={faBookOpen} />
 				Portfolio
@@ -91,7 +93,8 @@ export function MobileNav() {
 			<Link
 				href={`/photography`}
 				title="Dave's Photography"
-				className={cn("tab", { "tab-active": pathname === "/photography" })}
+				aria-current={isPhotography ? "page" : undefined}
+				className={cn("tab", { "tab-active": isPhotography })}
 			>
 				<Icon className="tab-icon" icon={faCameraRetro} />
 				Photos

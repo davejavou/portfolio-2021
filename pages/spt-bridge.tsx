@@ -7,7 +7,7 @@ import { portfolio } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
-import Nav, { MobileNav, NavSpacer } from "../components/nav";
+import Nav, { NavSpacer } from "../components/nav";
 import { ProjectCarousel } from "../components/projects";
 import { BASE_PATH } from "../lib/assets";
 
@@ -93,7 +93,7 @@ const sections = [
 		details:
 			"Bridge now supported automatic transfer, remembered athlete identities, handled trimming and segmentation, and ensured safe data and updated hardware, all while establishing a foundation for Gametraka's next chapter.",
 		production:
-			"Design work did not stop at polished screens. We continued to evolve the expeerience in code as the product moved to the production environment and encountered living data, device edge cases, and the constraints of the deployed app.",
+			"Design work did not stop at polished screens. We continued to evolve the experience in code as the product moved to the production environment and encountered living data, device edge cases, and the constraints of the deployed app.",
 		bullets: [
 			"Stayed with implementation as designs became software.",
 			"Improved the experience against real data.",
@@ -217,6 +217,7 @@ export default function SptBridge() {
 											width={2000}
 											height={1200}
 											basePath={BASE_PATH}
+											placeholder="empty"
 											className="mx-auto block h-auto max-h-140 max-w-full w-auto"
 											sizes="(max-width: 768px) 100vw, 1280px"
 											loading={index === 0 ? "eager" : "lazy"}
@@ -229,7 +230,7 @@ export default function SptBridge() {
 										projectKey={bridgeProject.key}
 										carouselId="case-study:spt-bridge"
 										title={bridgeProject.title}
-										eagerImageSlideKey={
+										eagerSlideKey={
 											bridgeProject.slides.find(
 												(slide) => slide.type === "image",
 											)?.key
@@ -397,8 +398,6 @@ export default function SptBridge() {
 
 				<div className="md:hidden bg-gray shadow-inner">
 					<Footer />
-					<NavSpacer />
-					<MobileNav />
 				</div>
 			</Main>
 		</Layout>

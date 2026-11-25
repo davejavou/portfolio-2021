@@ -4,7 +4,7 @@ import Footer from "../components/footer";
 import FullBio from "../components/fullbio";
 import Layout from "../components/layout";
 import Main from "../components/main";
-import Nav, { MobileNav, NavSpacer } from "../components/nav";
+import Nav from "../components/nav";
 import Projects from "../components/projects";
 import QuickBio from "../components/quickbio";
 
@@ -23,8 +23,6 @@ export default function Home() {
 					<FullBio />
 					<div className="bg-gray shadow-inner">
 						<Footer />
-						<NavSpacer />
-						<MobileNav />
 					</div>
 				</div>
 				<div className="hidden md:block">

@@ -18,6 +18,7 @@ export default function QuickBio() {
 					height={512}
 					loading="eager"
 					basePath={BASE_PATH}
+					placeholder="empty"
 				/>
 			</div>
 

@@ -22,6 +22,7 @@ export default function FullBio() {
 						height={689}
 						loading="eager"
 						basePath={BASE_PATH}
+						placeholder="empty"
 					/>
 				</div>
 				<h2 className="mb-8 font-serif font-bold text-2xl lg:text-3xl">

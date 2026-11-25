@@ -36,12 +36,54 @@ export const knowsAbout: string[] = [
 
 export const portfolio: Project[] = [
 	{
+		key: 10,
+		client: "FACTS",
+		location: "Melbourne, Australia",
+		year: 2024,
+		title: "FACTS School Management",
+		description: "Before-and-after screens from FACTS School Management.",
+		color: "#155F8B",
+		slides: [
+			{
+				key: 1,
+				type: "before-after",
+				beforeSrc: "/assets/slides/facts-01-old.png",
+				afterSrc: "/assets/slides/facts-01-new.png",
+			},
+			{
+				key: 2,
+				type: "before-after",
+				beforeSrc: "/assets/slides/facts-02-old.png",
+				afterSrc: "/assets/slides/facts-02-new.png",
+			},
+			{
+				key: 3,
+				type: "before-after",
+				beforeSrc: "/assets/slides/facts-03-old.png",
+				afterSrc: "/assets/slides/facts-03-new.png",
+			},
+			{
+				key: 4,
+				type: "before-after",
+				beforeSrc: "/assets/slides/facts-04-old.png",
+				afterSrc: "/assets/slides/facts-04-new.png",
+			},
+			{
+				key: 5,
+				type: "laptop",
+				ssrc: "/assets/slides/facts-05.png",
+				scrollable: true,
+				imageHeight: 2623,
+			},
+		],
+	},
+	{
 		key: 1,
 		client: "Art Processors",
 		location: "Melbourne",
 		year: 2022,
 		title: "Art Processors: Pladia",
-		link: "https://www.artprocessors.net/what-we-do/pladia",
+		link: "https://artprocessors.net/pladia",
 		description:
 			"I designed Pladia: a professional experience design app for museum and art gallery storytellers and technicians. As visitors explore a venue like a Museum or Art Gallery, they click through details of each artwork or, in' immersive' tours, remain hands-free as experiences are streamed to their device.",
 		credit: "Video from Art Processors",

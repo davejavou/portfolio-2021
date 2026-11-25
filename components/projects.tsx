@@ -1,16 +1,30 @@
 import {
 	faAngleLeft,
 	faAngleRight,
+	faArrowsLeftRight,
 	faExternalLinkAlt,
 	faPause,
 	faPlay,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
-import ExportedImage from "next-image-export-optimizer";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import ExportedImage from "next-image-export-optimizer";
+import {
+	type ReactNode,
+	type PointerEvent as ReactPointerEvent,
+	useCallback,
+	useEffect,
+	useRef,
+	useState,
+} from "react";
 import { assetPath, BASE_PATH } from "../lib/assets";
-import type { ContentType, Slide, VideoSlide } from "../types/content";
+import type {
+	BeforeAfterSlide,
+	ContentType,
+	LaptopSlide,
+	Slide,
+	VideoSlide,
+} from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
 import { useProjectCarousel } from "./use-project-carousel";
@@ -19,13 +33,13 @@ export function ProjectCarousel({
 	slides,
 	projectKey,
 	carouselId,
-	eagerImageSlideKey,
+	eagerSlideKey,
 	title,
 }: {
 	slides: Slide[];
 	projectKey: number;
 	carouselId: string;
-	eagerImageSlideKey?: number;
+	eagerSlideKey?: number;
 	title: string;
 }) {
 	const {
@@ -39,41 +53,131 @@ export function ProjectCarousel({
 	} = useProjectCarousel({ carouselId, slideCount: slides.length });
 
 	const totalSlides = slides.length;
+	const viewportRef = useRef<HTMLDivElement>(null);
+	const [viewportHeight, setViewportHeight] = useState<number>();
+	const setViewportRef = useCallback(
+		(element: HTMLDivElement | null) => {
+			viewportRef.current = element;
+			emblaRef(element);
+		},
+		[emblaRef],
+	);
+	const isLaptopCarousel = slides.every(
+		(slide) => slide.type === "laptop" || slide.type === "before-after",
+	);
+
+	useEffect(() => {
+		const viewport = viewportRef.current;
+		if (!viewport || !loadedSlides.has(selectedIndex)) {
+			setViewportHeight(undefined);
+			return;
+		}
+
+		const selectedSlide =
+			viewport.firstElementChild?.children.item(selectedIndex);
+		if (!(selectedSlide instanceof HTMLElement)) {
+			setViewportHeight(undefined);
+			return;
+		}
+
+		const media = selectedSlide.querySelector<HTMLElement>(
+			"[data-carousel-media]",
+		);
+		const content = selectedSlide.querySelector<HTMLElement>(
+			"[data-carousel-content]",
+		);
+		if (!media || !content) {
+			setViewportHeight(undefined);
+			return;
+		}
+
+		const mobileQuery = window.matchMedia("(max-width: 639px)");
+		const updateViewportHeight = () => {
+			if (!mobileQuery.matches) {
+				setViewportHeight(undefined);
+				return;
+			}
+
+			const contentStyle = getComputedStyle(content);
+			const margins =
+				Number.parseFloat(contentStyle.marginTop) +
+				Number.parseFloat(contentStyle.marginBottom);
+			const height = media.getBoundingClientRect().height + margins;
+			if (height > 0) {
+				setViewportHeight(height);
+			}
+		};
+
+		const resizeObserver = new ResizeObserver(updateViewportHeight);
+		resizeObserver.observe(media);
+		mobileQuery.addEventListener("change", updateViewportHeight);
+		updateViewportHeight();
+
+		return () => {
+			resizeObserver.disconnect();
+			mobileQuery.removeEventListener("change", updateViewportHeight);
+		};
+	}, [loadedSlides, selectedIndex]);
 
 	return (
 		<section
-			className="embla relative max-w-7xl mx-auto"
+			className={`embla relative max-w-7xl mx-auto${isLaptopCarousel ? " embla-laptop" : ""}`}
 			aria-roledescription="carousel"
 			aria-label={`Slides for ${title}`}
 		>
-			<div className="overflow-hidden" ref={emblaRef}>
+			<div
+				className="overflow-hidden"
+				ref={setViewportRef}
+				style={viewportHeight ? { height: `${viewportHeight}px` } : undefined}
+			>
 				<div className="flex">
 					{slides.map((slide, index) =>
 						loadedSlides.has(index) ? (
-							<div
+							<section
 								className="flex-[0_0_100%] min-w-0"
 								key={`project-${projectKey}-slide-${slide.key}`}
+								aria-roledescription="slide"
+								aria-label={`Slide ${index + 1} of ${totalSlides}`}
+								aria-hidden={index !== selectedIndex}
+								inert={index !== selectedIndex}
 							>
 								{slideContent(
 									slide,
 									title,
-									slide.type === "image" && slide.key === eagerImageSlideKey
+									slide.type !== "video" && slide.key === eagerSlideKey
 										? "eager"
 										: "lazy",
 								)}
-							</div>
+							</section>
 						) : (
-							<div
+							<section
 								className="flex-[0_0_100%] min-w-0"
 								key={`project-${projectKey}-slide-${slide.key}`}
+								aria-roledescription="slide"
+								aria-label={`Slide ${index + 1} of ${totalSlides}`}
+								aria-hidden={index !== selectedIndex}
+								inert={index !== selectedIndex}
 							>
 								{/* Placeholder for unloaded slide */}
-								<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto">
-									<div className="bg-gray-200 animate-pulse rounded-lg h-64 flex items-center justify-center">
+								<div
+									className={`mx-auto my-4 max-h-[80vh] w-11/12 max-w-240 ${
+										slide.type === "laptop" || slide.type === "before-after"
+											? "aspect-[73/54]"
+											: "aspect-video"
+									}`}
+									style={
+										slide.type === "laptop" || slide.type === "before-after"
+											? { maxWidth: "min(60rem, 108vh)" }
+											: undefined
+									}
+									data-carousel-content
+									data-carousel-media
+								>
+									<div className="flex h-full w-full items-center justify-center rounded-lg bg-gray-200 animate-pulse">
 										Loading...
 									</div>
 								</div>
-							</div>
+							</section>
 						),
 					)}
 				</div>
@@ -116,8 +220,19 @@ function slideContent(
 	title: string,
 	loading: "eager" | "lazy" = "lazy",
 ) {
+	if (slide.type === "laptop") {
+		return <LaptopDisplay slide={slide} title={title} loading={loading} />;
+	}
+
+	if (slide.type === "before-after") {
+		return <BeforeAfterDisplay slide={slide} title={title} loading={loading} />;
+	}
+
 	return (
-		<div className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-full">
+		<div
+			className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-auto sm:h-full"
+			data-carousel-content
+		>
 			{slide.type === "image" && (
 				<ExportedImage
 					className="object-contain"
@@ -126,11 +241,228 @@ function slideContent(
 					width={1280}
 					height={720}
 					basePath={BASE_PATH}
+					placeholder="empty"
 					loading={loading}
+					data-carousel-media
 				/>
 			)}
 			{slide.type === "video" && <AutoplayVideo slide={slide} />}
 		</div>
+	);
+}
+
+function LaptopFrame({
+	children,
+	loading,
+	control,
+}: {
+	children: ReactNode;
+	loading: "eager" | "lazy";
+	control?: ReactNode;
+}) {
+	return (
+		<div
+			className="relative mx-auto my-4 aspect-[73/54] w-11/12 max-w-240"
+			style={{ maxWidth: "min(60rem, 108vh)" }}
+			data-carousel-content
+			data-carousel-media
+		>
+			<ExportedImage
+				className="absolute inset-0 h-full w-full"
+				src="/assets/images/laptop.png"
+				alt=""
+				width={7300}
+				height={5400}
+				basePath={BASE_PATH}
+				placeholder="empty"
+				loading={loading}
+			/>
+			<div className="absolute left-[14.8%] top-[18.1%] z-10 h-[58.2%] w-[70.1%] overflow-hidden bg-[#333]">
+				{children}
+			</div>
+			{control}
+		</div>
+	);
+}
+
+function LaptopDisplay({
+	slide,
+	title,
+	loading,
+}: {
+	slide: LaptopSlide;
+	title: string;
+	loading: "eager" | "lazy";
+}) {
+	const scrollDrag = useRef<{
+		pointerId: number;
+		clientY: number;
+		scrollTop: number;
+	} | null>(null);
+	const [isDragging, setIsDragging] = useState(false);
+	const image = (
+		<ExportedImage
+			className={
+				slide.scrollable
+					? "block h-auto w-full max-w-none select-none"
+					: "absolute left-0 top-0 h-auto w-full max-w-none select-none"
+			}
+			src={slide.ssrc}
+			alt={`${title} screen`}
+			width={1280}
+			height={slide.imageHeight ?? 720}
+			basePath={BASE_PATH}
+			placeholder="empty"
+			loading={loading}
+			draggable={false}
+		/>
+	);
+	const handlePointerDown = (event: ReactPointerEvent<HTMLElement>) => {
+		if (
+			!slide.scrollable ||
+			event.pointerType !== "mouse" ||
+			event.button !== 0
+		) {
+			return;
+		}
+
+		event.preventDefault();
+		scrollDrag.current = {
+			pointerId: event.pointerId,
+			clientY: event.clientY,
+			scrollTop: event.currentTarget.scrollTop,
+		};
+		event.currentTarget.setPointerCapture(event.pointerId);
+		setIsDragging(true);
+	};
+	const handlePointerMove = (event: ReactPointerEvent<HTMLElement>) => {
+		const drag = scrollDrag.current;
+		if (!drag || drag.pointerId !== event.pointerId) return;
+
+		event.preventDefault();
+		event.currentTarget.scrollTop =
+			drag.scrollTop - (event.clientY - drag.clientY);
+	};
+	const handlePointerEnd = (event: ReactPointerEvent<HTMLElement>) => {
+		if (scrollDrag.current?.pointerId !== event.pointerId) return;
+
+		scrollDrag.current = null;
+		setIsDragging(false);
+	};
+
+	const screen = slide.scrollable ? (
+		<section
+			className={`laptop-screen-scroll absolute inset-0 overflow-y-auto ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+			aria-label={`Scrollable screen for ${title}`}
+			data-embla-no-drag
+			onPointerDown={handlePointerDown}
+			onPointerMove={handlePointerMove}
+			onPointerUp={handlePointerEnd}
+			onPointerCancel={handlePointerEnd}
+			onLostPointerCapture={handlePointerEnd}
+		>
+			{image}
+		</section>
+	) : (
+		image
+	);
+
+	return <LaptopFrame loading={loading}>{screen}</LaptopFrame>;
+}
+
+function BeforeAfterDisplay({
+	slide,
+	title,
+	loading,
+}: {
+	slide: BeforeAfterSlide;
+	title: string;
+	loading: "eager" | "lazy";
+}) {
+	const [position, setPosition] = useState(25);
+	const [isAnimating, setIsAnimating] = useState(false);
+
+	return (
+		<LaptopFrame
+			loading={loading}
+			control={
+				<button
+					className="before-after-toggle absolute left-1/2 z-30 -translate-x-1/2 rounded bg-black/80 px-3 py-1 text-xs font-bold uppercase text-white shadow transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+					type="button"
+					onClick={() => {
+						setIsAnimating(true);
+						setPosition(position < 50 ? 100 : 0);
+					}}
+					data-embla-no-drag
+					aria-label={position < 50 ? "Show before" : "Show after"}
+				>
+					{position < 50 ? "Show before" : "Show after"}
+				</button>
+			}
+		>
+			<ExportedImage
+				className="absolute left-0 top-0 h-auto w-full max-w-none select-none"
+				src={slide.beforeSrc}
+				alt={`${title} before`}
+				width={1280}
+				height={786}
+				basePath={BASE_PATH}
+				placeholder="empty"
+				loading={loading}
+				draggable={false}
+			/>
+			<div
+				className={`absolute inset-0 overflow-hidden${isAnimating ? " before-after-clip-animated" : ""}`}
+				style={{ clipPath: `inset(0 0 0 ${position}%)` }}
+				onTransitionEnd={(event) => {
+					if (event.propertyName === "clip-path") {
+						setIsAnimating(false);
+					}
+				}}
+			>
+				<ExportedImage
+					className="absolute left-0 top-0 h-auto w-full max-w-none select-none"
+					src={slide.afterSrc}
+					alt={`${title} after`}
+					width={1280}
+					height={786}
+					basePath={BASE_PATH}
+					placeholder="empty"
+					loading={loading}
+					draggable={false}
+				/>
+			</div>
+			<input
+				className="before-after-range"
+				type="range"
+				min={0}
+				max={100}
+				value={position}
+				onChange={(event) => {
+					setIsAnimating(false);
+					setPosition(Number(event.currentTarget.value));
+				}}
+				onPointerDown={() => setIsAnimating(false)}
+				onKeyDown={() => setIsAnimating(false)}
+				data-embla-no-drag
+				aria-label={`${title} before and after comparison`}
+				aria-valuetext={`${100 - position}% after visible`}
+			/>
+			<div
+				className={`before-after-divider${isAnimating ? " before-after-divider-animated" : ""}`}
+				style={{ left: `${position}%` }}
+				aria-hidden="true"
+			>
+				<span className="before-after-divider-handle">
+					<Icon
+						icon={faArrowsLeftRight}
+						size="xs"
+						className="text-white"
+						aria-hidden="true"
+					/>
+				</span>
+			</div>
+		</LaptopFrame>
 	);
 }
 
@@ -166,6 +498,7 @@ function AutoplayVideo({ slide }: { slide: VideoSlide }) {
 		<div className="relative w-full">
 			<video
 				ref={videoRef}
+				data-carousel-media
 				controls={false}
 				loop
 				muted
@@ -218,8 +551,8 @@ export default function Projects({
 	const contentType = content ?? "portfolio";
 	const projects = contentType === "photography" ? photography : portfolio;
 	const firstCarousel = projects.find((project) => project.slides.length > 1);
-	const firstCarouselImageSlide = firstCarousel?.slides.find(
-		(slide) => slide.type === "image",
+	const firstCarouselVisualSlide = firstCarousel?.slides.find(
+		(slide) => slide.type !== "video",
 	);
 
 	return (
@@ -265,9 +598,9 @@ export default function Projects({
 								slides={slides}
 								projectKey={projectKey}
 								carouselId={`${contentType}:${projectKey}`}
-								eagerImageSlideKey={
+								eagerSlideKey={
 									projectKey === firstCarousel?.key
-										? firstCarouselImageSlide?.key
+										? firstCarouselVisualSlide?.key
 										: undefined
 								}
 								title={title}

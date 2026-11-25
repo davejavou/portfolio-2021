@@ -3,7 +3,7 @@ import { aboutDave } from "../components/content";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
-import Nav, { MobileNav, NavSpacer } from "../components/nav";
+import Nav from "../components/nav";
 import Projects from "../components/projects";
 
 export default function Photography() {
@@ -24,8 +24,6 @@ export default function Photography() {
 
 				<div className="md:hidden bg-gray shadow-inner">
 					<Footer />
-					<NavSpacer />
-					<MobileNav />
 				</div>
 			</Main>
 		</Layout>

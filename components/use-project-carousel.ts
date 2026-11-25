@@ -24,7 +24,14 @@ export function useProjectCarousel({
 	carouselId: string;
 	slideCount: number;
 }) {
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+	const [emblaRef, emblaApi] = useEmblaCarousel({
+		loop: true,
+		watchDrag: (_emblaApi, event) =>
+			!(
+				event.target instanceof Element &&
+				event.target.closest("[data-embla-no-drag]")
+			),
+	});
 	const [state, setState] = useAtom(carouselStateFamily(carouselId));
 
 	const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
@@ -47,11 +54,12 @@ export function useProjectCarousel({
 
 			setState((current) => {
 				const loadedSlides = new Set(current.loadedSlides);
-				const neighboringSlides = [
-					selectedIndex - 1,
-					selectedIndex,
-					selectedIndex + 1,
-				].filter((index) => index >= 0 && index < slideCount);
+				const neighboringSlides = new Set([selectedIndex]);
+
+				if (slideCount > 1) {
+					neighboringSlides.add((selectedIndex - 1 + slideCount) % slideCount);
+					neighboringSlides.add((selectedIndex + 1) % slideCount);
+				}
 
 				for (const index of neighboringSlides) {
 					loadedSlides.add(index);

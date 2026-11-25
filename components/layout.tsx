@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { assetPath } from "../lib/assets";
 import Footer from "./footer";
+import { MobileNav } from "./nav";
 import QuickBio from "./quickbio";
 import Sidebar from "./sidebar";
 
@@ -30,6 +31,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 				<QuickBio />
 				<Footer />
 			</Sidebar>
+			<MobileNav />
 			{children}
 		</>
 	);

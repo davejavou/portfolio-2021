@@ -5,6 +5,21 @@ export type ImageSlide = {
 	zsrc: string;
 };
 
+export type LaptopSlide = {
+	key: number;
+	type: "laptop";
+	ssrc: string;
+	scrollable?: boolean;
+	imageHeight?: number;
+};
+
+export type BeforeAfterSlide = {
+	key: number;
+	type: "before-after";
+	beforeSrc: string;
+	afterSrc: string;
+};
+
 export type VideoSlide = {
 	key: number;
 	type: "video";
@@ -19,7 +34,12 @@ export type YoutubeSlide = {
 	zsrc: string;
 };
 
-export type Slide = ImageSlide | VideoSlide | YoutubeSlide;
+export type Slide =
+	| ImageSlide
+	| LaptopSlide
+	| BeforeAfterSlide
+	| VideoSlide
+	| YoutubeSlide;
 
 export type Project = {
 	key: number;
