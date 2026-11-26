@@ -147,6 +147,7 @@ export function ProjectCarousel({
 									slide.type !== "video" && slide.key === eagerSlideKey
 										? "eager"
 										: "lazy",
+									true,
 								)}
 							</section>
 						) : (
@@ -160,7 +161,7 @@ export function ProjectCarousel({
 							>
 								{/* Placeholder for unloaded slide */}
 								<div
-									className={`mx-auto my-4 max-h-[80vh] w-11/12 max-w-240 ${
+									className={`mx-auto mt-0 mb-2 max-h-[80vh] w-11/12 max-w-240 ${
 										slide.type === "laptop" || slide.type === "before-after"
 											? "aspect-[73/54]"
 											: "aspect-video"
@@ -219,6 +220,7 @@ function slideContent(
 	slide: Slide,
 	title: string,
 	loading: "eager" | "lazy" = "lazy",
+	isCarousel = false,
 ) {
 	if (slide.type === "laptop") {
 		return <LaptopDisplay slide={slide} title={title} loading={loading} />;
@@ -230,7 +232,11 @@ function slideContent(
 
 	return (
 		<div
-			className="flex flex-col justify-center content-center my-4 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-auto sm:h-full"
+			className={`flex flex-col ${
+				slide.type === "video"
+					? `justify-start ${isCarousel ? "mt-8" : "mt-12"}`
+					: "justify-center mt-0"
+			} content-center mb-2 max-h-[80vh] w-11/12 max-w-240 mx-auto items-center h-auto sm:h-full`}
 			data-carousel-content
 		>
 			{slide.type === "image" && (
@@ -262,7 +268,7 @@ function LaptopFrame({
 }) {
 	return (
 		<div
-			className="relative mx-auto my-4 aspect-[73/54] w-11/12 max-w-240"
+			className="relative mx-auto mt-0 mb-2 aspect-[73/54] w-11/12 max-w-240"
 			style={{ maxWidth: "min(60rem, 108vh)" }}
 			data-carousel-content
 			data-carousel-media
@@ -387,7 +393,7 @@ function BeforeAfterDisplay({
 			loading={loading}
 			control={
 				<button
-					className="before-after-toggle absolute left-1/2 z-30 -translate-x-1/2 rounded bg-black/80 px-3 py-1 text-xs font-bold uppercase text-white shadow transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+					className="before-after-toggle absolute left-1/2 z-30 -translate-x-1/2 rounded bg-black/80 px-3 py-3 text-xs font-bold uppercase text-white shadow transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
 					type="button"
 					onClick={() => {
 						setIsAnimating(true);
@@ -580,9 +586,24 @@ export default function Projects({
 						}}
 						className={className}
 					>
-						<div className="flex justify-between text-sm md:text-md uppercase px-5 md:px-10 py-8 -mb-8">
-							<span>{location}</span>
-						</div>
+						<h2
+							className={`px-5 md:px-10 ${
+								slides.length === 1 && slides[0].type === "video"
+									? "pt-12"
+									: "pt-8"
+							} text-2xl font-serif text-center ${
+								slides.every((slide) => slide.type === "laptop")
+									? "-mb-[clamp(1.5rem,7vw,3.5rem)]"
+									: slides.some(
+												(slide) =>
+													slide.type === "image" && slide.embeddedLaptop,
+											)
+										? "-mb-[clamp(1rem,3vw,2rem)]"
+										: ""
+							}`}
+						>
+							{title}
+						</h2>
 
 						{slides.length < 2 ? (
 							slides.map((slide) => (
@@ -604,9 +625,9 @@ export default function Projects({
 							/>
 						)}
 
-						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose pt-8">
-							<h2 className="text-2xl font-serif pb-2">{title}</h2>
+						<div className="pb-16 px-5 md:px-10 mx-auto w-full md:max-w-prose pt-0">
 							<p>{description}</p>
+							<p className="mt-3 text-sm md:text-md uppercase">{location}</p>
 							{caseStudy && (
 								<div className="mt-6 flex justify-center">
 									<Link

@@ -62,12 +62,13 @@ export const portfolio: Project[] = [
 				beforeSrc: "/assets/slides/facts-03-old.png",
 				afterSrc: "/assets/slides/facts-03-new.png",
 			},
-			{
-				key: 4,
-				type: "before-after",
-				beforeSrc: "/assets/slides/facts-04-old.png",
-				afterSrc: "/assets/slides/facts-04-new.png",
-			},
+			// Unreleased Project - do not show until approved by FACTS
+			// {
+			// 	key: 4,
+			// 	type: "before-after",
+			// 	beforeSrc: "/assets/slides/facts-04-old.png",
+			// 	afterSrc: "/assets/slides/facts-04-new.png",
+			// },
 			{
 				key: 5,
 				type: "before-after",
@@ -236,18 +237,21 @@ export const portfolio: Project[] = [
 				type: "image",
 				ssrc: "/assets/slides/modio-home-01.png",
 				zsrc: "/assets/slides/modio-home-01-zoom.png",
+				embeddedLaptop: true,
 			},
 			{
 				key: 2,
 				type: "image",
 				ssrc: "/assets/slides/modio-home-02.png",
 				zsrc: "/assets/slides/modio-home-02-zoom.png",
+				embeddedLaptop: true,
 			},
 			{
 				key: 3,
 				type: "image",
 				ssrc: "/assets/slides/modio-home-03.png",
 				zsrc: "/assets/slides/modio-home-03.png",
+				embeddedLaptop: true,
 			},
 		],
 	},

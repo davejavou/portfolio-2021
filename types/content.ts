@@ -3,6 +3,7 @@ export type ImageSlide = {
 	type: "image";
 	ssrc: string;
 	zsrc: string;
+	embeddedLaptop?: boolean;
 };
 
 export type LaptopSlide = {

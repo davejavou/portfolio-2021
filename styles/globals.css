@@ -184,7 +184,7 @@
 	transition: left 450ms ease-in-out;
 }
 .before-after-toggle {
-	top: max(0px, calc(13.5% - 30px));
+	top: max(0px, calc(13.5% - 44px));
 }
 .before-after-divider-handle {
 	position: absolute;
