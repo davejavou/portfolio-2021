@@ -17,7 +17,7 @@ import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
 import Nav, { NavSpacer } from "../components/nav";
-import { assetPath, BASE_PATH } from "../lib/assets";
+import { BASE_PATH } from "../lib/assets";
 
 const themeColor = "#276254";
 const assets = "/assets/case-studies/bookends";
@@ -213,19 +213,6 @@ export default function Bookends() {
 						aria-labelledby="storyboard-viewer-title"
 						className="m-auto max-h-[94dvh] w-[96vw] max-w-5xl overflow-y-auto overscroll-contain rounded-md bg-gray-dark p-0 text-white backdrop:bg-black/80"
 						onClose={() => setActiveBoard(null)}
-						onClick={(event) => {
-							if (event.target !== event.currentTarget) return;
-							const { left, right, top, bottom } =
-								event.currentTarget.getBoundingClientRect();
-							if (
-								event.clientX < left ||
-								event.clientX > right ||
-								event.clientY < top ||
-								event.clientY > bottom
-							) {
-								event.currentTarget.close();
-							}
-						}}
 					>
 						<div className="sticky top-0 flex items-center justify-between gap-3 bg-gray-dark px-4 py-2">
 							<h2 id="storyboard-viewer-title" className="font-bold">
@@ -242,12 +229,15 @@ export default function Bookends() {
 							</form>
 						</div>
 						{activeBoard && (
-							<img
-								src={assetPath(`${assets}/${activeBoard.image}`)}
+							<ExportedImage
+								src={`${assets}/${activeBoard.image}`}
 								alt={`Six-panel storyboard. ${activeBoard.caption}`}
 								width={4412}
 								height={5082}
+								basePath={BASE_PATH}
+								placeholder="empty"
 								className="block h-auto w-full"
+								sizes="100vw"
 							/>
 						)}
 					</dialog>
