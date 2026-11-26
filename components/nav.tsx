@@ -25,9 +25,11 @@ export function NavSpacer({
 	);
 }
 
+const portfolioPaths = ["/portfolio", "/spt-bridge", "/bookends"];
+
 export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 	const { pathname } = useRouter();
-	const isPortfolio = ["/", "/portfolio", "/spt-bridge"].includes(pathname);
+	const isPortfolio = pathname === "/" || portfolioPaths.includes(pathname);
 	const isPhotography = pathname === "/photography";
 	const isAbout = pathname === "/about";
 
@@ -64,7 +66,7 @@ export default function Nav({ fullWidth = false }: { fullWidth?: boolean }) {
 export function MobileNav() {
 	const { pathname } = useRouter();
 	const isAbout = pathname === "/" || pathname === "/about";
-	const isPortfolio = pathname === "/portfolio" || pathname === "/spt-bridge";
+	const isPortfolio = portfolioPaths.includes(pathname);
 	const isPhotography = pathname === "/photography";
 
 	return (

@@ -40,9 +40,9 @@ export default function QuickBio() {
 				Portfolio
 			</Link>
 
-			<div className="flex gap-2 md:flex-col">
+			<div className="grid grid-cols-2 gap-2">
 				<a
-					className="btn grow"
+					className="btn px-2"
 					target="_blank"
 					rel="noopener noreferrer"
 					href={assetPath("/assets/David-Cutter-Resume.pdf")}
@@ -52,7 +52,7 @@ export default function QuickBio() {
 					Resume
 				</a>
 				<a
-					className="btn grow"
+					className="btn px-2"
 					target="_blank"
 					rel="noopener noreferrer"
 					href="https://www.linkedin.com/in/davejavou/"
@@ -69,6 +69,14 @@ export default function QuickBio() {
 			>
 				<Icon className="btn-icon" icon={faBookOpen} />
 				Case Study: SPT Bridge
+			</Link>
+			<Link
+				href="/bookends"
+				title="View the Bookends case study"
+				className="flex btn w-full mt-2"
+			>
+				<Icon className="btn-icon" icon={faBookOpen} />
+				Case Study: Bookends
 			</Link>
 		</div>
 	);

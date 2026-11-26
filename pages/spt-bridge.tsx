@@ -156,6 +156,9 @@ export default function SptBridge() {
 							<h1 className="max-w-4xl text-pretty text-5xl leading-[0.95] font-serif font-bold md:text-7xl lg:text-8xl">
 								SPT Bridge
 							</h1>
+							<p className="mt-4 max-w-prose text-pretty text-lg leading-relaxed md:text-2xl">
+								Move data from the device to the dashboard.
+							</p>
 							<Link
 								href="/portfolio"
 								className="mt-6 inline-flex items-center gap-2 text-base text-white hover:underline"

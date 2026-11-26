@@ -417,6 +417,25 @@ export const portfolio: Project[] = [
 		],
 	},
 	{
+		key: 12,
+		client: "Independent research",
+		location: "Melbourne",
+		title: "Bookends",
+		description:
+			"A service design proposal that gives remote workers a standing invitation to their local library and a ritual for ending the workday.",
+		color: "#276254",
+		caseStudy: "/bookends",
+		slides: [
+			{
+				key: 1,
+				type: "image",
+				ssrc: "/assets/case-studies/bookends/board-1.png",
+				width: 4412,
+				height: 5082,
+			},
+		],
+	},
+	{
 		key: 6,
 		client: "ESPN / Disney",
 		location: "Melbourne",
