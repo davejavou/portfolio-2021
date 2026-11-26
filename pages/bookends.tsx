@@ -305,7 +305,7 @@ export default function Bookends() {
 						alternate
 						icon={faFlask}
 						title="Testing the idea in Kingston"
-						text="I proposed Kingston Libraries as a pilot site because it has a centrally managed network of suburban branches in an area with many remote workers. Both groups would get advice on switching off and instructions for booking library space, and one would also get access to recurring reservations. Sign-ups, visit frequency and duration, and missed bookings would show how people used the service. Surveys and interviews would explore whether it helped people switch off or feel more connected."
+						text="I proposed Kingston Libraries as a pilot site because it has a centrally managed network of suburban branches in an area with many remote workers. Two groups would make up an effectiveness study. One group would get advice on switching off and instructions for booking library space. The other group would get the same support plus access to recurring reservations. Together, the two groups would provide a clear comparison: sign-ups, visit frequency and duration, and missed bookings would show how people used the service. Surveys and interviews would explore whether it helped people switch off or feel more connected."
 					/>
 					<StorySection
 						icon={faSliders}
