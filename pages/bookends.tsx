@@ -1,5 +1,6 @@
 import {
 	faAngleLeft,
+	faAngleRight,
 	faCalendarCheck,
 	faClock,
 	faFlask,
@@ -8,16 +9,17 @@ import {
 	type IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon as Icon } from "@fortawesome/react-fontawesome";
+import useEmblaCarousel from "embla-carousel-react";
 import Head from "next/head";
 import Link from "next/link";
 import ExportedImage from "next-image-export-optimizer";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { flushSync } from "react-dom";
 import Footer from "../components/footer";
 import Layout from "../components/layout";
 import Main from "../components/main";
 import Nav, { NavSpacer } from "../components/nav";
-import { BASE_PATH } from "../lib/assets";
+import { assetPath, BASE_PATH } from "../lib/assets";
 
 const themeColor = "#276254";
 const assets = "/assets/case-studies/bookends";
@@ -86,9 +88,21 @@ function StorySection({
 
 export default function Bookends() {
 	const viewerRef = useRef<HTMLDialogElement>(null);
-	const [activeBoard, setActiveBoard] = useState<
-		(typeof storyboards)[number] | null
-	>(null);
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+	const [activeBoardIndex, setActiveBoardIndex] = useState(0);
+	const activeBoard = storyboards[activeBoardIndex];
+
+	useEffect(() => {
+		if (!emblaApi) return;
+
+		const updateActiveBoard = () =>
+			setActiveBoardIndex(emblaApi.selectedScrollSnap());
+		emblaApi.on("select", updateActiveBoard);
+
+		return () => {
+			emblaApi.off("select", updateActiveBoard);
+		};
+	}, [emblaApi]);
 
 	return (
 		<Layout>
@@ -181,9 +195,14 @@ export default function Bookends() {
 													const viewer = viewerRef.current;
 													if (!viewer) return;
 													event.currentTarget.focus();
-													flushSync(() => setActiveBoard(board));
+													const boardIndex = storyboards.indexOf(board);
+													flushSync(() => setActiveBoardIndex(boardIndex));
 													viewer.showModal();
 													viewer.scrollTop = 0;
+													window.requestAnimationFrame(() => {
+														emblaApi?.reInit();
+														emblaApi?.scrollTo(boardIndex, true);
+													});
 												}}
 											>
 												<ExportedImage
@@ -212,34 +231,74 @@ export default function Bookends() {
 						ref={viewerRef}
 						aria-labelledby="storyboard-viewer-title"
 						className="m-auto max-h-[94dvh] w-[96vw] max-w-5xl overflow-y-auto overscroll-contain rounded-md bg-gray-dark p-0 text-white backdrop:bg-black/80"
-						onClose={() => setActiveBoard(null)}
 					>
 						<div className="sticky top-0 flex items-center justify-between gap-3 bg-gray-dark px-4 py-2">
 							<h2 id="storyboard-viewer-title" className="font-bold">
 								{activeBoard?.title}
 							</h2>
-							<form method="dialog">
+							<div className="flex shrink-0 items-center">
 								<button
-									type="submit"
-									aria-label="Close storyboard"
+									type="button"
 									className="grid size-11 cursor-pointer place-items-center rounded-md text-2xl hover:bg-gray focus-visible:outline-2 focus-visible:outline-white"
+									onClick={() => emblaApi?.scrollPrev()}
+									aria-label="Previous storyboard"
 								>
-									<Icon icon={faXmark} aria-hidden="true" />
+									<Icon icon={faAngleLeft} aria-hidden="true" />
 								</button>
-							</form>
+								<button
+									type="button"
+									className="grid size-11 cursor-pointer place-items-center rounded-md text-2xl hover:bg-gray focus-visible:outline-2 focus-visible:outline-white"
+									onClick={() => emblaApi?.scrollNext()}
+									aria-label="Next storyboard"
+								>
+									<Icon icon={faAngleRight} aria-hidden="true" />
+								</button>
+								<span
+									className="mx-2 h-8 w-px bg-white/40"
+									aria-hidden="true"
+								/>
+								<form method="dialog">
+									<button
+										type="submit"
+										aria-label="Close storyboard"
+										className="grid size-11 cursor-pointer place-items-center rounded-md text-2xl hover:bg-gray focus-visible:outline-2 focus-visible:outline-white"
+									>
+										<Icon icon={faXmark} aria-hidden="true" />
+									</button>
+								</form>
+							</div>
 						</div>
-						{activeBoard && (
-							<ExportedImage
-								src={`${assets}/${activeBoard.image}`}
-								alt={`Six-panel storyboard. ${activeBoard.caption}`}
-								width={4412}
-								height={5082}
-								basePath={BASE_PATH}
-								placeholder="empty"
-								className="block h-auto w-full"
-								sizes="100vw"
-							/>
-						)}
+						<section
+							className="embla"
+							aria-label="Storyboards"
+							aria-roledescription="carousel"
+						>
+							<div className="overflow-hidden" ref={emblaRef}>
+								<ul className="m-0 flex list-none p-0">
+									{storyboards.map((board, index) => (
+										<li
+											key={board.image}
+											className="min-w-0 flex-[0_0_100%]"
+											aria-roledescription="slide"
+											aria-label={`Slide ${index + 1} of ${storyboards.length}`}
+											aria-hidden={index !== activeBoardIndex}
+											inert={index !== activeBoardIndex}
+										>
+											<ExportedImage
+												src={`${assets}/${board.image}`}
+												alt={`Six-panel storyboard. ${board.caption}`}
+												width={4412}
+												height={5082}
+												basePath={BASE_PATH}
+												placeholder="empty"
+												className="block max-h-[82dvh] h-auto w-full object-contain"
+												sizes="100vw"
+											/>
+										</li>
+									))}
+								</ul>
+							</div>
+						</section>
 					</dialog>
 
 					<StorySection
@@ -286,6 +345,18 @@ export default function Bookends() {
 									· Thaler and Sunstein
 								</li>
 							</ul>
+							<p className="mt-6">
+								Read the{" "}
+								<a
+									className="underline underline-offset-4"
+									href={assetPath(
+										"/assets/case-studies/bookends/bookends-2023.pdf",
+									)}
+								>
+									full Bookends proposal (PDF)
+								</a>
+								.
+							</p>
 							<Link
 								href="/portfolio"
 								className="mt-8 inline-flex min-h-14 items-center gap-3 rounded-md bg-gray-dark px-6 py-4 font-bold uppercase tracking-wide text-white hover:bg-blue-light"
