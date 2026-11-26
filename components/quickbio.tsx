@@ -45,7 +45,7 @@ export default function QuickBio() {
 					className="btn grow"
 					target="_blank"
 					rel="noopener noreferrer"
-					href={assetPath("/assets/David-Cutter-Resume.docx")}
+					href={assetPath("/assets/David-Cutter-Resume.pdf")}
 					title="Download Dave Cutter's Resume"
 				>
 					<Icon className="btn-icon" icon={faFileAlt} />
