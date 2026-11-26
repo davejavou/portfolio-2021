@@ -2,6 +2,7 @@ import {
 	faAngleLeft,
 	faAngleRight,
 	faArrowsLeftRight,
+	faBookOpen,
 	faExternalLinkAlt,
 	faPause,
 	faPlay,
@@ -24,11 +25,22 @@ import type {
 	LaptopSlide,
 	Slide,
 	VideoSlide,
+	YoutubeSlide,
 } from "../types/content";
 import { photography, portfolio } from "./content";
 import { NavSpacer } from "./nav";
 import { useProjectCarousel } from "./use-project-carousel";
 
+/**
+ * Slide modes:
+ * - image uses its source-pixel dimensions; embeddedLaptop marks a flattened laptop mockup.
+ * - laptop places a screenshot in the shared frame; imageHeight is measured at 1280px width,
+ *   and scrollable enables vertical scrolling inside the screen.
+ * - before-after overlays the after image on the before image with a draggable divider.
+ * - video plays a local file when visible and has a manual play/pause control.
+ * - youtube embeds a privacy-enhanced player using a YouTube video ID.
+ * Carousels mount only the selected slide and its immediate neighbors.
+ */
 export function ProjectCarousel({
 	slides,
 	projectKey,
@@ -130,10 +142,10 @@ export function ProjectCarousel({
 				ref={setViewportRef}
 				style={viewportHeight ? { height: `${viewportHeight}px` } : undefined}
 			>
-				<div className="flex">
+				<ul className="flex list-none m-0 p-0">
 					{slides.map((slide, index) =>
 						loadedSlides.has(index) ? (
-							<section
+							<li
 								className="flex-[0_0_100%] min-w-0"
 								key={`project-${projectKey}-slide-${slide.key}`}
 								aria-roledescription="slide"
@@ -149,9 +161,9 @@ export function ProjectCarousel({
 										: "lazy",
 									true,
 								)}
-							</section>
+							</li>
 						) : (
-							<section
+							<li
 								className="flex-[0_0_100%] min-w-0"
 								key={`project-${projectKey}-slide-${slide.key}`}
 								aria-roledescription="slide"
@@ -178,10 +190,10 @@ export function ProjectCarousel({
 										Loading...
 									</div>
 								</div>
-							</section>
+							</li>
 						),
 					)}
-				</div>
+				</ul>
 			</div>
 
 			<button
@@ -244,8 +256,8 @@ function slideContent(
 					className="object-contain"
 					src={slide.ssrc}
 					alt={title}
-					width={1280}
-					height={720}
+					width={slide.width}
+					height={slide.height}
 					basePath={BASE_PATH}
 					placeholder="empty"
 					loading={loading}
@@ -253,7 +265,33 @@ function slideContent(
 				/>
 			)}
 			{slide.type === "video" && <AutoplayVideo slide={slide} />}
+			{slide.type === "youtube" && (
+				<YouTubeEmbed slide={slide} title={title} loading={loading} />
+			)}
 		</div>
+	);
+}
+
+function YouTubeEmbed({
+	slide,
+	title,
+	loading,
+}: {
+	slide: YoutubeSlide;
+	title: string;
+	loading: "eager" | "lazy";
+}) {
+	return (
+		<iframe
+			className="aspect-video w-full rounded-lg"
+			src={`https://www.youtube-nocookie.com/embed/${encodeURIComponent(slide.videoId)}`}
+			title={`${title} video`}
+			loading={loading}
+			referrerPolicy="strict-origin-when-cross-origin"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowFullScreen
+			data-carousel-media
+		/>
 	);
 }
 
@@ -634,6 +672,7 @@ export default function Projects({
 										href={caseStudy}
 										className="inline-flex min-h-14 items-center justify-center rounded-md bg-gray-dark px-6 py-4 text-lg font-bold uppercase tracking-wide text-white shadow-md transition-colors hover:bg-blue-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
 									>
+										<Icon className="btn-icon" icon={faBookOpen} />
 										View case study
 									</Link>
 								</div>

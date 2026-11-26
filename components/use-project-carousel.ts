@@ -53,16 +53,11 @@ export function useProjectCarousel({
 			const selectedIndex = emblaApi.selectedScrollSnap();
 
 			setState((current) => {
-				const loadedSlides = new Set(current.loadedSlides);
-				const neighboringSlides = new Set([selectedIndex]);
+				const loadedSlides = new Set([selectedIndex]);
 
 				if (slideCount > 1) {
-					neighboringSlides.add((selectedIndex - 1 + slideCount) % slideCount);
-					neighboringSlides.add((selectedIndex + 1) % slideCount);
-				}
-
-				for (const index of neighboringSlides) {
-					loadedSlides.add(index);
+					loadedSlides.add((selectedIndex - 1 + slideCount) % slideCount);
+					loadedSlides.add((selectedIndex + 1) % slideCount);
 				}
 
 				return { ...current, selectedIndex, loadedSlides };

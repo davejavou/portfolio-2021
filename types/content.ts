@@ -2,7 +2,8 @@ export type ImageSlide = {
 	key: number;
 	type: "image";
 	ssrc: string;
-	zsrc: string;
+	width: number;
+	height: number;
 	embeddedLaptop?: boolean;
 };
 
@@ -31,8 +32,7 @@ export type VideoSlide = {
 export type YoutubeSlide = {
 	key: number;
 	type: "youtube";
-	ssrc: string;
-	zsrc: string;
+	videoId: string;
 };
 
 export type Slide =
